@@ -1,0 +1,76 @@
+version: '3.8'
+services:
+  backend:
+    volumes:
+      - "./:/app"
+    build: .
+    depends_on:
+      - start__redis
+      - start__postgres
+    networks:
+      - start_network
+    command: ["/app/wait-for-it.sh", "start__postgres:5432","-t","60","--","/app/entrypoint.sh"]
+  celery:
+    volumes:
+      - "./:/app"
+      - "${EXTERNAL_RESOURCE_DIR:-./workspace}:/app/ext"
+    build: .
+    depends_on:
+      - start__redis
+      - start__postgres
+    networks:
+      - start_network
+    command: ["/app/entrypoint_celery.sh"]
+  gui:
+    build:
+      context: ./gui
+      args:
+        NEXT_PUBLIC_API_BASE_URL: "/api"
+    networks:
+      - start_network
+#    volumes:
+#      - ./gui:/app
+#      - /app/node_modules/
+#      - /app/.next/
+  start__redis:
+    image: "redis/redis-stack-server:latest"
+    networks:
+      - start_network
+#    uncomment to expose redis port to host
+#    ports:
+#      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  start__postgres:
+    image: "docker.io/library/postgres:15"
+    environment:
+      - POSTGRES_USER=startagi
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=start_agi_main
+    volumes:
+      - startagi_postgres_data:/var/lib/postgresql/data/
+    networks:
+      - start_network
+#    uncomment to expose postgres port to host
+#    ports:
+#      - "5432:5432"
+
+  proxy:
+    image: nginx:stable-alpine
+    ports:
+      - "3000:80"
+    networks:
+      - start_network
+    depends_on:
+      - backend
+      - gui
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+networks:
+  start_network:
+    driver: bridge
+volumes:
+  startagi_postgres_data:
+  redis_data:
