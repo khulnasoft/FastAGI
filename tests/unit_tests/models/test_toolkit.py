@@ -28,7 +28,7 @@ def mock_session(mock_tool):
     return session
 
 # marketplace_url = "http://localhost:8001"
-marketplace_url = "https://app.fastagi.com/api"
+marketplace_url = "https://app.fastagi.khulnasoft.com/api"
 
 
 def test_add_or_update_existing_toolkit(mock_session):

@@ -16,7 +16,7 @@ export default function MarketModels(){
     //     loadingTextEffect('Loading Models', setLoadingText, 500);
     //     setIsLoading(true)
     //     if (window.location.href.toLowerCase().includes('marketplace')) {
-    //         axios.get('https://app.fastagi.com/api/models_controller/get/models_details')
+    //         axios.get('https://app.fastagi.khulnasoft.com/api/models_controller/get/models_details')
     //             .then((response) => {
     //                 setModelTemplates(response.data)
     //             })
@@ -53,7 +53,7 @@ export default function MarketModels(){
             <div className={`${"h_calc_sub_60"} ${"w_99vw"} ${isLoading ? 'display_none' : 'display_block'}`}>
                 <iframe
                     id="marketplace_models"
-                    src="https://models.fastagi.com/marketplace"
+                    src="https://models.fastagi.khulnasoft.com/marketplace"
                     width="100%"
                     height="100%"
                     frameBorder="0"

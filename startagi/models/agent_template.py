@@ -9,7 +9,7 @@ from fastagi.models.workflows.agent_workflow import AgentWorkflow
 from fastagi.models.base_model import DBBaseModel
 from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 
-marketplace_url = "https://app.fastagi.com/api/"
+marketplace_url = "https://app.fastagi.khulnasoft.com/api/"
 # marketplace_url = "http://localhost:8001/"
 
 

@@ -6,9 +6,9 @@ from fastagi.helper.prompt_reader import PromptReader
 
 
 @patch("builtins.open", new_callable=mock_open, read_data="test_prompt")
-def test_get_super_agi_single_prompt(mock_file):
+def test_get_fast_agi_single_prompt(mock_file):
     expected_result = {"prompt": "test_prompt", "variables": ["goals", "instructions", "constraints", "tools"]}
-    result = AgentPromptTemplate.get_super_agi_single_prompt()
+    result = AgentPromptTemplate.get_fast_agi_single_prompt()
     assert result == expected_result
 
 @patch("builtins.open", new_callable=mock_open, read_data="test_prompt")

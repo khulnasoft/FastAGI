@@ -8,11 +8,11 @@ services:
     ports:
       - "8001:8001"
     depends_on:
-      - super__tgwui
-      - super__redis
-      - super__postgres
+      - fast__tgwui
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
+      - fast_network
 
   celery:
     volumes:
@@ -21,11 +21,11 @@ services:
       context: .
       dockerfile: DockerfileCelery
     depends_on:
-      - super__tgwui
-      - super__redis
-      - super__postgres
+      - fast__tgwui
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
+      - fast_network
     
   gui:
     build: ./gui
@@ -34,13 +34,13 @@ services:
     environment:
       - NEXT_PUBLIC_API_BASE_URL=http://localhost:8001
     networks:
-      - super_network
+      - fast_network
     volumes:
       - ./gui:/app
       - /app/node_modules
       - /app/.next
 
-  super__tgwui:
+  fast__tgwui:
     build:
       context: ./tgwui/
       target: llama-cublas
@@ -48,7 +48,7 @@ services:
 #      args:
 #        - LCL_SRC_DIR=text-generation-webui  # Developers - see Dockerfile app_base
     image: atinoda/text-generation-webui:llama-cublas # Specify variant as the :tag
-    container_name: super__tgwui
+    container_name: fast__tgwui
     environment:
       - EXTRA_LAUNCH_ARGS="--no-mmap --verbose --extensions openai --auto-devices --n_ctx 2000 --gpu-memory 22 22 --n-gpu-layers 128 --threads 8"
 #      - BUILD_EXTENSIONS_LIVE="silero_tts whisper_stt" # Install named extensions during every container launch. THIS WILL SIGNIFICANLTLY SLOW LAUNCH TIME.
@@ -71,7 +71,7 @@ services:
         max-file: "3"   # number of files or file count
         max-size: '10m'
     networks:
-      - super_network
+      - fast_network
     deploy:
         resources:
           reservations:
@@ -80,26 +80,26 @@ services:
 #                count: "all"
                 device_ids: ['0', '1'] # must comment the above line if this line is uncommented.
                 capabilities: [gpu]
-  super__redis:
+  fast__redis:
     image: "docker.io/library/redis:latest"
     networks:
-      - super_network
+      - fast_network
 
-  super__postgres:
+  fast__postgres:
     image: "docker.io/library/postgres:latest"
     environment:
       - POSTGRES_USER=fastagi
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=super_agi_main
+      - POSTGRES_DB=fast_agi_main
     volumes:
       - fastagi_postgres_data:/var/lib/postgresql/data/
     networks:
-      - super_network
+      - fast_network
     ports:
       - "5432:5432"
 
 networks:
-  super_network:
+  fast_network:
     driver: bridge
 
 volumes:

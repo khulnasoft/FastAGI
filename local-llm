@@ -8,11 +8,11 @@ services:
     ports:
       - "8001:8001"
     depends_on:
-      - super__tgwui
-      - super__redis
-      - super__postgres
+      - fast__tgwui
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
+      - fast_network
 
   celery:
     volumes:
@@ -21,11 +21,11 @@ services:
       context: .
       dockerfile: DockerfileCelery
     depends_on:
-      - super__tgwui
-      - super__redis
-      - super__postgres
+      - fast__tgwui
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
+      - fast_network
     
   gui:
     build: ./gui
@@ -34,17 +34,17 @@ services:
     environment:
       - NEXT_PUBLIC_API_BASE_URL=http://localhost:8001
     networks:
-      - super_network
+      - fast_network
     volumes:
       - ./gui:/app
       - /app/node_modules
       - /app/.next
 
-  super__tgwui:
+  fast__tgwui:
     build:
       context: .
       dockerfile: ./tgwui/DockerfileTGWUI
-    container_name: super__tgwui
+    container_name: fast__tgwui
     environment:
       - EXTRA_LAUNCH_ARGS="--listen --verbose --extensions openai --threads 4 --n_ctx 1600"
     ports:
@@ -65,28 +65,28 @@ services:
         max-file: "3"   # number of files or file count
         max-size: '10m'
     networks:
-      - super_network
+      - fast_network
 
-  super__redis:
+  fast__redis:
     image: "docker.io/library/redis:latest"
     networks:
-      - super_network
+      - fast_network
 
-  super__postgres:
+  fast__postgres:
     image: "docker.io/library/postgres:latest"
     environment:
       - POSTGRES_USER=fastagi
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=super_agi_main
+      - POSTGRES_DB=fast_agi_main
     volumes:
       - fastagi_postgres_data:/var/lib/postgresql/data/
     networks:
-      - super_network
+      - fast_network
     ports:
       - "5432:5432"
 
 networks:
-  super_network:
+  fast_network:
     driver: bridge
 
 volumes:

@@ -20,7 +20,7 @@ from sqlalchemy import event
 from fastagi.models.agent_execution import AgentExecution
 from fastagi.helper.webhook_manager import WebHookManager
 
-redis_url = get_config('REDIS_URL', 'super__redis:6379')
+redis_url = get_config('REDIS_URL', 'fast__redis:6379')
 
 app = Celery("fastagi", include=["fastagi.worker"], imports=["fastagi.worker"])
 app.conf.broker_url = "redis://" + redis_url + "/0"

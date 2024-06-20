@@ -5,21 +5,21 @@ services:
       - "./:/app"
     build: .
     depends_on:
-      - super__redis
-      - super__postgres
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
-    command: ["/app/wait-for-it.sh", "super__postgres:5432","-t","60","--","/app/entrypoint.sh"]
+      - fast_network
+    command: ["/app/wait-for-it.sh", "fast__postgres:5432","-t","60","--","/app/entrypoint.sh"]
   celery:
     volumes:
       - "./:/app"
       - "${EXTERNAL_RESOURCE_DIR:-./workspace}:/app/ext"
     build: .
     depends_on:
-      - super__redis
-      - super__postgres
+      - fast__redis
+      - fast__postgres
     networks:
-      - super_network
+      - fast_network
     command: ["/app/entrypoint_celery.sh"]
   gui:
     build:
@@ -27,31 +27,31 @@ services:
       args:
         NEXT_PUBLIC_API_BASE_URL: "/api"
     networks:
-      - super_network
+      - fast_network
 #    volumes:
 #      - ./gui:/app
 #      - /app/node_modules/
 #      - /app/.next/
-  super__redis:
+  fast__redis:
     image: "redis/redis-stack-server:latest"
     networks:
-      - super_network
+      - fast_network
 #    uncomment to expose redis port to host
 #    ports:
 #      - "6379:6379"
     volumes:
       - redis_data:/data
 
-  super__postgres:
+  fast__postgres:
     image: "docker.io/library/postgres:15"
     environment:
       - POSTGRES_USER=fastagi
       - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=super_agi_main
+      - POSTGRES_DB=fast_agi_main
     volumes:
       - fastagi_postgres_data:/var/lib/postgresql/data/
     networks:
-      - super_network
+      - fast_network
 #    uncomment to expose postgres port to host
 #    ports:
 #      - "5432:5432"
@@ -61,7 +61,7 @@ services:
     ports:
       - "3000:80"
     networks:
-      - super_network
+      - fast_network
     depends_on:
       - backend
       - gui
@@ -69,7 +69,7 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
 
 networks:
-  super_network:
+  fast_network:
     driver: bridge
 volumes:
   fastagi_postgres_data:

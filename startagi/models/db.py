@@ -19,7 +19,7 @@ def connect_db():
         return engine
 
     # Create the connection URL
-    db_host = get_config('DB_HOST', 'super__postgres')
+    db_host = get_config('DB_HOST', 'fast__postgres')
     db_username = get_config('DB_USERNAME')
     db_password = get_config('DB_PASSWORD')
     db_name = get_config('DB_NAME')

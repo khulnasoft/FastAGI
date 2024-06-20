@@ -4,7 +4,7 @@ spec:
     - rule: DOMAIN_FAILED
   databases:
     - engine: PG
-      name: super-agi-main
+      name: fast-agi-main
       num_nodes: 1
       size: basic-xs
       version: "12"
@@ -34,7 +34,7 @@ spec:
           value: fastagi-redis:6379
         - key: DB_URL
           scope: RUN_TIME
-          value: ${super-agi-main.DATABASE_URL}
+          value: ${fast-agi-main.DATABASE_URL}
       git:
         branch: main
         repo_clone_url: https://github.com/KhulnaSoft/FastAGI.git
@@ -61,7 +61,7 @@ spec:
           value: fastagi-redis:6379
         - key: DB_URL
           scope: RUN_TIME
-          value: ${super-agi-main.DATABASE_URL}
+          value: ${fast-agi-main.DATABASE_URL}
       git:
         branch: main
         repo_clone_url: https://github.com/KhulnaSoft/FastAGI.git

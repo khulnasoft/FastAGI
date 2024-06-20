@@ -17,7 +17,7 @@ def authenticated_user():
     # Set user attributes
     user.id = 1  # User ID
     user.username = "testuser"  # User's username
-    user.email = "super6@agi.com"  # User's email
+    user.email = "fast6@agi.com"  # User's email
     user.first_login_source = None  # User's first login source
     user.token = "mock-jwt-token"
 

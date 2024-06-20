@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://fastagi.com//#gh-light-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-light-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
   </a>
-  <a href="https://fastagi.com//#gh-dark-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-dark-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
   </a>
 </p>
 
@@ -44,7 +44,7 @@ Add the following configuration settings in the file:
 3. _JIRA USERNAME:_
  - Your Jira UserName is the Email Address with which you signed up in Jira.
 
-4. _CONFIGURING JIRA IN SUPERAGI DASHBOARD:_ 
+4. _CONFIGURING JIRA IN FASTAGI DASHBOARD:_ 
  - Open the Jira Toolkit Page in FastAGI Add your Jira API Token, your Instance URL, and your Jira Username and click "Update Changes"
 
 ## Running FastAGI Jira Tool

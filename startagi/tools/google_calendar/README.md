@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://fastagi.com//#gh-light-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-light-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
   </a>
-  <a href="https://fastagi.com//#gh-dark-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-dark-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
   </a>
 </p>
 
@@ -87,7 +87,7 @@ In order to obtain the Client ID and Secret ID, you need to do the following ste
 ![GC14](https://github.com/KhulnaSoft/FastAGI/assets/133874957/d2292b25-ce32-4d3d-903c-1ca9341163fb)
 
 5. Go to Authorized redirect URIs and add the following URIs: 
-`https://app.fastagi.com/api/google/oauth-tokens`
+`https://app.fastagi.khulnasoft.com/api/google/oauth-tokens`
 `http://localhost:3000/api/google/oauth-tokens`
 
 ![Google_OAuth_URI](https://github.com/Phoenix2809/FastAGI/assets/133874957/9f7bd411-7173-4550-9bfd-0f3cf95dad54)

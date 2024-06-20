@@ -6,7 +6,7 @@ from sqlalchemy import Column, Integer, String, Boolean
 from fastagi.models.base_model import DBBaseModel
 from fastagi.models.tool import Tool
 
-marketplace_url = "https://app.fastagi.com/api"
+marketplace_url = "https://app.fastagi.khulnasoft.com/api"
 # marketplace_url = "http://localhost:8001"
 
 

@@ -22,9 +22,9 @@ export default function TopBar({selectedProject, userName, env}) {
     }
     getUserClick('Logged Out',{})
     // localStorage.removeItem('accessToken');
-    Cookies.set('accessToken', '', { expires: new Date(0),domain: '.fastagi.com', path: '/'});
-    Cookies.set('Source', 'app.fastagi', {domain: '.fastagi.com', path: '/'});
-    Cookies.set('mixpanel_initialized', 'false', {domain: '.fastagi.com', path: '/'});
+    Cookies.set('accessToken', '', { expires: new Date(0),domain: '.fastagi.khulnasoft.com', path: '/'});
+    Cookies.set('Source', 'app.fastagi', {domain: '.fastagi.khulnasoft.com', path: '/'});
+    Cookies.set('mixpanel_initialized', 'false', {domain: '.fastagi.khulnasoft.com', path: '/'});
     refreshUrl();
     router.reload();
   };
@@ -33,7 +33,7 @@ export default function TopBar({selectedProject, userName, env}) {
     if (option === 'Models') {
       setSelectedImagePath("/images/models_icon_dropdown.svg")
       setSelectedOption('Models')
-      window.location.href = 'https://models.fastagi.com'
+      window.location.href = 'https://models.fastagi.khulnasoft.com'
     } else {
       setSelectedImagePath("/images/agents_icon_dropdown.svg")
       setSelectedOption('Agents')
@@ -79,7 +79,7 @@ export default function TopBar({selectedProject, userName, env}) {
       </div>
       <div className="top_right">
         <div className="horizontal_container gap_20">
-          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("https://fastagi.com/docs", "_blank"); getUserClick('FastAGI Docs Visited', {})}}>
+          <div className="horizontal_container w_fit_content cursor_pointer gap_4" onClick={() => {window.open("https://fastagi.khulnasoft.com/docs", "_blank"); getUserClick('FastAGI Docs Visited', {})}}>
             <Image width={20} height={20} src="/images/docs_icon.svg" alt="docs-icon" />
             <p className="top_bar_font">Docs</p>
           </div>

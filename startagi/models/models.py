@@ -8,7 +8,7 @@ from fastagi.helper.encyption_helper import decrypt_data
 import requests, logging
 from fastagi.lib.logger import logger
 
-marketplace_url = "https://app.fastagi.com/api"
+marketplace_url = "https://app.fastagi.khulnasoft.com/api"
 # marketplace_url = "http://localhost:8001"
 
 

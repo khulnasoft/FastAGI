@@ -16,7 +16,7 @@ export default function MarketTools() {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setShowMarketplace(true);
-      axios.get('https://app.fastagi.com/api/toolkits/marketplace/list/0')
+      axios.get('https://app.fastagi.khulnasoft.com/api/toolkits/marketplace/list/0')
         .then((response) => {
           const data = response.data || [];
           const filteredData = data?.filter((item) => !excludedToolkits().includes(item.name));
@@ -55,7 +55,7 @@ export default function MarketTools() {
                 <Image className="tool_icon" width={40} height={40} src={returnToolkitIcon(item.name)} alt="tool-icon"/>
                 <div className="ml_12 mb_8">
                     <div>{item.name}</div>
-                    <div className="color_gray lh_16">by SuperAgi&nbsp;<Image width={14} height={14} src="/images/is_verified.svg" alt="is_verified"/></div>
+                    <div className="color_gray lh_16">by FastAgi&nbsp;<Image width={14} height={14} src="/images/is_verified.svg" alt="is_verified"/></div>
                 </div>
               </div>
               <div className="text_ellipsis mt_6 color_gray">{item.description}</div>

@@ -11,7 +11,7 @@ class LLMLoader:
 
     def __new__(cls, *args, **kwargs):
         if cls._instance is None:
-            cls._instance = super(LLMLoader, cls).__new__(cls)
+            cls._instance = fast(LLMLoader, cls).__new__(cls)
         return cls._instance
 
     def __init__(self, context_length):

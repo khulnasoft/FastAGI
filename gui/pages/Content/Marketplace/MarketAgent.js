@@ -16,7 +16,7 @@ export default function MarketAgent() {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setShowMarketplace(true);
-      axios.get('https://app.fastagi.com/api/agent_templates/marketplace/list')
+      axios.get('https://app.fastagi.khulnasoft.com/api/agent_templates/marketplace/list')
         .then((response) => {
           const data = response.data || [];
           setAgentTemplates(data);
@@ -52,7 +52,7 @@ export default function MarketAgent() {
             <div className="market_containers cursor_pointer" key={item.id} onClick={() => handleTemplateClick(item)}>
               <div className="vertical_containers overflow_auto">
                 <div>{item.name}</div>
-                <div className="color_gray lh_16">by SuperAgi&nbsp;<Image width={14} height={14}
+                <div className="color_gray lh_16">by FastAgi&nbsp;<Image width={14} height={14}
                                                                                             src="/images/is_verified.svg"
                                                                                             alt="is_verified"/></div>
                 <div className="text_ellipsis mt_8 color_gray">{item.description}</div>

@@ -48,7 +48,7 @@ def get_current_user(Authorize: AuthJWT = Depends(check_auth)):
     env = get_config("ENV", "DEV")
 
     if env == "DEV":
-        email = "super6@agi.com"
+        email = "fast6@agi.com"
     else:
         # Retrieve the email of the logged-in user from the JWT token payload
         email = Authorize.get_jwt_subject()

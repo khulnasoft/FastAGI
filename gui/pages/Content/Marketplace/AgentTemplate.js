@@ -27,7 +27,7 @@ export default function AgentTemplate({template, env}) {
     loadingTextEffect('Loading Template Details', setLoadingText, 500);
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setInstalled('Sign in to install')
-      axios.get(`https://app.fastagi.com/api/agent_templates/marketplace/template_details/${template.id}`)
+      axios.get(`https://app.fastagi.khulnasoft.com/api/agent_templates/marketplace/template_details/${template.id}`)
         .then((response) => {
           const data = response.data || [];
           setValues(data)
@@ -64,7 +64,7 @@ export default function AgentTemplate({template, env}) {
     if (window.location.href.toLowerCase().includes('marketplace')) {
       localStorage.setItem('agent_to_install', template.id);
       if (env === 'PROD') {
-        window.open(`https://app.fastagi.com/`, '_self');
+        window.open(`https://app.fastagi.khulnasoft.com/`, '_self');
       } else {
         window.location.href = '/';
       }

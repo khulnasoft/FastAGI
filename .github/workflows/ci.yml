@@ -79,7 +79,7 @@ jobs:
       - name: Configure git user FastAGI-Bot
         run: |
           git config --global user.name "FastAGI-Bot"
-          git config --global user.email "github-bot@fastagi.com"
+          git config --global user.email "github-bot@fastagi.khulnasoft.com"
           
       - name: Set up Python 3.9
         uses: actions/setup-python@v3

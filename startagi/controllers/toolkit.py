@@ -20,7 +20,7 @@ from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 router = APIRouter()
 
 
-# marketplace_url = "https://app.fastagi.com/api"
+# marketplace_url = "https://app.fastagi.khulnasoft.com/api"
 # marketplace_url = "http://localhost:8001/"
 
 

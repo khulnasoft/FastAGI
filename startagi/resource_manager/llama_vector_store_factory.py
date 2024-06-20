@@ -28,7 +28,7 @@ class LlamaVectorStoreFactory:
             return PineconeVectorStore(self.index_name)
 
         if self.vector_store_name == VectorStoreType.REDIS:
-            redis_url = get_config("REDIS_VECTOR_STORE_URL") or "redis://super__redis:6379"
+            redis_url = get_config("REDIS_VECTOR_STORE_URL") or "redis://fast__redis:6379"
             from llama_index.vector_stores import RedisVectorStore
             return RedisVectorStore(
                 index_name=self.index_name,

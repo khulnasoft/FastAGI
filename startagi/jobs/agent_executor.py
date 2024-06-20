@@ -73,7 +73,7 @@ class AgentExecutor:
                 memory = None
                 if "OpenAI" in model_llm_source:
                     vector_store_type = VectorStoreType.get_vector_store_type(get_config("LTM_DB", "Redis"))
-                    memory = VectorFactory.get_vector_storage(vector_store_type, "super-agent-index1",
+                    memory = VectorFactory.get_vector_storage(vector_store_type, "fast-agent-index1",
                                                               AgentExecutor.get_embedding(model_llm_source,
                                                                                           model_api_key))
             except Exception as e:

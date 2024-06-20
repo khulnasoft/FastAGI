@@ -1,9 +1,9 @@
 <p align="center">
-  <a href="https://fastagi.com//#gh-light-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-light-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
   </a>
-  <a href="https://fastagi.com//#gh-dark-mode-only">
-    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
+  <a href="https://fastagi.khulnasoft.com//#gh-dark-mode-only">
+    <img src="https://fastagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
   </a>
 </p>
 

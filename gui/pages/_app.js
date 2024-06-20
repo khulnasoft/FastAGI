@@ -138,7 +138,7 @@ export default function App() {
 
           if (typeof window !== 'undefined' && access_token) {
             // localStorage.setItem('accessToken', access_token);
-            Cookies.set('accessToken', access_token, {domain: '.fastagi.com', path: '/'});
+            Cookies.set('accessToken', access_token, {domain: '.fastagi.khulnasoft.com', path: '/'});
             refreshUrl();
           }
           validateAccessToken()
@@ -159,7 +159,7 @@ export default function App() {
                 handleSignUpSource(signupSource)
               }
               fetchOrganisation(response.data.id);
-              Cookies.set('mixpanel_initialized', 'true', {domain: '.fastagi.com', path: '/'});
+              Cookies.set('mixpanel_initialized', 'true', {domain: '.fastagi.khulnasoft.com', path: '/'});
             })
             .catch((error) => {
               console.error('Error validating access token:', error);
@@ -190,7 +190,7 @@ export default function App() {
     if (selectedProject !== null) {
       const source = Cookies.get('Source')
       if (source === 'models.fastagi')
-        window.open('https://models.fastagi.com/', '_self');
+        window.open('https://models.fastagi.khulnasoft.com/', '_self');
       else
         setApplicationState("AUTHENTICATED");
     }
@@ -219,7 +219,7 @@ export default function App() {
   const handleLocalEnviroment = () => {
     const userData = {
       "name": "FastAGI User",
-      "email": "super6@agi.com",
+      "email": "fast6@agi.com",
       "password": "pass@123",
     }
 
@@ -293,8 +293,8 @@ export default function App() {
         </div>
       </div>) : !showMarketplace ? (<div className="signInStyle">
         <div className="signInTopBar">
-          <div className="superAgiLogo"><Image width={132} height={72} src="/images/sign-in-logo.svg"
-                                               alt="super-agi-logo"/></div>
+          <div className="fastAgiLogo"><Image width={132} height={72} src="/images/sign-in-logo.svg"
+                                               alt="fast-agi-logo"/></div>
         </div>
         <div className="signInCenter">
           {applicationState === 'NOT_AUTHENTICATED' && !showMarketplace ? <div className="signInWrapper">
@@ -302,7 +302,7 @@ export default function App() {
               <Image width={20} height={20} src="/images/github.svg" alt="github"/>&nbsp;Continue with Github
             </button>
             <div className="signInInfo">
-              By continuing, you agree to Super AGI’s Terms of Service and Privacy Policy, and to receive important
+              By continuing, you agree to Fast AGI’s Terms of Service and Privacy Policy, and to receive important
               updates.
             </div>
           </div> : <div className="signInWrapper" style={{background: 'transparent'}}>

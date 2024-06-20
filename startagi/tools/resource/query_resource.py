@@ -48,7 +48,7 @@ class QueryResourceTool(BaseTool):
         service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor_chatgpt)
         vector_store_name = VectorStoreType.get_vector_store_type(
             self.get_tool_config(key="RESOURCE_VECTOR_STORE") or "Redis")
-        vector_store_index_name = self.get_tool_config(key="RESOURCE_VECTOR_STORE_INDEX_NAME") or "super-agent-index"
+        vector_store_index_name = self.get_tool_config(key="RESOURCE_VECTOR_STORE_INDEX_NAME") or "fast-agent-index"
         logging.info(f"vector_store_name {vector_store_name}")
         logging.info(f"vector_store_index_name {vector_store_index_name}")
         vector_store = LlamaVectorStoreFactory(vector_store_name, vector_store_index_name).get_vector_store()

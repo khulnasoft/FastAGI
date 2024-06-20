@@ -40,7 +40,7 @@ export default function ToolkitTemplate({template, env}) {
     if (window.location.href.toLowerCase().includes('marketplace')) {
       localStorage.setItem('toolkit_to_install', template.name);
       if (env === 'PROD') {
-        window.open(`https://app.fastagi.com/`, '_self');
+        window.open(`https://app.fastagi.khulnasoft.com/`, '_self');
       } else {
         window.location.href = '/';
       }
@@ -80,7 +80,7 @@ export default function ToolkitTemplate({template, env}) {
 
   function fetchReadme() {
     if (window.location.href.toLowerCase().includes('marketplace')) {
-      axios.get(`https://app.fastagi.com/api/toolkits/marketplace/readme/${template.name}`)
+      axios.get(`https://app.fastagi.khulnasoft.com/api/toolkits/marketplace/readme/${template.name}`)
           .then((response) => {
             setMarkdownContent(response.data || '');
             setRightPanel(response.data ? 'overview' : 'tool_view');

@@ -154,31 +154,31 @@ class AgentToolStepHandler:
         return step_response
 
     def _build_tool_input_prompt(self, step_tool: AgentWorkflowStepTool, tool: BaseTool, agent_execution_config: dict):
-        super_agi_prompt = PromptReader.read_agent_prompt(__file__, "agent_tool_input.txt")
-        super_agi_prompt = super_agi_prompt.replace("{goals}", AgentPromptBuilder.add_list_items_to_string(
+        fast_agi_prompt = PromptReader.read_agent_prompt(__file__, "agent_tool_input.txt")
+        fast_agi_prompt = fast_agi_prompt.replace("{goals}", AgentPromptBuilder.add_list_items_to_string(
             agent_execution_config["goal"]))
-        super_agi_prompt = super_agi_prompt.replace("{tool_name}", step_tool.tool_name)
-        super_agi_prompt = super_agi_prompt.replace("{instruction}", step_tool.input_instruction)
+        fast_agi_prompt = fast_agi_prompt.replace("{tool_name}", step_tool.tool_name)
+        fast_agi_prompt = fast_agi_prompt.replace("{instruction}", step_tool.input_instruction)
 
         tool_schema = f"\"{tool.name}\": {tool.description}, args json schema: {json.dumps(tool.args)}"
-        super_agi_prompt = super_agi_prompt.replace("{tool_schema}", tool_schema)
-        return super_agi_prompt
+        fast_agi_prompt = fast_agi_prompt.replace("{tool_schema}", tool_schema)
+        return fast_agi_prompt
 
     def _get_step_responses(self, workflow_step: AgentWorkflowStep):
         return [step["step_response"] for step in workflow_step.next_steps]
 
     def _build_tool_output_prompt(self, step_tool: AgentWorkflowStepTool, tool_output: str,
                                   workflow_step: AgentWorkflowStep):
-        super_agi_prompt = PromptReader.read_agent_prompt(__file__, "agent_tool_output.txt")
-        super_agi_prompt = super_agi_prompt.replace("{tool_output}", tool_output)
-        super_agi_prompt = super_agi_prompt.replace("{tool_name}", step_tool.tool_name)
-        super_agi_prompt = super_agi_prompt.replace("{instruction}", step_tool.output_instruction)
+        fast_agi_prompt = PromptReader.read_agent_prompt(__file__, "agent_tool_output.txt")
+        fast_agi_prompt = fast_agi_prompt.replace("{tool_output}", tool_output)
+        fast_agi_prompt = fast_agi_prompt.replace("{tool_name}", step_tool.tool_name)
+        fast_agi_prompt = fast_agi_prompt.replace("{instruction}", step_tool.output_instruction)
 
         step_responses = self._get_step_responses(workflow_step)
         if "default" in step_responses:
             step_responses.remove("default")
-        super_agi_prompt = super_agi_prompt.replace("{output_options}", str(step_responses))
-        return super_agi_prompt
+        fast_agi_prompt = fast_agi_prompt.replace("{output_options}", str(step_responses))
+        return fast_agi_prompt
 
     def _handle_wait_for_permission(self, agent_execution, workflow_step: AgentWorkflowStep):
         """

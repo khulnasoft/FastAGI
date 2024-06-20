@@ -75,7 +75,7 @@ class VectorFactory:
             return qdrant.Qdrant(client, embedding_model, index_name)
         
         if vector_store == VectorStoreType.REDIS:
-            index_name = "super-agent-index1"
+            index_name = "fast-agent-index1"
             redis = Redis(index_name, embedding_model)
             redis.create_index()
             return redis

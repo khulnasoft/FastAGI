@@ -61,7 +61,7 @@ from fastagi.models.workflows.iteration_workflow_step import IterationWorkflowSt
 from urllib.parse import urlparse
 app = FastAPI()
 
-db_host = get_config('DB_HOST', 'super__postgres')
+db_host = get_config('DB_HOST', 'fast__postgres')
 db_url = get_config('DB_URL', None)
 db_username = get_config('DB_USERNAME')
 db_password = get_config('DB_PASSWORD')
@@ -197,7 +197,7 @@ async def startup_event():
     logger.info("Running Startup tasks")
     Session = sessionmaker(bind=engine)
     session = Session()
-    default_user = session.query(User).filter(User.email == "super6@agi.com").first()
+    default_user = session.query(User).filter(User.email == "fast6@agi.com").first()
     logger.info(default_user)
     if default_user is not None:
         organisation = session.query(Organisation).filter_by(id=default_user.organisation_id).first()
@@ -230,7 +230,7 @@ async def startup_event():
     AgentWorkflowSeed.build_coding_workflow(session)
 
     # NOTE: remove old workflows. Need to remove this changes later
-    workflows = ["Sales Engagement Workflow", "Recruitment Workflow", "SuperCoder", "Goal Based Workflow",
+    workflows = ["Sales Engagement Workflow", "Recruitment Workflow", "FastCoder", "Goal Based Workflow",
      "Dynamic Task Workflow", "Fixed Task Workflow"]
     workflows = session.query(AgentWorkflow).filter(AgentWorkflow.name.not_in(workflows))
     for workflow in workflows:
@@ -318,10 +318,10 @@ def github_auth_handler(code: str = Query(...), Authorize: AuthJWT = Depends()):
             redirect_url_success = f"{frontend_url}?access_token={jwt_token}&first_time_login={True}"
             return RedirectResponse(url=redirect_url_success)
         else:
-            redirect_url_failure = "https://fastagi.com/"
+            redirect_url_failure = "https://fastagi.khulnasoft.com/"
             return RedirectResponse(url=redirect_url_failure)
     else:
-        redirect_url_failure = "https://fastagi.com/"
+        redirect_url_failure = "https://fastagi.khulnasoft.com/"
         return RedirectResponse(url=redirect_url_failure)
 
 

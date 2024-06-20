@@ -25,7 +25,7 @@ class DBToolkitConfiguration(BaseToolkitConfiguration):
                 return decrypt_data(tool_config.value)
             else:
                 return tool_config.value
-        return super().get_tool_config(key=key)
+        return fast().get_tool_config(key=key)
 
 class ToolBuilder:
     def __init__(self, session, agent_id: int, agent_execution_id: int = None):

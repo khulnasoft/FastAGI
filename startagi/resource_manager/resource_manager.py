@@ -93,7 +93,7 @@ class ResourceManager:
         vector_store = None
         storage_context = None
         vector_store_name = VectorStoreType.get_vector_store_type(get_config("RESOURCE_VECTOR_STORE") or "Redis")
-        vector_store_index_name = get_config("RESOURCE_VECTOR_STORE_INDEX_NAME") or "super-agent-index"
+        vector_store_index_name = get_config("RESOURCE_VECTOR_STORE_INDEX_NAME") or "fast-agent-index"
         try:
             vector_store = LlamaVectorStoreFactory(vector_store_name, vector_store_index_name).get_vector_store()
             storage_context = StorageContext.from_defaults(vector_store=vector_store)

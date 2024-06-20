@@ -149,7 +149,7 @@ class AgentWorkflowSeed:
 
     @classmethod
     def build_coding_workflow(cls, session):
-        agent_workflow = AgentWorkflow.find_or_create_by_name(session, "SuperCoder", "SuperCoder")
+        agent_workflow = AgentWorkflow.find_or_create_by_name(session, "FastCoder", "FastCoder")
         step1 = AgentWorkflowStep.find_or_create_tool_workflow_step(session, agent_workflow.id,
                                                                     str(agent_workflow.id) + "_step1",
                                                                     WriteSpecTool().name,
@@ -219,7 +219,7 @@ class IterationWorkflowSeed:
     @classmethod
     def build_single_step_agent(cls, session):
         iteration_workflow = IterationWorkflow.find_or_create_by_name(session, "Goal Based Agent-I", "Goal Based Agent")
-        output = AgentPromptTemplate.get_super_agi_single_prompt()
+        output = AgentPromptTemplate.get_fast_agi_single_prompt()
         IterationWorkflowStep.find_or_create_step(session, iteration_workflow.id, "gb1",
                                                   output["prompt"],
                                                   str(output["variables"]), "TRIGGER", "tools",

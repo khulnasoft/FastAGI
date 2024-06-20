@@ -44,7 +44,7 @@ class WriteTestTool(BaseTool):
     agent_execution_id: int = None
     name = "WriteTestTool"
     description = (
-        "You are a super smart developer using Test Driven Development to write tests according to a specification.\n"
+        "You are a fast smart developer using Test Driven Development to write tests according to a specification.\n"
         "Please generate tests based on the above specification. The tests should be as simple as possible, "
         "but still cover all the functionality.\n"
         "Write it in the file"
