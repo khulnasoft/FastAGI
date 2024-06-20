@@ -7,9 +7,9 @@ import urllib.parse
 import ast
 import http.client as http_client
 from sqlalchemy.orm import Session
-from startagi.models.toolkit import Toolkit
-from startagi.models.oauth_tokens import OauthTokens
-from startagi.config.config import get_config
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.oauth_tokens import OauthTokens
+from fastagi.config.config import get_config
 
 class Creds:
 
@@ -34,7 +34,7 @@ class TwitterTokens:
         if env == "DEV":
             oauth_callback = "http://localhost:3000/api/twitter/oauth-tokens"
         else:
-            oauth_callback = "https://app.startagi.khulnasoft.com/api/twitter/oauth-tokens"
+            oauth_callback = "https://app.fastagi.com/api/twitter/oauth-tokens"
         params = {
             'oauth_callback': oauth_callback,
             'oauth_consumer_key': api_key,

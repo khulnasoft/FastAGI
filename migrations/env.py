@@ -18,17 +18,17 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 target_metadata = DBBaseModel.metadata
-from startagi.models import *
-from startagi.config.config import get_config
+from fastagi.models import *
+from fastagi.config.config import get_config
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-db_host = get_config('DB_HOST', 'start__postgres')
+db_host = get_config('DB_HOST', 'super__postgres')
 db_username = get_config('DB_USERNAME')
 db_password = get_config('DB_PASSWORD')
 db_name = get_config('DB_NAME')
@@ -79,7 +79,7 @@ def run_migrations_online() -> None:
 
     """
 
-    db_host = get_config('DB_HOST', 'start__postgres')
+    db_host = get_config('DB_HOST', 'super__postgres')
     db_username = get_config('DB_USERNAME')
     db_password = get_config('DB_PASSWORD')
     db_name = get_config('DB_NAME')

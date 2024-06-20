@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import MagicMock
 from sqlalchemy.orm import Session
 
-from startagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
 
 
 @pytest.fixture

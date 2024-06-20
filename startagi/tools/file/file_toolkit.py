@@ -1,13 +1,13 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.file.append_file import AppendFileTool
-from startagi.tools.file.delete_file import DeleteFileTool
-from startagi.tools.file.list_files import ListFileTool
-from startagi.tools.file.read_file import ReadFileTool
-from startagi.tools.file.write_file import WriteFileTool
-from startagi.types.key_type import ToolConfigKeyType
-from startagi.models.tool_config import ToolConfig
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.file.append_file import AppendFileTool
+from fastagi.tools.file.delete_file import DeleteFileTool
+from fastagi.tools.file.list_files import ListFileTool
+from fastagi.tools.file.read_file import ReadFileTool
+from fastagi.tools.file.write_file import WriteFileTool
+from fastagi.types.key_type import ToolConfigKeyType
+from fastagi.models.tool_config import ToolConfig
 
 
 class FileToolkit(BaseToolkit, ABC):

@@ -6,21 +6,21 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-from startagi.helper.auth import get_user_organisation
-from startagi.helper.auth import check_auth
-from startagi.helper.encyption_helper import decrypt_data
-from startagi.helper.tool_helper import register_toolkits
-from startagi.llms.google_palm import GooglePalm
-from startagi.llms.llm_model_factory import build_model_with_api_key
-from startagi.llms.openai import OpenAi
-from startagi.models.configuration import Configuration
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
-from startagi.models.user import User
-from startagi.lib.logger import logger
-from startagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.helper.auth import get_user_organisation
+from fastagi.helper.auth import check_auth
+from fastagi.helper.encyption_helper import decrypt_data
+from fastagi.helper.tool_helper import register_toolkits
+from fastagi.llms.google_palm import GooglePalm
+from fastagi.llms.llm_model_factory import build_model_with_api_key
+from fastagi.llms.openai import OpenAi
+from fastagi.models.configuration import Configuration
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
+from fastagi.models.user import User
+from fastagi.lib.logger import logger
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
 
-# from startagi.types.db import OrganisationIn, OrganisationOut
+# from fastagi.types.db import OrganisationIn, OrganisationOut
 
 router = APIRouter()
 

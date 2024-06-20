@@ -1,29 +1,29 @@
-from startagi.agent.agent_prompt_builder import AgentPromptBuilder
-from startagi.agent.agent_prompt_template import AgentPromptTemplate
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
-from startagi.tools.apollo.apollo_search import ApolloSearchTool
-from startagi.tools.code.write_code import CodingTool
-from startagi.tools.code.write_spec import WriteSpecTool
-from startagi.tools.code.write_test import WriteTestTool
-from startagi.tools.email.read_email import ReadEmailTool
-from startagi.tools.email.send_email import SendEmailTool
-from startagi.tools.file.append_file import AppendFileTool
-from startagi.tools.file.list_files import ListFileTool
-from startagi.tools.file.read_file import ReadFileTool
-from startagi.tools.file.write_file import WriteFileTool
-from startagi.tools.github.add_file import GithubAddFileTool
-from startagi.tools.google_calendar.create_calendar_event import CreateEventCalendarTool
-from startagi.tools.google_calendar.google_calendar_toolkit import GoogleCalendarToolKit
-from startagi.tools.google_search.google_search import GoogleSearchTool
-from startagi.tools.jira.create_issue import CreateIssueTool
-from startagi.tools.searx.searx import SearxSearchTool
-from startagi.tools.slack.send_message import SlackMessageTool
-from startagi.tools.thinking.tools import ThinkingTool
-from startagi.tools.twitter.send_tweets import SendTweetsTool
-from startagi.tools.webscaper.tools import WebScraperTool
+from fastagi.agent.agent_prompt_builder import AgentPromptBuilder
+from fastagi.agent.agent_prompt_template import AgentPromptTemplate
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from fastagi.tools.apollo.apollo_search import ApolloSearchTool
+from fastagi.tools.code.write_code import CodingTool
+from fastagi.tools.code.write_spec import WriteSpecTool
+from fastagi.tools.code.write_test import WriteTestTool
+from fastagi.tools.email.read_email import ReadEmailTool
+from fastagi.tools.email.send_email import SendEmailTool
+from fastagi.tools.file.append_file import AppendFileTool
+from fastagi.tools.file.list_files import ListFileTool
+from fastagi.tools.file.read_file import ReadFileTool
+from fastagi.tools.file.write_file import WriteFileTool
+from fastagi.tools.github.add_file import GithubAddFileTool
+from fastagi.tools.google_calendar.create_calendar_event import CreateEventCalendarTool
+from fastagi.tools.google_calendar.google_calendar_toolkit import GoogleCalendarToolKit
+from fastagi.tools.google_search.google_search import GoogleSearchTool
+from fastagi.tools.jira.create_issue import CreateIssueTool
+from fastagi.tools.searx.searx import SearxSearchTool
+from fastagi.tools.slack.send_message import SlackMessageTool
+from fastagi.tools.thinking.tools import ThinkingTool
+from fastagi.tools.twitter.send_tweets import SendTweetsTool
+from fastagi.tools.webscaper.tools import WebScraperTool
 
 
 class AgentWorkflowSeed:
@@ -149,7 +149,7 @@ class AgentWorkflowSeed:
 
     @classmethod
     def build_coding_workflow(cls, session):
-        agent_workflow = AgentWorkflow.find_or_create_by_name(session, "StartCoder", "StartCoder")
+        agent_workflow = AgentWorkflow.find_or_create_by_name(session, "SuperCoder", "SuperCoder")
         step1 = AgentWorkflowStep.find_or_create_tool_workflow_step(session, agent_workflow.id,
                                                                     str(agent_workflow.id) + "_step1",
                                                                     WriteSpecTool().name,
@@ -219,7 +219,7 @@ class IterationWorkflowSeed:
     @classmethod
     def build_single_step_agent(cls, session):
         iteration_workflow = IterationWorkflow.find_or_create_by_name(session, "Goal Based Agent-I", "Goal Based Agent")
-        output = AgentPromptTemplate.get_start_agi_single_prompt()
+        output = AgentPromptTemplate.get_super_agi_single_prompt()
         IterationWorkflowStep.find_or_create_step(session, iteration_workflow.id, "gb1",
                                                   output["prompt"],
                                                   str(output["variables"]), "TRIGGER", "tools",

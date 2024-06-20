@@ -1,9 +1,9 @@
 import requests
 import time
 from pydantic import BaseModel
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
-from startagi.helper.webpage_extractor import WebpageExtractor
+from fastagi.helper.webpage_extractor import WebpageExtractor
 
 
 class GoogleSearchWrap:

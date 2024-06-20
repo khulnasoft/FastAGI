@@ -5,8 +5,8 @@ from email.message import EmailMessage
 from typing import Type
 
 from pydantic import BaseModel, Field
-from startagi.helper.imap_email import ImapEmail
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.imap_email import ImapEmail
+from fastagi.tools.base_tool import BaseTool
 
 
 class SendEmailInput(BaseModel):

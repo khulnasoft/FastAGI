@@ -1,7 +1,7 @@
 import openai
 
-from startagi.config.config import get_config
-from startagi.image_llms.base_image_llm import BaseImageLlm
+from fastagi.config.config import get_config
+from fastagi.image_llms.base_image_llm import BaseImageLlm
 
 
 class OpenAiDalle(BaseImageLlm):

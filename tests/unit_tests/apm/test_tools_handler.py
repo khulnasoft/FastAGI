@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import MagicMock, patch
 from fastapi import HTTPException
-from startagi.apm.tools_handler import ToolsHandler
+from fastagi.apm.tools_handler import ToolsHandler
 from sqlalchemy.orm import Session
-from startagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_config import AgentConfiguration
 
 from datetime import datetime
 import pytz

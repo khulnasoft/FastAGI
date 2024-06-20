@@ -1,13 +1,13 @@
 from sqlalchemy.orm import Session
-from startagi.models.events import Event
-from startagi.models.knowledges import Knowledges
+from fastagi.models.events import Event
+from fastagi.models.knowledges import Knowledges
 from sqlalchemy import Integer, or_, label, case, and_
 from fastapi import HTTPException
 from typing import List, Dict, Union, Any
 from sqlalchemy.sql import func
 from sqlalchemy.orm import aliased
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
 import pytz
 from datetime import datetime
 

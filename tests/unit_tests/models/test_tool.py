@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock, call
 from sqlalchemy.orm.exc import NoResultFound
-from startagi.models.tool import Tool
-from startagi.controllers.types.agent_with_config import AgentConfigInput
+from fastagi.models.tool import Tool
+from fastagi.controllers.types.agent_with_config import AgentConfigInput
 from fastapi import HTTPException
 from typing import List
 

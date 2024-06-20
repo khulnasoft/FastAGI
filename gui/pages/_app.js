@@ -35,7 +35,7 @@ export default function App() {
   const [userName, setUserName] = useState('');
   const [organisationId, setOrganisationId] = useState(null);
   const [env, setEnv] = useState('DEV');
-  const [loadingText, setLoadingText] = useState("Initializing StartAGI");
+  const [loadingText, setLoadingText] = useState("Initializing FastAGI");
   const router = useRouter();
   const [showMarketplace, setShowMarketplace] = useState(false);
   const excludedKeys = [
@@ -105,7 +105,7 @@ export default function App() {
 
   useEffect(() => {
     handleMarketplace()
-    loadingTextEffect('Initializing StartAGI', setLoadingText, 500);
+    loadingTextEffect('Initializing FastAGI', setLoadingText, 500);
 
     checkEnvironment()
       .then((response) => {
@@ -138,7 +138,7 @@ export default function App() {
 
           if (typeof window !== 'undefined' && access_token) {
             // localStorage.setItem('accessToken', access_token);
-            Cookies.set('accessToken', access_token, {domain: '.startagi.khulnasoft.com', path: '/'});
+            Cookies.set('accessToken', access_token, {domain: '.fastagi.com', path: '/'});
             refreshUrl();
           }
           validateAccessToken()
@@ -159,7 +159,7 @@ export default function App() {
                 handleSignUpSource(signupSource)
               }
               fetchOrganisation(response.data.id);
-              Cookies.set('mixpanel_initialized', 'true', {domain: '.startagi.khulnasoft.com', path: '/'});
+              Cookies.set('mixpanel_initialized', 'true', {domain: '.fastagi.com', path: '/'});
             })
             .catch((error) => {
               console.error('Error validating access token:', error);
@@ -189,8 +189,8 @@ export default function App() {
   useEffect(() => {
     if (selectedProject !== null) {
       const source = Cookies.get('Source')
-      if (source === 'models.startagi')
-        window.open('https://models.startagi.khulnasoft.com/', '_self');
+      if (source === 'models.fastagi')
+        window.open('https://models.fastagi.com/', '_self');
       else
         setApplicationState("AUTHENTICATED");
     }
@@ -218,8 +218,8 @@ export default function App() {
 
   const handleLocalEnviroment = () => {
     const userData = {
-      "name": "StartAGI User",
-      "email": "start6@agi.com",
+      "name": "FastAGI User",
+      "email": "super6@agi.com",
       "password": "pass@123",
     }
 
@@ -270,7 +270,7 @@ export default function App() {
   return (
     <div className="app">
       <Head>
-        <title>StartAGI</title>
+        <title>FastAGI</title>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet"/>
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}
@@ -293,8 +293,8 @@ export default function App() {
         </div>
       </div>) : !showMarketplace ? (<div className="signInStyle">
         <div className="signInTopBar">
-          <div className="startAgiLogo"><Image width={132} height={72} src="/images/sign-in-logo.svg"
-                                               alt="start-agi-logo"/></div>
+          <div className="superAgiLogo"><Image width={132} height={72} src="/images/sign-in-logo.svg"
+                                               alt="super-agi-logo"/></div>
         </div>
         <div className="signInCenter">
           {applicationState === 'NOT_AUTHENTICATED' && !showMarketplace ? <div className="signInWrapper">
@@ -302,7 +302,7 @@ export default function App() {
               <Image width={20} height={20} src="/images/github.svg" alt="github"/>&nbsp;Continue with Github
             </button>
             <div className="signInInfo">
-              By continuing, you agree to Start AGI’s Terms of Service and Privacy Policy, and to receive important
+              By continuing, you agree to Super AGI’s Terms of Service and Privacy Policy, and to receive important
               updates.
             </div>
           </div> : <div className="signInWrapper" style={{background: 'transparent'}}>

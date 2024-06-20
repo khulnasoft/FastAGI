@@ -1,8 +1,8 @@
 import os
 import requests
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.llms.base_llm import BaseLlm
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.llms.base_llm import BaseLlm
 
 
 class Replicate(BaseLlm):

@@ -1,5 +1,5 @@
 name: Bug report 
-description: Create a bug report for StartAGI.
+description: Create a bug report for FastAGI.
 labels: ['status: needs triage']
 body:
   - type: markdown
@@ -14,12 +14,12 @@ body:
         [discord]: https://discord.gg/dXbRe5BHJC
         [#general]: https://discord.com/channels/1107593006032355359/1107642413993959505
         [#support]: https://discord.com/channels/1107593006032355359/1107645922797703198
-        [existing issues]: https://github.com/KhulnaSoft/StartAGI/issues
+        [existing issues]: https://github.com/KhulnaSoft/FastAGI/issues
   - type: checkboxes
     attributes:
       label: ⚠️ Check for existing issues before proceeding. ⚠️
       description: >
-        Please [search the history](https://github.com/KhulnaSoft/StartAGI/issues)
+        Please [search the history](https://github.com/KhulnaSoft/FastAGI/issues)
         to see if an issue already exists for the same problem.
       options:
         - label: I have searched the existing issues, and there is no existing issue for my problem
@@ -32,8 +32,8 @@ body:
         Think like this: What would you type if you were searching for the issue?
         
         For example:
-        ❌ - my StartAGI agent keeps looping
-        ✅ - After performing Write Tool, StartAGI goes into a loop where it keeps trying to write the file.
+        ❌ - my FastAGI agent keeps looping
+        ✅ - After performing Write Tool, FastAGI goes into a loop where it keeps trying to write the file.
         
         Please help us help you by following these steps:
         - Search for existing issues, adding a comment when you have the same or similar issue is tidier than "new issue" and 
@@ -44,9 +44,9 @@ body:
           - If it's a pip/packages issue, mention this in the title and provide pip version, python version.
   - type: dropdown
     attributes:
-      label: Where are you using StartAGI?
+      label: Where are you using FastAGI?
       description: >
-        Please select the operating system you were using to run StartAGI when this problem occurred.
+        Please select the operating system you were using to run FastAGI when this problem occurred.
       options:
         - Windows
         - Linux
@@ -64,9 +64,9 @@ body:
 
   - type: dropdown
     attributes:
-      label: Which branch of StartAGI are you using?
+      label: Which branch of FastAGI are you using?
       description: |
-        Please select which version of StartAGI you were using when this issue occurred.
+        Please select which version of FastAGI you were using when this issue occurred.
         If installed with git you can run `git branch` to see which version of Auto-GPT you are running.
       options:
         - Main
@@ -78,7 +78,7 @@ body:
     attributes:
       label: Do you use OpenAI GPT-3.5 or GPT-4?
       description: >
-        If you are using StartAGI with GPT-3.5, your problems may be caused by
+        If you are using FastAGI with GPT-3.5, your problems may be caused by
         the limitations of GPT-3.5 like incorrect Tool selection thus causing looping in the agent feed.
       options:
         - GPT-3.5
@@ -142,7 +142,7 @@ body:
         Upload the error log content, this can help us understand the issue better. 
         To do this, you can simply copy the logs from the terminal with which you did 'docker compose up' or in a new terminal, 
         enter 'docker compose logs' and copy/paste the error contents to this field. 
-        ⚠️ The activity log may contain personal data given to StartAGI by you in prompt or input as well as 
-        any personal information that StartAGI collected out of files during last run. Please hide them before sharing. ⚠️
+        ⚠️ The activity log may contain personal data given to FastAGI by you in prompt or input as well as 
+        any personal information that FastAGI collected out of files during last run. Please hide them before sharing. ⚠️
     validations:
       required: True

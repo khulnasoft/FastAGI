@@ -3,74 +3,74 @@ alerts:
   - rule: DOMAIN_FAILED
 databases:
   - engine: PG
-    name: start-agi-main
+    name: super-agi-main
     num_nodes: 1
     size: basic-xs
     version: "12"
 ingress:
   rules:
     - component:
-        name: startagi-backend
+        name: fastagi-backend
       match:
         path:
           prefix: /api
-name: startagi
+name: fastagi
 services:
   - dockerfile_path: DockerfileRedis
     github: 
       branch: main
       deploy_on_push: true
-      repo: KhulnaSoft/StartAGI
+      repo: KhulnaSoft/FastAGI
     internal_ports: 
     - 6379
     instance_count: 1
     instance_size_slug: basic-xs
     source_dir: /
-    name: startagi-redis
+    name: fastagi-redis
   - dockerfile_path: Dockerfile
     envs:
       - key: REDIS_URL
         scope: RUN_TIME
-        value: startagi-redis:6379
+        value: fastagi-redis:6379
       - key: DB_URL
         scope: RUN_TIME
-        value: ${start-agi-main.DATABASE_URL}
+        value: ${super-agi-main.DATABASE_URL}
     github:
       branch: main
       deploy_on_push: true
-      repo: KhulnaSoft/StartAGI
+      repo: KhulnaSoft/FastAGI
     http_port: 8001
     instance_count: 1
     instance_size_slug: basic-xs
     run_command: /app/entrypoint.sh
     source_dir: /
-    name: startagi-backend
+    name: fastagi-backend
   - dockerfile_path: ./gui/DockerfileProd
     github:
       branch: main
       deploy_on_push: true
-      repo: KhulnaSoft/StartAGI
+      repo: KhulnaSoft/FastAGI
     http_port: 3000
     instance_count: 1
     instance_size_slug: basic-xs
     source_dir: ./gui
-    name: startagi-gui
+    name: fastagi-gui
 workers:
   - dockerfile_path: Dockerfile
     envs:
       - key: REDIS_URL
         scope: RUN_TIME
-        value: startagi-redis:6379
+        value: fastagi-redis:6379
       - key: DB_URL
         scope: RUN_TIME
-        value: ${start-agi-main.DATABASE_URL}
+        value: ${super-agi-main.DATABASE_URL}
     github:
       branch: main
       deploy_on_push: true
-      repo: KhulnaSoft/StartAGI
+      repo: KhulnaSoft/FastAGI
     instance_count: 1
     instance_size_slug: basic-xs
-    run_command: celery -A startagi.worker worker --beat --loglevel=info
+    run_command: celery -A fastagi.worker worker --beat --loglevel=info
     source_dir: /
-    name: startagi-celery
+    name: fastagi-celery
   

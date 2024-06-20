@@ -9,10 +9,10 @@ import redis
 from redis.commands.search.field import TagField, VectorField
 from redis.commands.search.indexDefinition import IndexDefinition, IndexType
 
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.vector_store.base import VectorStore
-from startagi.vector_store.document import Document
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.vector_store.base import VectorStore
+from fastagi.vector_store.document import Document
 
 DOC_PREFIX = "doc:"
 

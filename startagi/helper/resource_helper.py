@@ -1,12 +1,12 @@
 import os
 
-from startagi.config.config import get_config
-from startagi.helper.s3_helper import S3Helper
-from startagi.lib.logger import logger
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.resource import Resource
-from startagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.lib.logger import logger
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.resource import Resource
+from fastagi.types.storage_types import StorageType
 
 
 class ResourceHelper:

@@ -1,5 +1,5 @@
 from typing import Any
-from startagi.vector_embeddings.base import VectorEmbeddings
+from fastagi.vector_embeddings.base import VectorEmbeddings
 
 class Qdrant(VectorEmbeddings):
 

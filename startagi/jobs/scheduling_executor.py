@@ -3,18 +3,18 @@ from datetime import datetime
 
 from fastapi import HTTPException
 from sqlalchemy.orm import sessionmaker
-from startagi.models.tool import Tool
+from fastagi.models.tool import Tool
 
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.worker import execute_agent
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.apm.event_handler import EventHandler
-from startagi.models.knowledges import Knowledges
-from startagi.models.db import connect_db
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.worker import execute_agent
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.apm.event_handler import EventHandler
+from fastagi.models.knowledges import Knowledges
+from fastagi.models.db import connect_db
 
 
 engine = connect_db()

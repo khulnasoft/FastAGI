@@ -1,9 +1,9 @@
 from unittest.mock import patch
 
-from startagi.llms.google_palm import GooglePalm
+from fastagi.llms.google_palm import GooglePalm
 
 
-@patch('startagi.llms.google_palm.palm')
+@patch('fastagi.llms.google_palm.palm')
 def test_chat_completion(mock_palm):
     # Arrange
     model = 'models/text-bison-001'

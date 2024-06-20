@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, Text
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 from sqlalchemy.orm import sessionmaker
 
 

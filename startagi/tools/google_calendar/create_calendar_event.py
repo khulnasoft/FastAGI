@@ -1,10 +1,10 @@
 from typing import Any, Type
 from pydantic import BaseModel, Field
-from startagi.tools.base_tool import BaseTool
+from fastagi.tools.base_tool import BaseTool
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
-from startagi.helper.google_calendar_creds import GoogleCalendarCreds
-from startagi.helper.calendar_date import CalendarDate
+from fastagi.models.db import connect_db
+from fastagi.helper.google_calendar_creds import GoogleCalendarCreds
+from fastagi.helper.calendar_date import CalendarDate
 
 class CreateEventCalendarInput(BaseModel):
     event_name: str = Field(..., description="Name of the event/meeting to be scheduled, if not given craete a name depending on description.")

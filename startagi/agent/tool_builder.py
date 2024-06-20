@@ -1,14 +1,14 @@
 import importlib
 import os
-from startagi.config.config import get_config
-from startagi.llms.llm_model_factory import get_model
-from startagi.models.tool import Tool
-from startagi.models.tool_config import ToolConfig
-from startagi.models.agent import Agent
-from startagi.resource_manager.file_manager import FileManager
-from startagi.tools.base_tool import BaseToolkitConfiguration
-from startagi.tools.tool_response_query_manager import ToolResponseQueryManager
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
+from fastagi.config.config import get_config
+from fastagi.llms.llm_model_factory import get_model
+from fastagi.models.tool import Tool
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.agent import Agent
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.tools.base_tool import BaseToolkitConfiguration
+from fastagi.tools.tool_response_query_manager import ToolResponseQueryManager
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 
 class DBToolkitConfiguration(BaseToolkitConfiguration):
     session = None
@@ -25,7 +25,7 @@ class DBToolkitConfiguration(BaseToolkitConfiguration):
                 return decrypt_data(tool_config.value)
             else:
                 return tool_config.value
-        return start().get_tool_config(key=key)
+        return super().get_tool_config(key=key)
 
 class ToolBuilder:
     def __init__(self, session, agent_id: int, agent_execution_id: int = None):
@@ -60,7 +60,7 @@ class ToolBuilder:
         file_name = self.__validate_filename(filename=tool.file_name)
 
         tools_dir=""
-        tool_paths = ["startagi/tools", "startagi/tools/external_tools", "startagi/tools/marketplace_tools"]
+        tool_paths = ["fastagi/tools", "fastagi/tools/external_tools", "fastagi/tools/marketplace_tools"]
         for tool_path in tool_paths:
             if os.path.exists(os.path.join(os.getcwd(), tool_path) + '/' + tool.folder_name):
                 tools_dir = tool_path
@@ -68,7 +68,7 @@ class ToolBuilder:
         parsed_tools_dir = tools_dir.rstrip("/")
         module_name = ".".join(parsed_tools_dir.split("/") + [tool.folder_name, file_name])
 
-        # module_name = f"startagi.tools.{folder_name}.{file_name}"
+        # module_name = f"fastagi.tools.{folder_name}.{file_name}"
 
         # Load the module dynamically
         module = importlib.import_module(module_name)

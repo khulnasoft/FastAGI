@@ -5,9 +5,9 @@ from fastapi import HTTPException, Depends
 from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
-from startagi.helper.auth import get_user_organisation, validate_api_key
-from startagi.helper.auth import check_auth
-from startagi.models.api_key import ApiKey
+from fastagi.helper.auth import get_user_organisation, validate_api_key
+from fastagi.helper.auth import check_auth
+from fastagi.models.api_key import ApiKey
 from typing import Optional, Annotated
 
 router = APIRouter()

@@ -8,30 +8,30 @@ import ast
 
 from pytz import timezone
 from sqlalchemy import func, or_
-from startagi.models.agent import Agent
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_schedule import AgentSchedule
-from startagi.models.agent_template import AgentTemplate
-from startagi.models.project import Project
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.tool import Tool
-from startagi.controllers.types.agent_schedule import AgentScheduleInput
-from startagi.controllers.types.agent_with_config import AgentConfigInput
-from startagi.controllers.types.agent_with_config_schedule import AgentConfigSchedule
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_schedule import AgentSchedule
+from fastagi.models.agent_template import AgentTemplate
+from fastagi.models.project import Project
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.tool import Tool
+from fastagi.controllers.types.agent_schedule import AgentScheduleInput
+from fastagi.controllers.types.agent_with_config import AgentConfigInput
+from fastagi.controllers.types.agent_with_config_schedule import AgentConfigSchedule
 from jsonmerge import merge
 from datetime import datetime
 import json
 
-from startagi.models.toolkit import Toolkit
-from startagi.models.knowledges import Knowledges
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.knowledges import Knowledges
 
 from sqlalchemy import func
-# from startagi.types.db import AgentOut, AgentIn
-from startagi.helper.auth import check_auth
-from startagi.apm.event_handler import EventHandler
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
+# from fastagi.types.db import AgentOut, AgentIn
+from fastagi.helper.auth import check_auth
+from fastagi.apm.event_handler import EventHandler
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 
 router = APIRouter()
 

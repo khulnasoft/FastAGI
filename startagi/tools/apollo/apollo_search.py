@@ -4,8 +4,8 @@ from typing import Type
 import requests
 from pydantic import BaseModel, Field
 
-from startagi.lib.logger import logger
-from startagi.tools.base_tool import BaseTool
+from fastagi.lib.logger import logger
+from fastagi.tools.base_tool import BaseTool
 
 
 class ApolloSearchSchema(BaseModel):

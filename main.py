@@ -10,58 +10,58 @@ from pydantic import BaseModel
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-import startagi
+import fastagi
 from datetime import timedelta, datetime
-from startagi.agent.workflow_seed import IterationWorkflowSeed, AgentWorkflowSeed
-from startagi.config.config import get_config
-from startagi.controllers.agent import router as agent_router
-from startagi.controllers.agent_execution import router as agent_execution_router
-from startagi.controllers.agent_execution_feed import router as agent_execution_feed_router
-from startagi.controllers.agent_execution_permission import router as agent_execution_permission_router
-from startagi.controllers.agent_template import router as agent_template_router
-from startagi.controllers.agent_workflow import router as agent_workflow_router
-from startagi.controllers.budget import router as budget_router
-from startagi.controllers.config import router as config_router
-from startagi.controllers.organisation import router as organisation_router
-from startagi.controllers.project import router as project_router
-from startagi.controllers.twitter_oauth import router as twitter_oauth_router
-from startagi.controllers.google_oauth import router as google_oauth_router
-from startagi.controllers.resources import router as resources_router
-from startagi.controllers.tool import router as tool_router
-from startagi.controllers.tool_config import router as tool_config_router
-from startagi.controllers.toolkit import router as toolkit_router
-from startagi.controllers.user import router as user_router
-from startagi.controllers.agent_execution_config import router as agent_execution_config
-from startagi.controllers.analytics import router as analytics_router
-from startagi.controllers.models_controller import router as models_controller_router
-from startagi.controllers.knowledges import router as knowledges_router
-from startagi.controllers.knowledge_configs import router as knowledge_configs_router
-from startagi.controllers.vector_dbs import router as vector_dbs_router
-from startagi.controllers.vector_db_indices import router as vector_db_indices_router
-from startagi.controllers.marketplace_stats import router as marketplace_stats_router
-from startagi.controllers.api_key import router as api_key_router
-from startagi.controllers.api.agent import router as api_agent_router
-from startagi.controllers.webhook import router as web_hook_router
-from startagi.helper.tool_helper import register_toolkits, register_marketplace_toolkits
-from startagi.lib.logger import logger
-from startagi.llms.google_palm import GooglePalm
-from startagi.llms.llm_model_factory import build_model_with_api_key
-from startagi.llms.openai import OpenAi
-from startagi.llms.replicate import Replicate
-from startagi.llms.hugging_face import HuggingFace
-from startagi.models.agent_template import AgentTemplate
-from startagi.models.models_config import ModelsConfig
-from startagi.models.organisation import Organisation
-from startagi.models.types.login_request import LoginRequest
-from startagi.models.types.validate_llm_api_key_request import ValidateAPIKeyRequest
-from startagi.models.user import User
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from fastagi.agent.workflow_seed import IterationWorkflowSeed, AgentWorkflowSeed
+from fastagi.config.config import get_config
+from fastagi.controllers.agent import router as agent_router
+from fastagi.controllers.agent_execution import router as agent_execution_router
+from fastagi.controllers.agent_execution_feed import router as agent_execution_feed_router
+from fastagi.controllers.agent_execution_permission import router as agent_execution_permission_router
+from fastagi.controllers.agent_template import router as agent_template_router
+from fastagi.controllers.agent_workflow import router as agent_workflow_router
+from fastagi.controllers.budget import router as budget_router
+from fastagi.controllers.config import router as config_router
+from fastagi.controllers.organisation import router as organisation_router
+from fastagi.controllers.project import router as project_router
+from fastagi.controllers.twitter_oauth import router as twitter_oauth_router
+from fastagi.controllers.google_oauth import router as google_oauth_router
+from fastagi.controllers.resources import router as resources_router
+from fastagi.controllers.tool import router as tool_router
+from fastagi.controllers.tool_config import router as tool_config_router
+from fastagi.controllers.toolkit import router as toolkit_router
+from fastagi.controllers.user import router as user_router
+from fastagi.controllers.agent_execution_config import router as agent_execution_config
+from fastagi.controllers.analytics import router as analytics_router
+from fastagi.controllers.models_controller import router as models_controller_router
+from fastagi.controllers.knowledges import router as knowledges_router
+from fastagi.controllers.knowledge_configs import router as knowledge_configs_router
+from fastagi.controllers.vector_dbs import router as vector_dbs_router
+from fastagi.controllers.vector_db_indices import router as vector_db_indices_router
+from fastagi.controllers.marketplace_stats import router as marketplace_stats_router
+from fastagi.controllers.api_key import router as api_key_router
+from fastagi.controllers.api.agent import router as api_agent_router
+from fastagi.controllers.webhook import router as web_hook_router
+from fastagi.helper.tool_helper import register_toolkits, register_marketplace_toolkits
+from fastagi.lib.logger import logger
+from fastagi.llms.google_palm import GooglePalm
+from fastagi.llms.llm_model_factory import build_model_with_api_key
+from fastagi.llms.openai import OpenAi
+from fastagi.llms.replicate import Replicate
+from fastagi.llms.hugging_face import HuggingFace
+from fastagi.models.agent_template import AgentTemplate
+from fastagi.models.models_config import ModelsConfig
+from fastagi.models.organisation import Organisation
+from fastagi.models.types.login_request import LoginRequest
+from fastagi.models.types.validate_llm_api_key_request import ValidateAPIKeyRequest
+from fastagi.models.user import User
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
 from urllib.parse import urlparse
 app = FastAPI()
 
-db_host = get_config('DB_HOST', 'start__postgres')
+db_host = get_config('DB_HOST', 'super__postgres')
 db_url = get_config('DB_URL', None)
 db_username = get_config('DB_USERNAME')
 db_password = get_config('DB_PASSWORD')
@@ -140,11 +140,11 @@ app.include_router(web_hook_router,prefix="/webhook")
 # from pydantic to get secret key from .env
 class Settings(BaseModel):
     # jwt_secret = get_config("JWT_SECRET_KEY")
-    authjwt_secret_key: str = startagi.config.config.get_config("JWT_SECRET_KEY")
+    authjwt_secret_key: str = fastagi.config.config.get_config("JWT_SECRET_KEY")
 
 
 def create_access_token(email, Authorize: AuthJWT = Depends()):
-    expiry_time_hours = startagi.config.config.get_config("JWT_EXPIRY")
+    expiry_time_hours = fastagi.config.config.get_config("JWT_EXPIRY")
     if type(expiry_time_hours) == str:
         expiry_time_hours = int(expiry_time_hours)
     if expiry_time_hours is None:
@@ -197,7 +197,7 @@ async def startup_event():
     logger.info("Running Startup tasks")
     Session = sessionmaker(bind=engine)
     session = Session()
-    default_user = session.query(User).filter(User.email == "start6@agi.com").first()
+    default_user = session.query(User).filter(User.email == "super6@agi.com").first()
     logger.info(default_user)
     if default_user is not None:
         organisation = session.query(Organisation).filter_by(id=default_user.organisation_id).first()
@@ -211,7 +211,7 @@ async def startup_event():
         logger.info("Successfully registered local toolkits for all Organisations!")
 
     def register_toolkit_for_master_organisation():
-        marketplace_organisation_id = startagi.config.config.get_config("MARKETPLACE_ORGANISATION_ID")
+        marketplace_organisation_id = fastagi.config.config.get_config("MARKETPLACE_ORGANISATION_ID")
         marketplace_organisation = session.query(Organisation).filter(
             Organisation.id == marketplace_organisation_id).first()
         if marketplace_organisation is not None:
@@ -230,7 +230,7 @@ async def startup_event():
     AgentWorkflowSeed.build_coding_workflow(session)
 
     # NOTE: remove old workflows. Need to remove this changes later
-    workflows = ["Sales Engagement Workflow", "Recruitment Workflow", "StartCoder", "Goal Based Workflow",
+    workflows = ["Sales Engagement Workflow", "Recruitment Workflow", "SuperCoder", "Goal Based Workflow",
      "Dynamic Task Workflow", "Fixed Task Workflow"]
     workflows = session.query(AgentWorkflow).filter(AgentWorkflow.name.not_in(workflows))
     for workflow in workflows:
@@ -279,10 +279,10 @@ def github_auth_handler(code: str = Query(...), Authorize: AuthJWT = Depends()):
     """GitHub login callback"""
 
     github_token_url = 'https://github.com/login/oauth/access_token'
-    github_client_id = startagi.config.config.get_config("GITHUB_CLIENT_ID")
-    github_client_secret = startagi.config.config.get_config("GITHUB_CLIENT_SECRET")
+    github_client_id = fastagi.config.config.get_config("GITHUB_CLIENT_ID")
+    github_client_secret = fastagi.config.config.get_config("GITHUB_CLIENT_SECRET")
 
-    frontend_url = startagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
+    frontend_url = fastagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
     params = {
         'client_id': github_client_id,
         'client_secret': github_client_secret,
@@ -318,10 +318,10 @@ def github_auth_handler(code: str = Query(...), Authorize: AuthJWT = Depends()):
             redirect_url_success = f"{frontend_url}?access_token={jwt_token}&first_time_login={True}"
             return RedirectResponse(url=redirect_url_success)
         else:
-            redirect_url_failure = "https://startagi.khulnasoft.com/"
+            redirect_url_failure = "https://fastagi.com/"
             return RedirectResponse(url=redirect_url_failure)
     else:
-        redirect_url_failure = "https://startagi.khulnasoft.com/"
+        redirect_url_failure = "https://fastagi.com/"
         return RedirectResponse(url=redirect_url_failure)
 
 
@@ -381,7 +381,7 @@ async def say_hello(name: str, Authorize: AuthJWT = Depends()):
 def github_client_id():
     """Get GitHub Client ID"""
 
-    git_hub_client_id = startagi.config.config.get_config("GITHUB_CLIENT_ID")
+    git_hub_client_id = fastagi.config.config.get_config("GITHUB_CLIENT_ID")
     if git_hub_client_id:
         git_hub_client_id = git_hub_client_id.strip()
     return {"github_client_id": git_hub_client_id}

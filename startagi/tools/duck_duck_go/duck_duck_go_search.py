@@ -2,17 +2,17 @@ import json
 import requests
 from typing import Type, Optional,Union
 import time
-from startagi.helper.error_handler import ErrorHandler
-from startagi.lib.logger import logger
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.lib.logger import logger
 from pydantic import BaseModel, Field
 from duckduckgo_search import DDGS
 from itertools import islice
-from startagi.helper.token_counter import TokenCounter
-from startagi.llms.base_llm import BaseLlm
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.tools.base_tool import BaseTool
-from startagi.helper.webpage_extractor import WebpageExtractor
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.tools.base_tool import BaseTool
+from fastagi.helper.webpage_extractor import WebpageExtractor
 
 #Const variables
 DUCKDUCKGO_MAX_ATTEMPTS = 3

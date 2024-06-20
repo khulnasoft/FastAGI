@@ -3,11 +3,11 @@ import json
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.dialects.postgresql import JSONB
 
-from startagi.lib.logger import logger
-from startagi.models.base_model import DBBaseModel
-from startagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
-from startagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.lib.logger import logger
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
+from fastagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 
 
 class AgentWorkflowStep(DBBaseModel):

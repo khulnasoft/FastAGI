@@ -3,13 +3,13 @@ import json
 import requests
 from sqlalchemy import Column, Integer, String, Text
 
-from startagi.lib.logger import logger
-from startagi.models.agent_template_config import AgentTemplateConfig
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.base_model import DBBaseModel
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.lib.logger import logger
+from fastagi.models.agent_template_config import AgentTemplateConfig
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 
-marketplace_url = "https://app.startagi.khulnasoft.com/api/"
+marketplace_url = "https://app.fastagi.com/api/"
 # marketplace_url = "http://localhost:8001/"
 
 

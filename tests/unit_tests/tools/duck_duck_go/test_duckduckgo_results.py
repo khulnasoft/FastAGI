@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 import pytest
-from startagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
+from fastagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
 
 class TestDuckDuckGoSearchTool:
     def setup_method(self):
@@ -13,7 +13,7 @@ class TestDuckDuckGoSearchTool:
         result = self.your_obj.get_raw_duckduckgo_results(query)
         assert result == expected_result
 
-    @patch('startagi.tools.duck_duck_go.duck_duck_go_search.DuckDuckGoSearchTool.get_raw_duckduckgo_results')
+    @patch('fastagi.tools.duck_duck_go.duck_duck_go_search.DuckDuckGoSearchTool.get_raw_duckduckgo_results')
     def test_get_raw_duckduckgo_results_valid_query(self, mock_get_raw_duckduckgo_results):
         query = "python"
         expected_result_length = 10

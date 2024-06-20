@@ -1,15 +1,15 @@
 import pinecone
 from pinecone import UnauthorizedException
 
-from startagi.vector_store.pinecone import Pinecone
-from startagi.vector_store import weaviate
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.types.vector_store_types import VectorStoreType
-from startagi.vector_store import qdrant
-from startagi.vector_store.redis import Redis
-from startagi.vector_store.embedding.openai import OpenAiEmbedding
-from startagi.vector_store.qdrant import Qdrant
+from fastagi.vector_store.pinecone import Pinecone
+from fastagi.vector_store import weaviate
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.types.vector_store_types import VectorStoreType
+from fastagi.vector_store import qdrant
+from fastagi.vector_store.redis import Redis
+from fastagi.vector_store.embedding.openai import OpenAiEmbedding
+from fastagi.vector_store.qdrant import Qdrant
 
 
 class VectorFactory:
@@ -75,7 +75,7 @@ class VectorFactory:
             return qdrant.Qdrant(client, embedding_model, index_name)
         
         if vector_store == VectorStoreType.REDIS:
-            index_name = "start-agent-index1"
+            index_name = "super-agent-index1"
             redis = Redis(index_name, embedding_model)
             redis.create_index()
             return redis

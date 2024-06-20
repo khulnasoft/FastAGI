@@ -1,8 +1,8 @@
 from pydantic import ValidationError
 
-from startagi.agent.common_types import ToolExecutorResponse
-from startagi.apm.event_handler import EventHandler
-from startagi.lib.logger import logger
+from fastagi.agent.common_types import ToolExecutorResponse
+from fastagi.apm.event_handler import EventHandler
+from fastagi.lib.logger import logger
 
 
 class ToolExecutor:

@@ -2,8 +2,8 @@ from typing import Type
 
 from pydantic import Field, BaseModel
 
-from startagi.tools.base_tool import BaseTool
-from startagi.config.config import get_config
+from fastagi.tools.base_tool import BaseTool
+from fastagi.config.config import get_config
 from slack_sdk import WebClient
 
 

@@ -4,8 +4,8 @@ from typing import Dict, NamedTuple, List
 import re
 import ast
 import json
-from startagi.helper.json_cleaner import JsonCleaner
-from startagi.lib.logger import logger
+from fastagi.helper.json_cleaner import JsonCleaner
+from fastagi.lib.logger import logger
 
 
 class AgentGPTAction(NamedTuple):

@@ -5,8 +5,8 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 
 import weaviate
 from uuid import uuid4
-from startagi.vector_store.base import VectorStore
-from startagi.vector_store.document import Document
+from fastagi.vector_store.base import VectorStore
+from fastagi.vector_store.document import Document
 
 
 def create_weaviate_client(

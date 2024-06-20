@@ -4,12 +4,12 @@ import base64
 import requests
 from requests_oauthlib import OAuth1
 from requests_oauthlib import OAuth1Session
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.types.storage_types import StorageType
-from startagi.config.config import get_config
-from startagi.helper.s3_helper import S3Helper
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
+from fastagi.helper.s3_helper import S3Helper
 
 
 class TwitterHelper:

@@ -1,7 +1,7 @@
 from unittest.mock import MagicMock, patch
 import numpy as np
-from startagi.vector_store.document import Document
-from startagi.vector_store.redis import Redis
+from fastagi.vector_store.document import Document
+from fastagi.vector_store.redis import Redis
 
 
 def test_escape_token():

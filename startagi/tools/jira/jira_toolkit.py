@@ -1,12 +1,12 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.jira.create_issue import CreateIssueTool
-from startagi.tools.jira.edit_issue import EditIssueTool
-from startagi.tools.jira.get_projects import GetProjectsTool
-from startagi.tools.jira.search_issues import SearchJiraTool
-from startagi.types.key_type import ToolConfigKeyType
-from startagi.models.tool_config import ToolConfig
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.jira.create_issue import CreateIssueTool
+from fastagi.tools.jira.edit_issue import EditIssueTool
+from fastagi.tools.jira.get_projects import GetProjectsTool
+from fastagi.tools.jira.search_issues import SearchJiraTool
+from fastagi.types.key_type import ToolConfigKeyType
+from fastagi.models.tool_config import ToolConfig
 
 
 class JiraToolkit(BaseToolkit, ABC):

@@ -2,23 +2,23 @@ import json
 import urllib
 import boto3
 import os
-from startagi.config.config import get_config
-from startagi.helper.error_handler import ErrorHandler
-from startagi.helper.resource_helper import ResourceHelper
+from fastagi.config.config import get_config
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.helper.resource_helper import ResourceHelper
 from typing import Type, Optional
 from pydantic import BaseModel, Field
-from startagi.helper.token_counter import TokenCounter
-from startagi.llms.base_llm import BaseLlm
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.tools.base_tool import BaseTool
 import os
 import requests
-from startagi.tools.tool_response_query_manager import ToolResponseQueryManager
+from fastagi.tools.tool_response_query_manager import ToolResponseQueryManager
 import random
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.helper.s3_helper import S3Helper
-from startagi.types.storage_types import StorageType
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.types.storage_types import StorageType
 
 class InstagramSchema(BaseModel):
     photo_description: str = Field(

@@ -1,10 +1,10 @@
 from abc import ABC
 from typing import List
 
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.image_generation.dalle_image_gen import DalleImageGenTool
-from startagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.image_generation.dalle_image_gen import DalleImageGenTool
+from fastagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 class ImageGenToolkit(BaseToolkit, ABC):
     name: str = "Image Generation Toolkit"

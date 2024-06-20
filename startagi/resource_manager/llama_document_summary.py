@@ -3,7 +3,7 @@ import os
 from llama_index.indices.response import ResponseMode
 from llama_index.schema import Document
 
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 
 
 class LlamaDocumentSummary:

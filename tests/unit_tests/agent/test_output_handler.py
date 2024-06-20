@@ -1,16 +1,16 @@
 import pytest
 from unittest.mock import Mock, patch, MagicMock
 
-from startagi.agent.common_types import ToolExecutorResponse
-from startagi.agent.output_handler import ToolOutputHandler, TaskOutputHandler, ReplaceTaskOutputHandler
-from startagi.agent.output_parser import AgentSchemaOutputParser, AgentGPTAction
-from startagi.agent.task_queue import TaskQueue
-from startagi.agent.tool_executor import ToolExecutor
-from startagi.helper.json_cleaner import JsonCleaner
-from startagi.models.agent import Agent
-from startagi.models.agent_execution_permission import AgentExecutionPermission
+from fastagi.agent.common_types import ToolExecutorResponse
+from fastagi.agent.output_handler import ToolOutputHandler, TaskOutputHandler, ReplaceTaskOutputHandler
+from fastagi.agent.output_parser import AgentSchemaOutputParser, AgentGPTAction
+from fastagi.agent.task_queue import TaskQueue
+from fastagi.agent.tool_executor import ToolExecutor
+from fastagi.helper.json_cleaner import JsonCleaner
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution_permission import AgentExecutionPermission
 import numpy as np
-from startagi.agent.output_handler import ToolOutputHandler
+from fastagi.agent.output_handler import ToolOutputHandler
 
 
 # Test for ToolOutputHandler
@@ -45,7 +45,7 @@ def test_tool_output_handle(parse_mock, execute_mock, get_completed_tasks_mock, 
 
 
 
-@patch('startagi.agent.output_handler.TokenTextSplitter')
+@patch('fastagi.agent.output_handler.TokenTextSplitter')
 def test_add_text_to_memory(TokenTextSplitter_mock):
     # Arrange
     agent_execution_id = 1
@@ -72,7 +72,7 @@ def test_add_text_to_memory(TokenTextSplitter_mock):
     memory_mock.add_texts.assert_called_once_with(["This is a task.", "Task completed."], [{"agent_execution_id": agent_execution_id}, {"agent_execution_id": agent_execution_id}])  
 
 
-@patch('startagi.models.agent_execution_permission.AgentExecutionPermission')
+@patch('fastagi.models.agent_execution_permission.AgentExecutionPermission')
 def test_tool_handler_check_permission_in_restricted_mode(op_mock):
     # Mock the session
     session_mock = MagicMock()

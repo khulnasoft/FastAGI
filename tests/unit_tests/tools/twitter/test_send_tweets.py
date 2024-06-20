@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock, patch
-from startagi.tools.twitter.send_tweets import SendTweetsInput, SendTweetsTool
+from fastagi.tools.twitter.send_tweets import SendTweetsInput, SendTweetsTool
 
 
 class TestSendTweetsInput(unittest.TestCase):
@@ -14,9 +14,9 @@ class TestSendTweetsInput(unittest.TestCase):
 
 
 class TestSendTweetsTool(unittest.TestCase):
-    @patch('startagi.helper.twitter_tokens.TwitterTokens.get_twitter_creds', return_value={'token': '123', 'token_secret': '456'})
-    @patch('startagi.helper.twitter_helper.TwitterHelper.get_media_ids', return_value=[789])
-    @patch('startagi.helper.twitter_helper.TwitterHelper.send_tweets')
+    @patch('fastagi.helper.twitter_tokens.TwitterTokens.get_twitter_creds', return_value={'token': '123', 'token_secret': '456'})
+    @patch('fastagi.helper.twitter_helper.TwitterHelper.get_media_ids', return_value=[789])
+    @patch('fastagi.helper.twitter_helper.TwitterHelper.send_tweets')
     def test_execute(self, mock_send_tweets, mock_get_media_ids, mock_get_twitter_creds):
         # Mock the response from 'send_tweets'
         responseMock = MagicMock()

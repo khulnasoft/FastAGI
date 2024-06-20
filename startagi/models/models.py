@@ -2,13 +2,13 @@ import yaml
 from sqlalchemy import Column, Integer, String, and_
 from sqlalchemy.sql import func
 from typing import List, Dict, Union
-from startagi.models.base_model import DBBaseModel
-from startagi.controllers.types.models_types import ModelsTypes
-from startagi.helper.encyption_helper import decrypt_data
+from fastagi.models.base_model import DBBaseModel
+from fastagi.controllers.types.models_types import ModelsTypes
+from fastagi.helper.encyption_helper import decrypt_data
 import requests, logging
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
-marketplace_url = "https://app.startagi.khulnasoft.com/api"
+marketplace_url = "https://app.fastagi.com/api"
 # marketplace_url = "http://localhost:8001"
 
 
@@ -68,7 +68,7 @@ class Models(DBBaseModel):
 
     @classmethod
     def get_model_install_details(cls, session, marketplace_models, organisation_id, type=ModelsTypes.CUSTOM.value):
-        from startagi.models.models_config import ModelsConfig
+        from fastagi.models.models_config import ModelsConfig
         installed_models = session.query(Models).filter(Models.org_id == organisation_id).all()
         model_counts_dict = dict(
             session.query(Models.model_name, func.count(Models.org_id)).group_by(Models.model_name).all()
@@ -107,7 +107,7 @@ class Models(DBBaseModel):
 
     @classmethod
     def store_model_details(cls, session, organisation_id, model_name, description, end_point, model_provider_id, token_limit, type, version, context_length):
-        from startagi.models.models_config import ModelsConfig
+        from fastagi.models.models_config import ModelsConfig
         if not model_name:
             return {"error": "Model Name is empty or undefined"}
         if not description:
@@ -164,8 +164,8 @@ class Models(DBBaseModel):
     @classmethod
     def api_key_from_configurations(cls, session, organisation_id):
         try:
-            from startagi.models.models_config import ModelsConfig
-            from startagi.models.configuration import Configuration
+            from fastagi.models.models_config import ModelsConfig
+            from fastagi.models.configuration import Configuration
 
             model_provider = session.query(ModelsConfig).filter(ModelsConfig.provider == "OpenAI",
                                                                 ModelsConfig.org_id == organisation_id).first()
@@ -185,7 +185,7 @@ class Models(DBBaseModel):
     @classmethod
     def fetch_models(cls, session, organisation_id) -> Union[Dict[str, str], List[Dict[str, Union[str, int]]]]:
         try:
-            from startagi.models.models_config import ModelsConfig
+            from fastagi.models.models_config import ModelsConfig
             cls.api_key_from_configurations(session, organisation_id)
 
             models = session.query(Models.id, Models.model_name, Models.description, ModelsConfig.provider).join(
@@ -210,7 +210,7 @@ class Models(DBBaseModel):
     @classmethod
     def fetch_model_details(cls, session, organisation_id, model_id: int) -> Dict[str, Union[str, int]]:
         try:
-            from startagi.models.models_config import ModelsConfig
+            from fastagi.models.models_config import ModelsConfig
             model = session.query(
                 Models.id, Models.model_name, Models.description, Models.end_point, Models.token_limit, Models.type,
                 ModelsConfig.provider,

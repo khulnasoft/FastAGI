@@ -3,8 +3,8 @@ from typing import Type, Dict, List
 
 from pydantic import Field, BaseModel
 
-from startagi.helper.token_counter import TokenCounter
-from startagi.tools.jira.tool import JiraTool
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.tools.jira.tool import JiraTool
 
 
 class SearchIssueSchema(BaseModel):

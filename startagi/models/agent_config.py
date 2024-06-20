@@ -2,14 +2,14 @@ from fastapi import HTTPException
 from sqlalchemy import Column, Integer, Text, String
 from typing import Union
 
-from startagi.config.config import get_config
-from startagi.helper.encyption_helper import decrypt_data
-from startagi.models.base_model import DBBaseModel
-from startagi.models.configuration import Configuration
-from startagi.models.models_config import ModelsConfig
-from startagi.types.model_source_types import ModelSourceType
-from startagi.models.tool import Tool
-from startagi.controllers.types.agent_execution_config import AgentRunIn
+from fastagi.config.config import get_config
+from fastagi.helper.encyption_helper import decrypt_data
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.configuration import Configuration
+from fastagi.models.models_config import ModelsConfig
+from fastagi.types.model_source_types import ModelSourceType
+from fastagi.models.tool import Tool
+from fastagi.controllers.types.agent_execution_config import AgentRunIn
 
 
 class AgentConfiguration(DBBaseModel):

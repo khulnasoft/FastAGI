@@ -9,9 +9,9 @@ from qdrant_client.http import models
 from qdrant_client.conversions import common_types
 from qdrant_client.models import Distance, VectorParams
 
-from startagi.vector_store.base import VectorStore
-from startagi.vector_store.document import Document
-from startagi.config.config import get_config
+from fastagi.vector_store.base import VectorStore
+from fastagi.vector_store.document import Document
+from fastagi.config.config import get_config
 
 DictFilter = Dict[str, Union[str, int, bool, dict, list]]
 MetadataFilter = Union[DictFilter, common_types.Filter]

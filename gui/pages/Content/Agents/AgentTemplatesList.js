@@ -99,7 +99,7 @@ export default function AgentTemplatesList({
                                                      src="/images/arrow_outward.svg" alt="arrow-outward"/></div>
                   </div>
                   <div className={styles.tool_description}>
-                    StartAGI marketplace offers a large selection of templates to choose from, so you are sure to find
+                    FastAGI marketplace offers a large selection of templates to choose from, so you are sure to find
                     one that is right for you!
                   </div>
                 </div>

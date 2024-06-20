@@ -1,14 +1,14 @@
 from unittest.mock import patch, MagicMock
-from startagi.models.agent_template import AgentTemplate
-from startagi.models.agent_template_config import AgentTemplateConfig
+from fastagi.models.agent_template import AgentTemplate
+from fastagi.models.agent_template_config import AgentTemplateConfig
 from fastapi.testclient import TestClient
 from main import app
 
 client = TestClient(app)
 
-@patch('startagi.controllers.agent_template.db')
-@patch('startagi.helper.auth.db')
-@patch('startagi.helper.auth.get_user_organisation')
+@patch('fastagi.controllers.agent_template.db')
+@patch('fastagi.helper.auth.db')
+@patch('fastagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_success(mock_get_user_org, mock_auth_db, mock_db):
     # Create a mock agent template
     mock_agent_template = AgentTemplate(id=1, name="Test Agent Template", description="Test Description")
@@ -63,9 +63,9 @@ def test_edit_agent_template_success(mock_get_user_org, mock_auth_db, mock_db):
     session_mock.flush.assert_called()
 
 
-@patch('startagi.controllers.agent_template.db')
-@patch('startagi.helper.auth.db')
-@patch('startagi.helper.auth.get_user_organisation')
+@patch('fastagi.controllers.agent_template.db')
+@patch('fastagi.helper.auth.db')
+@patch('fastagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_failure(mock_get_user_org, mock_auth_db, mock_db):
     # Setup: The user organisation exists, but the agent template does not exist.
     mock_get_user_org.return_value = MagicMock(id=1)
@@ -87,9 +87,9 @@ def test_edit_agent_template_failure(mock_get_user_org, mock_auth_db, mock_db):
     session_mock.flush.assert_not_called()
 
 
-@patch('startagi.controllers.agent_template.db')
-@patch('startagi.helper.auth.db')
-@patch('startagi.helper.auth.get_user_organisation')
+@patch('fastagi.controllers.agent_template.db')
+@patch('fastagi.helper.auth.db')
+@patch('fastagi.helper.auth.get_user_organisation')
 def test_edit_agent_template_with_new_config_success(mock_get_user_org, mock_auth_db, mock_db):
     # Create a mock agent template
     mock_agent_template = AgentTemplate(id=1, name="Test Agent Template", description="Test Description")

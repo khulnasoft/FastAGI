@@ -3,7 +3,7 @@ from unittest.mock import patch, Mock
 import pytest_mock
 from pydantic import ValidationError
 
-from startagi.tools.github.review_pull_request import GithubReviewPullRequest
+from fastagi.tools.github.review_pull_request import GithubReviewPullRequest
 
 class MockLLM:
     def get_model(self):
@@ -64,9 +64,9 @@ class MockGithubHelper:
 
 # Your test case
 def test_execute():
-    with patch('startagi.tools.github.review_pull_request.GithubHelper', MockGithubHelper), \
-            patch('startagi.tools.github.review_pull_request.TokenCounter.count_message_tokens', return_value=3000), \
-            patch('startagi.tools.github.review_pull_request.Agent.find_org_by_agent_id', return_value=Mock()), \
+    with patch('fastagi.tools.github.review_pull_request.GithubHelper', MockGithubHelper), \
+            patch('fastagi.tools.github.review_pull_request.TokenCounter.count_message_tokens', return_value=3000), \
+            patch('fastagi.tools.github.review_pull_request.Agent.find_org_by_agent_id', return_value=Mock()), \
             patch.object(GithubReviewPullRequest, 'get_tool_config', return_value='mock_value'), \
             patch.object(GithubReviewPullRequest, 'run_code_review', return_value=None):
         # Replace 'your_module' with the actual module name

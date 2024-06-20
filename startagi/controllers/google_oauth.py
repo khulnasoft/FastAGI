@@ -6,18 +6,18 @@ from fastapi_sqlalchemy import db
 from sqlalchemy.orm import sessionmaker
 from fastapi import HTTPException
 
-import startagi
+import fastagi
 import json
 import requests
 from datetime import datetime, timedelta
-from startagi.models.db import connect_db
+from fastagi.models.db import connect_db
 import http.client as http_client
-from startagi.helper.auth import get_current_user, check_auth
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
-from startagi.models.oauth_tokens import OauthTokens
-from startagi.config.config import get_config
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
+from fastagi.helper.auth import get_current_user, check_auth
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.oauth_tokens import OauthTokens
+from fastagi.config.config import get_config
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 
 router = APIRouter()
 
@@ -40,7 +40,7 @@ async def google_auth_calendar(code: str = Query(...), state: str = Query(...)):
     if env == "DEV":
         redirect_uri = "http://localhost:3000/api/google/oauth-tokens"
     else:
-        redirect_uri = "https://app.startagi.khulnasoft.com/api/google/oauth-tokens"
+        redirect_uri = "https://app.fastagi.com/api/google/oauth-tokens"
     params = {
         'client_id': client_id,
         'client_secret': client_secret,
@@ -59,7 +59,7 @@ async def google_auth_calendar(code: str = Query(...), state: str = Query(...)):
     expire_time = expire_time - timedelta(minutes=5)
     response['expiry'] = expire_time.strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     response_data = json.dumps(response)
-    frontend_url = startagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
+    frontend_url = fastagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
     redirect_url_success = f"{frontend_url}/google_calendar_creds/?{response_data}"
     return RedirectResponse(url=redirect_url_success)
 

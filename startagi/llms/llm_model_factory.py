@@ -1,12 +1,12 @@
-from startagi.llms.google_palm import GooglePalm
-from startagi.llms.local_llm import LocalLLM
-from startagi.llms.openai import OpenAi
-from startagi.llms.replicate import Replicate
-from startagi.llms.hugging_face import HuggingFace
-from startagi.models.models_config import ModelsConfig
-from startagi.models.models import Models
+from fastagi.llms.google_palm import GooglePalm
+from fastagi.llms.local_llm import LocalLLM
+from fastagi.llms.openai import OpenAi
+from fastagi.llms.replicate import Replicate
+from fastagi.llms.hugging_face import HuggingFace
+from fastagi.models.models_config import ModelsConfig
+from fastagi.models.models import Models
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
+from fastagi.models.db import connect_db
 
 
 def get_model(organisation_id, api_key, model="gpt-3.5-turbo", **kwargs):

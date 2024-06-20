@@ -1,6 +1,6 @@
 import pytest
 
-from startagi.types.model_source_types import ModelSourceType
+from fastagi.types.model_source_types import ModelSourceType
 
 
 def test_get_model_source_type():

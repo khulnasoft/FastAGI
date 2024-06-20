@@ -3,12 +3,12 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.helper.s3_helper import S3Helper
-from startagi.tools.base_tool import BaseTool
-from startagi.models.agent import Agent
-from startagi.types.storage_types import StorageType
-from startagi.config.config import get_config
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.tools.base_tool import BaseTool
+from fastagi.models.agent import Agent
+from fastagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
 
 
 class ListFileInput(BaseModel):

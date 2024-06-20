@@ -1,15 +1,15 @@
 import pytest
 from unittest.mock import patch, MagicMock, ANY, PropertyMock
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.jobs.scheduling_executor import ScheduledAgentExecutor
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.jobs.scheduling_executor import ScheduledAgentExecutor
 from datetime import datetime
 
-@patch('startagi.worker.execute_agent.delay')
-@patch('startagi.jobs.scheduling_executor.Session')
-@patch('startagi.models.agent.Agent')
-@patch('startagi.jobs.scheduling_executor.AgentWorkflow')
-@patch('startagi.models.agent_execution.AgentExecution')
+@patch('fastagi.worker.execute_agent.delay')
+@patch('fastagi.jobs.scheduling_executor.Session')
+@patch('fastagi.models.agent.Agent')
+@patch('fastagi.jobs.scheduling_executor.AgentWorkflow')
+@patch('fastagi.models.agent_execution.AgentExecution')
 def test_execute_scheduled_agent(AgentExecutionMock, AgentWorkflowMock, AgentMock, SessionMock, execute_agent_delay_mock):
     # Arrange
     agent_id = 1

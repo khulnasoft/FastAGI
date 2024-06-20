@@ -3,10 +3,10 @@ from unittest.mock import patch, Mock
 from unittest import TestCase
 import requests
 import json
-from startagi.llms.hugging_face import HuggingFace
-from startagi.config.config import get_config
-from startagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
-from startagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
+from fastagi.llms.hugging_face import HuggingFace
+from fastagi.config.config import get_config
+from fastagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
+from fastagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
 
 
 class TestHuggingFace(TestCase):

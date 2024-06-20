@@ -1,7 +1,7 @@
 from unittest.mock import patch, Mock
 from llama_index import VectorStoreIndex, StorageContext, Document
-from startagi.resource_manager.resource_manager import ResourceManager
-from startagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
+from fastagi.resource_manager.resource_manager import ResourceManager
+from fastagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
 
 
 @patch.object(LlamaVectorStoreFactory, 'get_vector_store')

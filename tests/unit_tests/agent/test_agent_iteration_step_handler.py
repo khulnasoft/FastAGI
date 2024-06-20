@@ -2,29 +2,29 @@ from unittest.mock import Mock, patch, MagicMock
 
 import pytest
 
-from startagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
-from startagi.agent.agent_message_builder import AgentLlmMessageBuilder
-from startagi.agent.agent_prompt_builder import AgentPromptBuilder
-from startagi.agent.output_handler import ToolOutputHandler
-from startagi.agent.task_queue import TaskQueue
-from startagi.agent.tool_builder import ToolBuilder
-from startagi.config.config import get_config
-from startagi.helper.token_counter import TokenCounter
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.models.agent_execution_permission import AgentExecutionPermission
-from startagi.models.organisation import Organisation
-from startagi.models.tool import Tool
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
-from startagi.resource_manager.resource_summary import ResourceSummarizer
-from startagi.tools.code.write_code import CodingTool
-from startagi.tools.resource.query_resource import QueryResourceTool
-from startagi.tools.thinking.tools import ThinkingTool
+from fastagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
+from fastagi.agent.agent_message_builder import AgentLlmMessageBuilder
+from fastagi.agent.agent_prompt_builder import AgentPromptBuilder
+from fastagi.agent.output_handler import ToolOutputHandler
+from fastagi.agent.task_queue import TaskQueue
+from fastagi.agent.tool_builder import ToolBuilder
+from fastagi.config.config import get_config
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.models.agent_execution_permission import AgentExecutionPermission
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool import Tool
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from fastagi.resource_manager.resource_summary import ResourceSummarizer
+from fastagi.tools.code.write_code import CodingTool
+from fastagi.tools.resource.query_resource import QueryResourceTool
+from fastagi.tools.thinking.tools import ThinkingTool
 
 
 # Given
@@ -55,7 +55,7 @@ def test_build_agent_prompt(test_handler, mocker):
     mocker.patch.object(task_queue, 'get_tasks', return_value=[])
     mocker.patch.object(task_queue, 'get_completed_tasks', return_value=[])
     mocker.patch.object(TokenCounter, 'token_limit', return_value=1000)
-    mocker.patch('startagi.agent.agent_iteration_step_handler.get_config', return_value=600)
+    mocker.patch('fastagi.agent.agent_iteration_step_handler.get_config', return_value=600)
 
     # Act
     test_handler.task_queue = task_queue
@@ -83,7 +83,7 @@ def test_build_tools(test_handler, mocker):
     mocker.patch.object(ToolBuilder, 'build_tool')
     mocker.patch.object(ToolBuilder, 'set_default_params_tool', return_value=ThinkingTool())
     mocker.patch.object(ResourceSummarizer, 'fetch_or_create_agent_resource_summary', return_value=True)
-    mocker.patch('startagi.models.tool.Tool')
+    mocker.patch('fastagi.models.tool.Tool')
     test_handler.session.query.return_value.filter.return_value.all.return_value = [ThinkingTool()]
 
     # Act

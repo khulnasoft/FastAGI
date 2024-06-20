@@ -3,10 +3,10 @@ import requests
 
 from sqlalchemy import Column, Integer, String
 
-# from startagi.models import AgentConfiguration
-from startagi.models.base_model import DBBaseModel
+# from fastagi.models import AgentConfiguration
+from fastagi.models.base_model import DBBaseModel
 
-marketplace_url = "https://app.startagi.khulnasoft.com/api"
+marketplace_url = "https://app.fastagi.com/api"
 # marketplace_url = "http://localhost:8001"
 
 class Vectordbs(DBBaseModel):

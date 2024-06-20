@@ -5,7 +5,7 @@ from unittest.mock import patch, Mock
 import pytest
 from PIL import Image
 
-from startagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
+from fastagi.tools.image_generation.stable_diffusion_image_gen import StableDiffusionImageGenTool
 
 def mock_get_tool_config(key):
     configs = {
@@ -25,15 +25,15 @@ def create_sample_image_base64():
 
 @pytest.fixture
 def stable_diffusion_tool():
-    with patch('startagi.tools.image_generation.stable_diffusion_image_gen.requests.post') as post_mock, \
+    with patch('fastagi.tools.image_generation.stable_diffusion_image_gen.requests.post') as post_mock, \
             patch(
-                'startagi.tools.image_generation.stable_diffusion_image_gen.FileManager') as resource_manager_mock, \
+                'fastagi.tools.image_generation.stable_diffusion_image_gen.FileManager') as resource_manager_mock, \
                 patch(
-                'startagi.tools.image_generation.stable_diffusion_image_gen.ResourceHelper') as resource_helper_mock, \
+                'fastagi.tools.image_generation.stable_diffusion_image_gen.ResourceHelper') as resource_helper_mock, \
                     patch(
-                        'startagi.tools.image_generation.stable_diffusion_image_gen.Agent') as agent_mock, \
+                        'fastagi.tools.image_generation.stable_diffusion_image_gen.Agent') as agent_mock, \
                         patch(
-                        'startagi.tools.image_generation.stable_diffusion_image_gen.AgentExecution') as agent_execution_mock:
+                        'fastagi.tools.image_generation.stable_diffusion_image_gen.AgentExecution') as agent_execution_mock:
 
         # Create a mock response object
         response_mock = Mock()

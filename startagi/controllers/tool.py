@@ -6,10 +6,10 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-from startagi.helper.auth import check_auth, get_user_organisation
-from startagi.models.organisation import Organisation
-from startagi.models.tool import Tool
-from startagi.models.toolkit import Toolkit
+from fastagi.helper.auth import check_auth, get_user_organisation
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool import Tool
+from fastagi.models.toolkit import Toolkit
 
 router = APIRouter()
 

@@ -6,13 +6,13 @@ from fastapi import HTTPException, Depends, Body
 from fastapi_jwt_auth import AuthJWT
 from pydantic import BaseModel
 
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_permission import AgentExecutionPermission
-from startagi.worker import execute_agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_permission import AgentExecutionPermission
+from fastagi.worker import execute_agent
 from fastapi import APIRouter
 
-from startagi.helper.auth import check_auth
-# from startagi.types.db import AgentExecutionPermissionOut, AgentExecutionPermissionIn
+from fastagi.helper.auth import check_auth
+# from fastagi.types.db import AgentExecutionPermissionOut, AgentExecutionPermissionIn
 
 router = APIRouter()
 

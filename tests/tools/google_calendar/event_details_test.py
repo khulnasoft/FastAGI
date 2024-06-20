@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import MagicMock, patch
 from pydantic import ValidationError
-from startagi.tools.google_calendar.event_details_calendar import EventDetailsCalendarInput, EventDetailsCalendarTool
-from startagi.helper.google_calendar_creds import GoogleCalendarCreds
+from fastagi.tools.google_calendar.event_details_calendar import EventDetailsCalendarInput, EventDetailsCalendarTool
+from fastagi.helper.google_calendar_creds import GoogleCalendarCreds
 
 class TestEventDetailsCalendarInput(unittest.TestCase):
     def test_invalid_input(self):

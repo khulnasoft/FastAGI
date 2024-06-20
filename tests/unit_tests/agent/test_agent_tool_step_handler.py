@@ -3,21 +3,21 @@ from unittest.mock import Mock, create_autospec, patch
 
 import pytest
 
-from startagi.agent.agent_tool_step_handler import AgentToolStepHandler
-from startagi.agent.common_types import ToolExecutorResponse
-from startagi.agent.output_handler import ToolOutputHandler
-from startagi.agent.tool_builder import ToolBuilder
-from startagi.helper.token_counter import TokenCounter
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent_execution_permission import AgentExecutionPermission
-from startagi.models.tool import Tool
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
-from startagi.resource_manager.resource_summary import ResourceSummarizer
-from startagi.tools.code.write_code import CodingTool
+from fastagi.agent.agent_tool_step_handler import AgentToolStepHandler
+from fastagi.agent.common_types import ToolExecutorResponse
+from fastagi.agent.output_handler import ToolOutputHandler
+from fastagi.agent.tool_builder import ToolBuilder
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_execution_permission import AgentExecutionPermission
+from fastagi.models.tool import Tool
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
+from fastagi.resource_manager.resource_summary import ResourceSummarizer
+from fastagi.tools.code.write_code import CodingTool
 
 
 # Given
@@ -42,7 +42,7 @@ def test_create_permission_request(handler):
     handler.session.flush = Mock()
 
     mock_permission = create_autospec(AgentExecutionPermission)
-    with patch('startagi.agent.agent_tool_step_handler.AgentExecutionPermission', return_value=mock_permission) as mock_cls:
+    with patch('fastagi.agent.agent_tool_step_handler.AgentExecutionPermission', return_value=mock_permission) as mock_cls:
         # Act
         handler._create_permission_request(execution, step_tool)
 
@@ -88,7 +88,7 @@ def test_execute_step(handler):
         tool_output_handler = Mock(spec=ToolOutputHandler)
         tool_output_handler.handle.return_value = ToolExecutorResponse(status="SUCCESS", output="final_response")
 
-        with patch('startagi.agent.agent_tool_step_handler.ToolOutputHandler', return_value=tool_output_handler):
+        with patch('fastagi.agent.agent_tool_step_handler.ToolOutputHandler', return_value=tool_output_handler):
             # Act
             handler.execute_step()
 
@@ -187,8 +187,8 @@ def test_build_tool_input_prompt(handler):
     agent_execution_config = {"goal": ["Goal1", "Goal2"]}
     mock_prompt = "{goals}{tool_name}{instruction}{tool_schema}"
 
-    with patch('startagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
-            patch('startagi.agent.agent_tool_step_handler.AgentPromptBuilder.add_list_items_to_string', return_value="Goal1, Goal2"):
+    with patch('fastagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
+            patch('fastagi.agent.agent_tool_step_handler.AgentPromptBuilder.add_list_items_to_string', return_value="Goal1, Goal2"):
         # Act
         result = handler._build_tool_input_prompt(step_tool, tool, agent_execution_config)
 
@@ -213,7 +213,7 @@ def test_build_tool_output_prompt(handler):
     mock_prompt = "{tool_output}{tool_name}{instruction}{output_options}"
     step_responses = ["option1", "option2", "default"]
 
-    with patch('startagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
+    with patch('fastagi.agent.agent_tool_step_handler.PromptReader.read_agent_prompt', return_value=mock_prompt), \
             patch.object(handler, '_get_step_responses', return_value=step_responses):
         # Act
         result = handler._build_tool_output_prompt(step_tool, tool_output, workflow_step)

@@ -1,11 +1,11 @@
 from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends, Query
 from fastapi import APIRouter
-from startagi.helper.auth import get_user_organisation
-from startagi.models.vector_dbs import Vectordbs
-from startagi.models.vector_db_indices import VectordbIndices
-from startagi.models.knowledges import Knowledges
-from startagi.models.knowledge_configs import KnowledgeConfigs
+from fastagi.helper.auth import get_user_organisation
+from fastagi.models.vector_dbs import Vectordbs
+from fastagi.models.vector_db_indices import VectordbIndices
+from fastagi.models.knowledges import Knowledges
+from fastagi.models.knowledge_configs import KnowledgeConfigs
 
 router = APIRouter()
 

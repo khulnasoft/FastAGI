@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 from sqlalchemy.orm import Session
-from startagi.models.marketplace_stats import MarketPlaceStats
+from fastagi.models.marketplace_stats import MarketPlaceStats
 
 class TestMarketPlaceStats(unittest.TestCase):
 

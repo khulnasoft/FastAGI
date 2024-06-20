@@ -1,10 +1,10 @@
 import base64
 from typing import Any, Type
 from pydantic import BaseModel, Field
-from startagi.tools.base_tool import BaseTool
+from fastagi.tools.base_tool import BaseTool
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
-from startagi.helper.google_calendar_creds import GoogleCalendarCreds
+from fastagi.models.db import connect_db
+from fastagi.helper.google_calendar_creds import GoogleCalendarCreds
 
 class DeleteCalendarEventInput(BaseModel):
     event_id: str = Field(..., description="The id of event to be deleted from Google Calendar. default value is None")

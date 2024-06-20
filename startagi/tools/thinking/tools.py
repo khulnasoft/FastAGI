@@ -2,15 +2,15 @@ from typing import Type, Optional, List
 
 from pydantic import BaseModel, Field
 
-from startagi.agent.agent_prompt_builder import AgentPromptBuilder
-from startagi.helper.error_handler import ErrorHandler
-from startagi.helper.prompt_reader import PromptReader
-from startagi.lib.logger import logger
-from startagi.llms.base_llm import BaseLlm
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.tools.base_tool import BaseTool
-from startagi.tools.tool_response_query_manager import ToolResponseQueryManager
+from fastagi.agent.agent_prompt_builder import AgentPromptBuilder
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.helper.prompt_reader import PromptReader
+from fastagi.lib.logger import logger
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.tools.base_tool import BaseTool
+from fastagi.tools.tool_response_query_manager import ToolResponseQueryManager
 
 
 class ThinkingSchema(BaseModel):

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, MagicMock, call
-from startagi.models.vector_db_indices import VectordbIndices
+from fastagi.models.vector_db_indices import VectordbIndices
 
 class TestVectordbIndices(unittest.TestCase):
     def setUp(self):

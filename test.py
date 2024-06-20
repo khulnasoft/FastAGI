@@ -1,17 +1,17 @@
 import argparse
 from datetime import datetime
 from time import time
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 from sqlalchemy.orm import sessionmaker
 
-from startagi.worker import execute_agent
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.db import connect_db
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
+from fastagi.worker import execute_agent
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.db import connect_db
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
 
 parser = argparse.ArgumentParser(description='Create a new agent.')
 parser.add_argument('--name', type=str, help='Agent name for the script.')
@@ -38,7 +38,7 @@ def ask_user_for_goals():
     return goals
 
 
-def run_startagi_cli(agent_name=None, agent_description=None, agent_goals=None):
+def run_fastagi_cli(agent_name=None, agent_description=None, agent_goals=None):
     # Create default organization
     organization = Organisation(name='Default Organization', description='Default organization description')
     session.add(organization)
@@ -106,4 +106,4 @@ def run_startagi_cli(agent_name=None, agent_description=None, agent_goals=None):
     execute_agent.delay(execution.id, datetime.now())
 
 
-run_startagi_cli(agent_name=agent_name, agent_description=agent_description, agent_goals=agent_goals)
+run_fastagi_cli(agent_name=agent_name, agent_description=agent_description, agent_goals=agent_goals)

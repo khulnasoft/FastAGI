@@ -1,7 +1,7 @@
 import unittest
 
-from startagi.tools.searx.searx import SearxSearchTool
-from startagi.tools.searx.searx_toolkit import SearxSearchToolkit
+from fastagi.tools.searx.searx import SearxSearchTool
+from fastagi.tools.searx.searx_toolkit import SearxSearchToolkit
 
 
 class TestSearxSearchToolkit(unittest.TestCase):

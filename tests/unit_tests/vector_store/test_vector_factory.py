@@ -1,10 +1,10 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from startagi.types.vector_store_types import VectorStoreType
-from startagi.vector_store.pinecone import Pinecone
-from startagi.vector_store.weaviate import Weaviate
-from startagi.vector_store.qdrant import Qdrant
-from startagi.vector_store.vector_factory import VectorFactory
+from fastagi.types.vector_store_types import VectorStoreType
+from fastagi.vector_store.pinecone import Pinecone
+from fastagi.vector_store.weaviate import Weaviate
+from fastagi.vector_store.qdrant import Qdrant
+from fastagi.vector_store.vector_factory import VectorFactory
 import pinecone
 import weaviate
 
@@ -23,10 +23,10 @@ class MockQdrant(Qdrant):
 
 class TestVectorFactory(unittest.TestCase):
 
-    @patch('startagi.vector_store.vector_factory.get_config')
-    @patch('startagi.vector_store.vector_factory.pinecone')
-    @patch('startagi.vector_store.vector_factory.weaviate')
-    @patch('startagi.vector_store.vector_factory.Qdrant')
+    @patch('fastagi.vector_store.vector_factory.get_config')
+    @patch('fastagi.vector_store.vector_factory.pinecone')
+    @patch('fastagi.vector_store.vector_factory.weaviate')
+    @patch('fastagi.vector_store.vector_factory.Qdrant')
     def test_get_vector_storage(self, mock_qdrant, mock_weaviate, mock_pinecone, mock_get_config):
         mock_get_config.return_value = 'test'
         mock_embedding_model = MagicMock()

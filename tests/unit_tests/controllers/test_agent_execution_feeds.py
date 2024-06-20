@@ -4,9 +4,9 @@ from fastapi.testclient import TestClient
 from fastapi import HTTPException
 from main import app
 from fastapi_sqlalchemy import db
-from startagi.controllers.agent_execution_feed import get_agent_execution_feed
+from fastagi.controllers.agent_execution_feed import get_agent_execution_feed
 
-@patch('startagi.controllers.agent_execution_feed.db')
+@patch('fastagi.controllers.agent_execution_feed.db')
 def test_get_agent_execution_feed(mock_query):
     mock_session = create_autospec(pytest.Session)
     

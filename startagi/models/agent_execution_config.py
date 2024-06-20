@@ -1,13 +1,13 @@
 from sqlalchemy import Column, Integer, String, Text
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 import ast
 import json
-from startagi.models.knowledges import Knowledges
+from fastagi.models.knowledges import Knowledges
 
-from startagi.models.tool import Tool
-from startagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.tool import Tool
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
 
 
 class AgentExecutionConfiguration(DBBaseModel):

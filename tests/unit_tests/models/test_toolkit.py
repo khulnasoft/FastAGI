@@ -2,9 +2,9 @@ from unittest.mock import MagicMock, patch, call,create_autospec,Mock
 
 import pytest
 
-from startagi.models.organisation import Organisation
-from startagi.models.toolkit import Toolkit
-from startagi.models.tool import Tool
+from fastagi.models.organisation import Organisation
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.tool import Tool
 from sqlalchemy.orm import Session
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def mock_session(mock_tool):
     return session
 
 # marketplace_url = "http://localhost:8001"
-marketplace_url = "https://app.startagi.khulnasoft.com/api"
+marketplace_url = "https://app.fastagi.com/api"
 
 
 def test_add_or_update_existing_toolkit(mock_session):

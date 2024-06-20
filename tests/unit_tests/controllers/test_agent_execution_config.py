@@ -4,10 +4,10 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
 
 client = TestClient(app)
 
@@ -22,7 +22,7 @@ def mocks():
 
 
 def test_get_agent_execution_configuration_not_found_failure():
-    with patch('startagi.controllers.agent_execution_config.db') as mock_db:
+    with patch('fastagi.controllers.agent_execution_config.db') as mock_db:
         mock_db.session.query.return_value.filter.return_value.all.return_value = []
         mock_db.session.query.return_value.filter.return_value.first.return_value = None
         response = client.get("/agent_executions_configs/details/agent_id/1/agent_execution_id/1")
@@ -32,7 +32,7 @@ def test_get_agent_execution_configuration_not_found_failure():
 
 
 def test_get_agent_execution_configuration_success(mocks):
-    with patch('startagi.controllers.agent_execution_config.db') as mock_db:
+    with patch('fastagi.controllers.agent_execution_config.db') as mock_db:
         mock_agent, mock_agent_config, mock_execution, mock_execution_config = mocks
 
         # Configure the mock objects to return the mock values
@@ -42,7 +42,7 @@ def test_get_agent_execution_configuration_success(mocks):
         mock_db.session.query.return_value.filter.return_value.all.return_value = mock_execution_config
 
         # Mock the AgentExecution.get_agent_execution_from_id method to return the mock_execution object
-        with patch('startagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id') as mock_get_exec:
+        with patch('fastagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id') as mock_get_exec:
             mock_get_exec.return_value = mock_execution
 
             response = client.get("/agent_executions_configs/details/agent_id/1/agent_execution_id/1")

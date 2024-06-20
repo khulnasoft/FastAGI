@@ -1,9 +1,9 @@
 from unittest.mock import patch, MagicMock
 
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.resource import Resource
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.resource import Resource
 
 
 def test_make_written_file_resource(mocker):
@@ -11,12 +11,12 @@ def test_make_written_file_resource(mocker):
     mocker.patch('os.makedirs', return_value=None)
     mocker.patch('os.path.getsize', return_value=1000)
     mocker.patch('os.path.splitext', return_value=("", ".txt"))
-    mocker.patch('startagi.helper.resource_helper.get_config', side_effect=['FILE', '/', '/', 'FILE'])
+    mocker.patch('fastagi.helper.resource_helper.get_config', side_effect=['FILE', '/', '/', 'FILE'])
     mock_agent = Agent(id=1, name='TestAgent')
     mock_agent_execution = AgentExecution(id=1, name='TestExecution')
     session = MagicMock()
 
-    with patch('startagi.helper.resource_helper.logger') as logger_mock:
+    with patch('fastagi.helper.resource_helper.logger') as logger_mock:
         session.query.return_value.filter_by.return_value.first.return_value = None
         # Create a Resource object
         resource = Resource(
@@ -45,7 +45,7 @@ def test_make_written_file_resource(mocker):
 
 def test_get_resource_path(mocker):
     mocker.patch('os.getcwd', return_value='/')
-    mocker.patch('startagi.helper.resource_helper.get_config', side_effect=['/'])
+    mocker.patch('fastagi.helper.resource_helper.get_config', side_effect=['/'])
 
     result = ResourceHelper.get_resource_path('test.txt')
 
@@ -55,7 +55,7 @@ def test_get_resource_path(mocker):
 def test_get_agent_resource_path(mocker):
     mocker.patch('os.getcwd', return_value='/')
     mocker.patch('os.makedirs')
-    mocker.patch('startagi.helper.resource_helper.get_config', side_effect=['/'])
+    mocker.patch('fastagi.helper.resource_helper.get_config', side_effect=['/'])
     mock_agent = Agent(id=1, name='TestAgent')
     mock_agent_execution = AgentExecution(id=1, name='TestExecution')
     result = ResourceHelper.get_agent_write_resource_path('test.txt', mock_agent, mock_agent_execution)

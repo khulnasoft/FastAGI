@@ -1,13 +1,13 @@
 import pytest
 from unittest.mock import patch, MagicMock, call
-from startagi.helper.agent_schedule_helper import AgentScheduleHelper
-from startagi.models.agent_schedule import AgentSchedule
+from fastagi.helper.agent_schedule_helper import AgentScheduleHelper
+from fastagi.models.agent_schedule import AgentSchedule
 from datetime import datetime, timedelta
 
-@patch('startagi.helper.agent_schedule_helper.parse_interval_to_seconds')
-@patch('startagi.models.agent_schedule.AgentSchedule')
-@patch('startagi.helper.agent_schedule_helper.Session')
-@patch('startagi.helper.agent_schedule_helper.datetime')
+@patch('fastagi.helper.agent_schedule_helper.parse_interval_to_seconds')
+@patch('fastagi.models.agent_schedule.AgentSchedule')
+@patch('fastagi.helper.agent_schedule_helper.Session')
+@patch('fastagi.helper.agent_schedule_helper.datetime')
 def test_update_next_scheduled_time(mock_datetime, mock_session, mock_agent_schedule, mock_parse_interval_to_seconds):
     
     mock_datetime.now.return_value = datetime(2022, 1, 1, 10, 0)
@@ -38,14 +38,14 @@ def test_update_next_scheduled_time(mock_datetime, mock_session, mock_agent_sche
     assert mock_agent.status == 'SCHEDULED'
 
 
-@patch('startagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__create_execution_name_for_scheduling')
-@patch('startagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__should_execute_agent')
-@patch('startagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__can_remove_agent')
-@patch('startagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__execute_schedule')
-@patch('startagi.helper.agent_schedule_helper.parse_interval_to_seconds')
-@patch('startagi.helper.agent_schedule_helper.AgentSchedule')
-@patch('startagi.helper.agent_schedule_helper.Session')
-@patch('startagi.helper.agent_schedule_helper.datetime')
+@patch('fastagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__create_execution_name_for_scheduling')
+@patch('fastagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__should_execute_agent')
+@patch('fastagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__can_remove_agent')
+@patch('fastagi.helper.agent_schedule_helper.AgentScheduleHelper._AgentScheduleHelper__execute_schedule')
+@patch('fastagi.helper.agent_schedule_helper.parse_interval_to_seconds')
+@patch('fastagi.helper.agent_schedule_helper.AgentSchedule')
+@patch('fastagi.helper.agent_schedule_helper.Session')
+@patch('fastagi.helper.agent_schedule_helper.datetime')
 def test_run_scheduled_agents(
     mock_datetime, 
     mock_session, 

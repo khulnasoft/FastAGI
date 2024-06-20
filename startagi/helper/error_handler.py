@@ -1,5 +1,5 @@
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
 
 class ErrorHandler:
 

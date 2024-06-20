@@ -2,8 +2,8 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
 
 
 @pytest.fixture

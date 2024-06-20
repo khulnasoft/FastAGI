@@ -4,7 +4,7 @@ import inspect
 
 class CustomLogRecord(logging.LogRecord):
     def __init__(self, *args, **kwargs):
-        start().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
         frame = inspect.currentframe().f_back
         while frame:
@@ -25,13 +25,13 @@ class SingletonMeta(type):
 
     def __call__(cls, *args, **kwargs):
         if cls not in cls._instances:
-            instance = start().__call__(*args, **kwargs)
+            instance = super().__call__(*args, **kwargs)
             cls._instances[cls] = instance
         return cls._instances[cls]
 
 
 class Logger(metaclass=SingletonMeta):
-    def __init__(self, logger_name='Start AGI', log_level=logging.DEBUG):
+    def __init__(self, logger_name='Super AGI', log_level=logging.DEBUG):
         if not hasattr(self, 'logger'):
             self.logger = logging.getLogger(logger_name)
             self.logger.setLevel(log_level)
@@ -76,4 +76,4 @@ class Logger(metaclass=SingletonMeta):
             self.logger.critical(*args)
 
 
-logger = Logger('Start AGI')
+logger = Logger('Super AGI')

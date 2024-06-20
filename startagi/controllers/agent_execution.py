@@ -6,25 +6,25 @@ from fastapi import HTTPException, Depends
 from fastapi_jwt_auth import AuthJWT
 from pydantic import BaseModel
 from pydantic.fields import List
-from startagi.controllers.types.agent_execution_config import AgentRunIn
+from fastagi.controllers.types.agent_execution_config import AgentRunIn
 
-from startagi.helper.time_helper import get_time_difference
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.agent_schedule import AgentSchedule
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.worker import execute_agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent import Agent
-from startagi.models.models import Models
+from fastagi.helper.time_helper import get_time_difference
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.agent_schedule import AgentSchedule
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.worker import execute_agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent import Agent
+from fastagi.models.models import Models
 from fastapi import APIRouter
 from sqlalchemy import desc
-from startagi.helper.auth import check_auth
-from startagi.controllers.types.agent_schedule import AgentScheduleInput
-from startagi.apm.event_handler import EventHandler
-from startagi.controllers.tool import ToolOut
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.knowledges import Knowledges
+from fastagi.helper.auth import check_auth
+from fastagi.controllers.types.agent_schedule import AgentScheduleInput
+from fastagi.apm.event_handler import EventHandler
+from fastagi.controllers.tool import ToolOut
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.knowledges import Knowledges
 
 router = APIRouter()
 

@@ -1,9 +1,9 @@
 from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends, Query, status
 from fastapi import APIRouter
-from startagi.config.config import get_config
-from startagi.helper.auth import check_auth
-from startagi.models.knowledge_configs import KnowledgeConfigs
+from fastagi.config.config import get_config
+from fastagi.helper.auth import check_auth
+from fastagi.models.knowledge_configs import KnowledgeConfigs
 from fastapi_jwt_auth import AuthJWT
 
 router = APIRouter()

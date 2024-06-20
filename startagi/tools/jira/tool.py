@@ -4,8 +4,8 @@ import requests
 from typing import List, Type
 from pydantic import BaseModel, Field
 
-from startagi.config.config import get_config
-from startagi.tools.base_tool import BaseTool
+from fastagi.config.config import get_config
+from fastagi.tools.base_tool import BaseTool
 from jira import JIRA
 
 class JiraIssueSchema(BaseModel):

@@ -6,9 +6,9 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-# from startagi.types.db import AgentOut, AgentIn
-from startagi.helper.auth import check_auth, get_user_organisation
-from startagi.models.webhooks import Webhooks
+# from fastagi.types.db import AgentOut, AgentIn
+from fastagi.helper.auth import check_auth, get_user_organisation
+from fastagi.models.webhooks import Webhooks
 
 router = APIRouter()
 

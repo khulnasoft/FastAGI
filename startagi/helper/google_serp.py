@@ -3,8 +3,8 @@ from typing import Any, List
 
 import aiohttp
 
-from startagi.config.config import get_config
-from startagi.helper.webpage_extractor import WebpageExtractor
+from fastagi.config.config import get_config
+from fastagi.helper.webpage_extractor import WebpageExtractor
 
 
 class GoogleSerpApiWrap:

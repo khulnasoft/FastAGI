@@ -1,17 +1,17 @@
 from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, Body
-from startagi.helper.auth import check_auth, get_user_organisation
-from startagi.helper.models_helper import ModelsHelper
-from startagi.apm.call_log_helper import CallLogHelper
-from startagi.lib.logger import logger
-from startagi.models.models import Models
-from startagi.models.models_config import ModelsConfig
-from startagi.config.config import get_config
-from startagi.controllers.types.models_types import ModelsTypes
+from fastagi.helper.auth import check_auth, get_user_organisation
+from fastagi.helper.models_helper import ModelsHelper
+from fastagi.apm.call_log_helper import CallLogHelper
+from fastagi.lib.logger import logger
+from fastagi.models.models import Models
+from fastagi.models.models_config import ModelsConfig
+from fastagi.config.config import get_config
+from fastagi.controllers.types.models_types import ModelsTypes
 from fastapi_sqlalchemy import db
 import logging
 from pydantic import BaseModel
-from startagi.helper.llm_loader import LLMLoader
+from fastagi.helper.llm_loader import LLMLoader
 
 router = APIRouter()
 

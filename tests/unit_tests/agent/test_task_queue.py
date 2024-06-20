@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from startagi.agent.task_queue import TaskQueue
+from fastagi.agent.task_queue import TaskQueue
 
 
 class TaskQueueTests(unittest.TestCase):

@@ -1,7 +1,7 @@
 from llama_index.vector_stores.types import VectorStore
 
-from startagi.config.config import get_config
-from startagi.types.vector_store_types import VectorStoreType
+from fastagi.config.config import get_config
+from fastagi.types.vector_store_types import VectorStoreType
 
 
 class LlamaVectorStoreFactory:
@@ -28,7 +28,7 @@ class LlamaVectorStoreFactory:
             return PineconeVectorStore(self.index_name)
 
         if self.vector_store_name == VectorStoreType.REDIS:
-            redis_url = get_config("REDIS_VECTOR_STORE_URL") or "redis://start__redis:6379"
+            redis_url = get_config("REDIS_VECTOR_STORE_URL") or "redis://super__redis:6379"
             from llama_index.vector_stores import RedisVectorStore
             return RedisVectorStore(
                 index_name=self.index_name,

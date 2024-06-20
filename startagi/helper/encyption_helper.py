@@ -1,8 +1,8 @@
 import base64
 
 from cryptography.fernet import Fernet, InvalidToken, InvalidSignature
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
 # Generate a key
 # key = Fernet.generate_key()
 

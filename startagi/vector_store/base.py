@@ -1,7 +1,7 @@
 import warnings
 from abc import ABC, abstractmethod
 from typing import Any, Iterable, List, Optional, Tuple
-from startagi.vector_store.document import Document
+from fastagi.vector_store.document import Document
 
 
 class VectorStore(ABC):

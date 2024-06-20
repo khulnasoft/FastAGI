@@ -2,7 +2,7 @@ from unittest.mock import Mock
 
 import pytest
 
-from startagi.tools.code.write_spec import WriteSpecTool
+from fastagi.tools.code.write_spec import WriteSpecTool
 from unittest.mock import MagicMock
 
 

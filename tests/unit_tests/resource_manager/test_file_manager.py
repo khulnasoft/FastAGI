@@ -1,11 +1,11 @@
 import pytest
 from unittest.mock import Mock, patch
-from startagi.models.resource import Resource
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.helper.s3_helper import S3Helper
-from startagi.lib.logger import logger
+from fastagi.models.resource import Resource
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.lib.logger import logger
 
-from startagi.resource_manager.file_manager import FileManager
+from fastagi.resource_manager.file_manager import FileManager
 
 @pytest.fixture
 def resource_manager():

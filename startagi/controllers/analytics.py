@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
-from startagi.helper.auth import check_auth, get_user_organisation
-from startagi.apm.analytics_helper import AnalyticsHelper
-from startagi.apm.event_handler import EventHandler
-from startagi.apm.tools_handler import ToolsHandler
-from startagi.apm.knowledge_handler import KnowledgeHandler
+from fastagi.helper.auth import check_auth, get_user_organisation
+from fastagi.apm.analytics_helper import AnalyticsHelper
+from fastagi.apm.event_handler import EventHandler
+from fastagi.apm.tools_handler import ToolsHandler
+from fastagi.apm.knowledge_handler import KnowledgeHandler
 from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 import logging

@@ -3,8 +3,8 @@ import json
 import boto3
 from fastapi import HTTPException
 
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
 from urllib.parse import unquote
 import json
 

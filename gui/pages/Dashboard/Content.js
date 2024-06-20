@@ -5,8 +5,8 @@ import AddKnowledge from '../Content/Knowledge/AddKnowledge';
 import KnowledgeDetails from '../Content/Knowledge/KnowledgeDetails';
 import AgentWorkspace from '../Content/Agents/AgentWorkspace';
 import AgentCreate from '../Content/Agents/AgentCreate';
-import ToolkitWorkspace from '../Content/Toolkits/ToolkitWorkspace';
-import Toolkits from '../Content/Toolkits/Toolkits';
+import ToolkitWorkspace from '../Content/./Toolkits/ToolkitWorkspace';
+import Toolkits from '../Content/./Toolkits/Toolkits';
 import Settings from "./Settings/Settings";
 import styles from './Dashboard.module.css';
 import ApmDashboard from "../Content/APM/ApmDashboard";
@@ -309,7 +309,7 @@ export default function Content({env, selectedView, selectedProjectId, organisat
   }
 
   const openGithubRepo = () => {
-    window.open('https://github.com/KhulnaSoft/StartAGI', '_blank');
+    window.open('https://github.com/KhulnaSoft/FastAGI', '_blank');
     localStorage.setItem('repo_starred', 'starred');
     setStarModal(false);
   };

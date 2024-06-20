@@ -6,20 +6,20 @@ from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
 from main import get_config
-from startagi.controllers.types.agent_execution_config import AgentRunIn
-from startagi.controllers.types.agent_publish_config import AgentPublish
-from startagi.helper.auth import get_user_organisation
-from startagi.helper.auth import get_current_user
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent_template import AgentTemplate
-from startagi.models.agent_template_config import AgentTemplateConfig
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.tool import Tool
+from fastagi.controllers.types.agent_execution_config import AgentRunIn
+from fastagi.controllers.types.agent_publish_config import AgentPublish
+from fastagi.helper.auth import get_user_organisation
+from fastagi.helper.auth import get_current_user
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_template import AgentTemplate
+from fastagi.models.agent_template_config import AgentTemplateConfig
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.tool import Tool
 import json
-# from startagi.types.db import AgentTemplateIn, AgentTemplateOut
+# from fastagi.types.db import AgentTemplateIn, AgentTemplateOut
 
 router = APIRouter()
 

@@ -1,8 +1,8 @@
 from unittest.mock import Mock
 from unittest.mock import patch
 
-from startagi.agent.agent_prompt_builder import AgentPromptBuilder
-from startagi.tools.base_tool import BaseTool
+from fastagi.agent.agent_prompt_builder import AgentPromptBuilder
+from fastagi.tools.base_tool import BaseTool
 
 
 def test_add_list_items_to_string():
@@ -17,10 +17,10 @@ def test_clean_prompt():
     assert result == 'some text with extra spaces'
 
 
-@patch('startagi.agent.agent_prompt_builder.AgentPromptBuilder.add_list_items_to_string')
-@patch('startagi.agent.agent_prompt_builder.AgentPromptBuilder.add_tools_to_prompt')
+@patch('fastagi.agent.agent_prompt_builder.AgentPromptBuilder.add_list_items_to_string')
+@patch('fastagi.agent.agent_prompt_builder.AgentPromptBuilder.add_tools_to_prompt')
 def test_replace_main_variables(mock_add_tools_to_prompt, mock_add_list_items_to_string):
-    start_agi_prompt = "{goals} {instructions} {task_instructions} {constraints} {tools}"
+    super_agi_prompt = "{goals} {instructions} {task_instructions} {constraints} {tools}"
     goals = ['goal1', 'goal2']
     instructions = ['instruction1']
     constraints = ['constraint1']
@@ -30,16 +30,16 @@ def test_replace_main_variables(mock_add_tools_to_prompt, mock_add_list_items_to
     mock_add_list_items_to_string.side_effect = lambda x: ', '.join(x)
     mock_add_tools_to_prompt.return_value = 'tools_str'
 
-    result = AgentPromptBuilder.replace_main_variables(start_agi_prompt, goals, instructions, constraints, tools)
+    result = AgentPromptBuilder.replace_main_variables(super_agi_prompt, goals, instructions, constraints, tools)
 
     assert 'goal1, goal2 INSTRUCTION' in result
     assert 'instruction1' in result
     assert 'constraint1' in result
 
 
-@patch('startagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
+@patch('fastagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
 def test_replace_task_based_variables(mock_count_message_tokens):
-    start_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
+    super_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
     current_task = "task1"
     last_task = "task2"
     last_task_result = "result1"
@@ -50,7 +50,7 @@ def test_replace_task_based_variables(mock_count_message_tokens):
     # Mocking
     mock_count_message_tokens.return_value = 50
 
-    result = AgentPromptBuilder.replace_task_based_variables(start_agi_prompt, current_task, last_task, last_task_result,
+    result = AgentPromptBuilder.replace_task_based_variables(super_agi_prompt, current_task, last_task, last_task_result,
                                                              pending_tasks, completed_tasks, token_limit)
 
     expected_result = f"{current_task} {last_task} {last_task_result} {str(pending_tasks)} {str([x['task'] for x in completed_tasks])} \nTask: {completed_tasks[-1]['task']}\nResult: {completed_tasks[-1]['response']}\nTask: {completed_tasks[-2]['task']}\nResult: {completed_tasks[-2]['response']}\n"
@@ -58,9 +58,9 @@ def test_replace_task_based_variables(mock_count_message_tokens):
     assert result == expected_result
 
 
-@patch('startagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
+@patch('fastagi.agent.agent_prompt_builder.TokenCounter.count_message_tokens')
 def test_replace_task_based_variables(mock_count_message_tokens):
-    start_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
+    super_agi_prompt = "{current_task} {last_task} {last_task_result} {pending_tasks} {completed_tasks} {task_history}"
     current_task = "task1"
     last_task = "task2"
     last_task_result = "result1"
@@ -71,7 +71,7 @@ def test_replace_task_based_variables(mock_count_message_tokens):
     # Mocking
     mock_count_message_tokens.return_value = 50
 
-    result = AgentPromptBuilder.replace_task_based_variables(start_agi_prompt, current_task, last_task, last_task_result,
+    result = AgentPromptBuilder.replace_task_based_variables(super_agi_prompt, current_task, last_task, last_task_result,
                                                              pending_tasks, completed_tasks, token_limit)
 
     # expected_result = f"{current_task} {last_task} {last_task_result} {str(pending_tasks)} {str([x['task'] for x in reversed(completed_tasks)])} \nTask: {completed_tasks[-1]['task']}\nResult: {completed_tasks[-1]['response']}\nTask: {completed_tasks[-2]['task']}\nResult: {completed_tasks[-2]['response']}\n"

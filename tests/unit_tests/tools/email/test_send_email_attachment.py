@@ -1,20 +1,20 @@
 # import unittest
 # from unittest.mock import patch, MagicMock, ANY
-# from startagi.models.agent import Agent
+# from fastagi.models.agent import Agent
 # import os
-# from startagi.tools.email.send_email_attachment import SendEmailAttachmentTool, SendEmailAttachmentInput
+# from fastagi.tools.email.send_email_attachment import SendEmailAttachmentTool, SendEmailAttachmentInput
 # import tempfile
 
 # class TestSendEmailAttachmentTool(unittest.TestCase):
 #     # Create a new class-level test file
 #     testFile = tempfile.NamedTemporaryFile(delete=True)
 
-#     @patch("startagi.models.agent.Agent.get_agent_from_id")
-#     @patch("startagi.tools.email.send_email_attachment.SendEmailAttachmentTool.send_email_with_attachment")
-#     @patch("startagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path")
-#     @patch("startagi.helper.resource_helper.ResourceHelper.get_root_input_dir")
+#     @patch("fastagi.models.agent.Agent.get_agent_from_id")
+#     @patch("fastagi.tools.email.send_email_attachment.SendEmailAttachmentTool.send_email_with_attachment")
+#     @patch("fastagi.helper.resource_helper.ResourceHelper.get_agent_read_resource_path")
+#     @patch("fastagi.helper.resource_helper.ResourceHelper.get_root_input_dir")
 #     @patch("os.path.exists", return_value=os.path.exists(testFile.name))
-#     @patch("startagi.helper.s3_helper.S3Helper.read_binary_from_s3")
+#     @patch("fastagi.helper.s3_helper.S3Helper.read_binary_from_s3")
 #     def test__execute(self, mock_s3_file_read, mock_exists, mock_get_root_input_dir, mock_get_agent_resource_path,
 #                       mock_send_email_with_attachment, mock_get_agent_from_id):
 

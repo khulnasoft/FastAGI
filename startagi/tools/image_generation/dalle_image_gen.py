@@ -3,12 +3,12 @@ from typing import Type, Optional
 import requests
 from pydantic import BaseModel, Field
 
-from startagi.image_llms.openai_dalle import OpenAiDalle
-from startagi.llms.base_llm import BaseLlm
-from startagi.resource_manager.file_manager import FileManager
-from startagi.models.toolkit import Toolkit
-from startagi.models.configuration import Configuration
-from startagi.tools.base_tool import BaseTool
+from fastagi.image_llms.openai_dalle import OpenAiDalle
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.configuration import Configuration
+from fastagi.tools.base_tool import BaseTool
 
 class DalleImageGenInput(BaseModel):
     prompt: str = Field(..., description="Prompt for Image Generation to be used by Dalle.")

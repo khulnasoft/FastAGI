@@ -1,34 +1,34 @@
 from datetime import datetime, timedelta
 
 from sqlalchemy.orm import sessionmaker
-from startagi.llms.local_llm import LocalLLM
+from fastagi.llms.local_llm import LocalLLM
 
-import startagi.worker
-from startagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
-from startagi.agent.agent_tool_step_handler import AgentToolStepHandler
-from startagi.agent.agent_workflow_step_wait_handler import AgentWaitStepHandler
-from startagi.agent.types.wait_step_status import AgentWorkflowStepWaitStatus
-from startagi.apm.event_handler import EventHandler
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.llms.google_palm import GooglePalm
-from startagi.llms.hugging_face import HuggingFace
-from startagi.llms.llm_model_factory import get_model
-from startagi.llms.replicate import Replicate
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.db import connect_db
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
-from startagi.types.vector_store_types import VectorStoreType
-from startagi.vector_store.embedding.openai import OpenAiEmbedding
-from startagi.vector_store.vector_factory import VectorFactory
-from startagi.worker import execute_agent
-from startagi.agent.types.agent_workflow_step_action_types import AgentWorkflowStepAction
-from startagi.agent.types.agent_execution_status import AgentExecutionStatus
+import fastagi.worker
+from fastagi.agent.agent_iteration_step_handler import AgentIterationStepHandler
+from fastagi.agent.agent_tool_step_handler import AgentToolStepHandler
+from fastagi.agent.agent_workflow_step_wait_handler import AgentWaitStepHandler
+from fastagi.agent.types.wait_step_status import AgentWorkflowStepWaitStatus
+from fastagi.apm.event_handler import EventHandler
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.llms.google_palm import GooglePalm
+from fastagi.llms.hugging_face import HuggingFace
+from fastagi.llms.llm_model_factory import get_model
+from fastagi.llms.replicate import Replicate
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.db import connect_db
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
+from fastagi.types.vector_store_types import VectorStoreType
+from fastagi.vector_store.embedding.openai import OpenAiEmbedding
+from fastagi.vector_store.vector_factory import VectorFactory
+from fastagi.worker import execute_agent
+from fastagi.agent.types.agent_workflow_step_action_types import AgentWorkflowStepAction
+from fastagi.agent.types.agent_execution_status import AgentExecutionStatus
 
-# from startagi.helper.tool_helper import get_tool_config_by_key
+# from fastagi.helper.tool_helper import get_tool_config_by_key
 
 engine = connect_db()
 Session = sessionmaker(bind=engine)
@@ -73,7 +73,7 @@ class AgentExecutor:
                 memory = None
                 if "OpenAI" in model_llm_source:
                     vector_store_type = VectorStoreType.get_vector_store_type(get_config("LTM_DB", "Redis"))
-                    memory = VectorFactory.get_vector_storage(vector_store_type, "start-agent-index1",
+                    memory = VectorFactory.get_vector_storage(vector_store_type, "super-agent-index1",
                                                               AgentExecutor.get_embedding(model_llm_source,
                                                                                           model_api_key))
             except Exception as e:
@@ -88,7 +88,7 @@ class AgentExecutor:
 
             except Exception as e:
                 logger.info("Exception in executing the step: {}".format(e))
-                startagi.worker.execute_agent.apply_async((agent_execution_id, datetime.now()), countdown=15)
+                fastagi.worker.execute_agent.apply_async((agent_execution_id, datetime.now()), countdown=15)
                 return
 
             agent_execution = session.query(AgentExecution).filter(AgentExecution.id == agent_execution_id).first()
@@ -96,8 +96,8 @@ class AgentExecutor:
                 logger.info("Agent Execution is completed or waiting for permission")
                 session.close()
                 return
-            startagi.worker.execute_agent.apply_async((agent_execution_id, datetime.now()), countdown=2)
-            # startagi.worker.execute_agent.delay(agent_execution_id, datetime.now())
+            fastagi.worker.execute_agent.apply_async((agent_execution_id, datetime.now()), countdown=2)
+            # fastagi.worker.execute_agent.delay(agent_execution_id, datetime.now())
         finally:
             session.close()
             engine.dispose()

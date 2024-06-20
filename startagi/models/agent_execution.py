@@ -3,9 +3,9 @@ from datetime import datetime
 
 from sqlalchemy import Column, Integer, String, DateTime
 
-from startagi.models.base_model import DBBaseModel
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 
 
 class AgentExecution(DBBaseModel):
@@ -198,8 +198,8 @@ class AgentExecution(DBBaseModel):
 
     @classmethod
     def validate_run_ids(cls, session, run_ids: list, organisation_id: int):
-        from startagi.models.agent import Agent
-        from startagi.models.project import Project
+        from fastagi.models.agent import Agent
+        from fastagi.models.project import Project
 
         run_ids=list(set(run_ids))
         agent_ids=session.query(AgentExecution.agent_id).filter(AgentExecution.id.in_(run_ids)).distinct().all()

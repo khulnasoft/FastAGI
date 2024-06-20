@@ -3,8 +3,8 @@ import re
 
 from pydantic.types import List
 
-from startagi.helper.token_counter import TokenCounter
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.tools.base_tool import BaseTool
 
 FINISH_NAME = "finish"
 
@@ -63,42 +63,42 @@ class AgentPromptBuilder:
         return prompt.strip()
 
     @classmethod
-    def replace_main_variables(cls, start_agi_prompt: str, goals: List[str], instructions: List[str], constraints: List[str],
+    def replace_main_variables(cls, super_agi_prompt: str, goals: List[str], instructions: List[str], constraints: List[str],
                                tools: List[BaseTool], add_finish_tool: bool = True):
-        """Replace the main variables in the start agi prompt.
+        """Replace the main variables in the super agi prompt.
 
         Args:
-            start_agi_prompt (str): The start agi prompt.
+            super_agi_prompt (str): The super agi prompt.
             goals (List[str]): The list of goals.
             instructions (List[str]): The list of instructions.
             constraints (List[str]): The list of constraints.
             tools (List[BaseTool]): The list of tools.
             add_finish_tool (bool): Whether to add finish tool or not.
         """
-        start_agi_prompt = start_agi_prompt.replace("{goals}", AgentPromptBuilder.add_list_items_to_string(goals))
+        super_agi_prompt = super_agi_prompt.replace("{goals}", AgentPromptBuilder.add_list_items_to_string(goals))
         if len(instructions) > 0 and len(instructions[0]) > 0:
             task_str = "INSTRUCTION(Follow these instruction to decide the flow of execution and decide the next steps for achieving the task):"
-            start_agi_prompt = start_agi_prompt.replace("{instructions}", "INSTRUCTION: " + '\n' +  AgentPromptBuilder.add_list_items_to_string(instructions))
-            start_agi_prompt = start_agi_prompt.replace("{task_instructions}", task_str + '\n' +  AgentPromptBuilder.add_list_items_to_string(instructions))
+            super_agi_prompt = super_agi_prompt.replace("{instructions}", "INSTRUCTION: " + '\n' +  AgentPromptBuilder.add_list_items_to_string(instructions))
+            super_agi_prompt = super_agi_prompt.replace("{task_instructions}", task_str + '\n' +  AgentPromptBuilder.add_list_items_to_string(instructions))
         else:
-            start_agi_prompt = start_agi_prompt.replace("{instructions}", '')
-        start_agi_prompt = start_agi_prompt.replace("{task_instructions}", "")
-        start_agi_prompt = start_agi_prompt.replace("{constraints}",
+            super_agi_prompt = super_agi_prompt.replace("{instructions}", '')
+        super_agi_prompt = super_agi_prompt.replace("{task_instructions}", "")
+        super_agi_prompt = super_agi_prompt.replace("{constraints}",
                                                     AgentPromptBuilder.add_list_items_to_string(constraints))
 
 
         # logger.info(tools)
         tools_string = AgentPromptBuilder.add_tools_to_prompt(tools, add_finish_tool)
-        start_agi_prompt = start_agi_prompt.replace("{tools}", tools_string)
-        return start_agi_prompt
+        super_agi_prompt = super_agi_prompt.replace("{tools}", tools_string)
+        return super_agi_prompt
 
     @classmethod
-    def replace_task_based_variables(cls, start_agi_prompt: str, current_task: str, last_task: str,
+    def replace_task_based_variables(cls, super_agi_prompt: str, current_task: str, last_task: str,
                                      last_task_result: str, pending_tasks: List[str], completed_tasks: list, token_limit: int):
-        """Replace the task based variables in the start agi prompt.
+        """Replace the task based variables in the super agi prompt.
 
         Args:
-            start_agi_prompt (str): The start agi prompt.
+            super_agi_prompt (str): The super agi prompt.
             current_task (str): The current task.
             last_task (str): The last task.
             last_task_result (str): The last task result.
@@ -106,31 +106,31 @@ class AgentPromptBuilder:
             completed_tasks (list): The list of completed tasks.
             token_limit (int): The token limit.
         """
-        if "{current_task}" in start_agi_prompt:
-            start_agi_prompt = start_agi_prompt.replace("{current_task}", current_task)
-        if "{last_task}" in start_agi_prompt:
-            start_agi_prompt = start_agi_prompt.replace("{last_task}", last_task)
-        if "{last_task_result}" in start_agi_prompt:
-            start_agi_prompt = start_agi_prompt.replace("{last_task_result}", last_task_result)
-        if "{pending_tasks}" in start_agi_prompt:
-            start_agi_prompt = start_agi_prompt.replace("{pending_tasks}", str(pending_tasks))
+        if "{current_task}" in super_agi_prompt:
+            super_agi_prompt = super_agi_prompt.replace("{current_task}", current_task)
+        if "{last_task}" in super_agi_prompt:
+            super_agi_prompt = super_agi_prompt.replace("{last_task}", last_task)
+        if "{last_task_result}" in super_agi_prompt:
+            super_agi_prompt = super_agi_prompt.replace("{last_task_result}", last_task_result)
+        if "{pending_tasks}" in super_agi_prompt:
+            super_agi_prompt = super_agi_prompt.replace("{pending_tasks}", str(pending_tasks))
 
         completed_tasks.reverse()
-        if "{completed_tasks}" in start_agi_prompt:
+        if "{completed_tasks}" in super_agi_prompt:
             completed_tasks_arr = []
             for task in completed_tasks:
                 completed_tasks_arr.append(task['task'])
-            start_agi_prompt = start_agi_prompt.replace("{completed_tasks}", str(completed_tasks_arr))
+            super_agi_prompt = super_agi_prompt.replace("{completed_tasks}", str(completed_tasks_arr))
 
-        base_token_limit = TokenCounter.count_message_tokens([{"role": "user", "content": start_agi_prompt}])
+        base_token_limit = TokenCounter.count_message_tokens([{"role": "user", "content": super_agi_prompt}])
         pending_tokens = token_limit - base_token_limit
         final_output = ""
-        if "{task_history}" in start_agi_prompt:
+        if "{task_history}" in super_agi_prompt:
             for task in reversed(completed_tasks[-10:]):
                 final_output = f"Task: {task['task']}\nResult: {task['response']}\n" + final_output
                 token_count = TokenCounter.count_message_tokens([{"role": "user", "content": final_output}])
                 # giving buffer of 100 tokens
                 if token_count > min(600, pending_tokens):
                     break
-            start_agi_prompt = start_agi_prompt.replace("{task_history}", "\n" + final_output + "\n")
-        return start_agi_prompt
+            super_agi_prompt = super_agi_prompt.replace("{task_history}", "\n" + final_output + "\n")
+        return super_agi_prompt

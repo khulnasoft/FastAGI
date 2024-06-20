@@ -5,11 +5,11 @@ from typing import Type, Optional
 import requests
 from PIL import Image
 from pydantic import BaseModel, Field
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.resource_manager.file_manager import FileManager
-from startagi.tools.base_tool import BaseTool
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent import Agent
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.tools.base_tool import BaseTool
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent import Agent
 
 
 class StableDiffusionImageGenInput(BaseModel):

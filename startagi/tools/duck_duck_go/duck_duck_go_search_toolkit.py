@@ -1,9 +1,9 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
-from startagi.types.key_type import ToolConfigKeyType
-from startagi.models.tool_config import ToolConfig
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
+from fastagi.types.key_type import ToolConfigKeyType
+from fastagi.models.tool_config import ToolConfig
 
 class DuckDuckGoToolkit(BaseToolkit, ABC):
     name: str = "DuckDuckGo Search Toolkit"

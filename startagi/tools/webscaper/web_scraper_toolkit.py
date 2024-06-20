@@ -1,8 +1,8 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.webscaper.tools import WebScraperTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.webscaper.tools import WebScraperTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 class WebScrapperToolkit(BaseToolkit, ABC):
     name: str = "Web Scrapper Toolkit"

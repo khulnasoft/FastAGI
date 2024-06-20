@@ -6,18 +6,18 @@ from bs4 import BeautifulSoup
 
 from pydantic import BaseModel, Field
 from ebooklib import epub
-from startagi.helper.validate_csv import correct_csv_encoding
+from fastagi.helper.validate_csv import correct_csv_encoding
 
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.helper.s3_helper import S3Helper
-from startagi.models.agent_execution import AgentExecution
-from startagi.resource_manager.file_manager import FileManager
-from startagi.tools.base_tool import BaseTool
-from startagi.models.agent import Agent
-from startagi.types.storage_types import StorageType
-from startagi.config.config import get_config
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.tools.base_tool import BaseTool
+from fastagi.models.agent import Agent
+from fastagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
 from unstructured.partition.auto import partition
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 class ReadFileSchema(BaseModel):
     """Input for CopyFileTool."""

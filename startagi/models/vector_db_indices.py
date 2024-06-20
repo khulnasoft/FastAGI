@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from sqlalchemy import Column, Integer, String
 
-# from startagi.models import AgentConfiguration
-from startagi.models.base_model import DBBaseModel
+# from fastagi.models import AgentConfiguration
+from fastagi.models.base_model import DBBaseModel
 
 
 class VectordbIndices(DBBaseModel):

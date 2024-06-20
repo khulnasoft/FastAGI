@@ -4,11 +4,11 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from startagi.models.organisation import Organisation
-from startagi.models.tool import Tool
-from startagi.models.tool_config import ToolConfig
-from startagi.types.key_type import ToolConfigKeyType
-from startagi.models.toolkit import Toolkit
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool import Tool
+from fastagi.models.tool_config import ToolConfig
+from fastagi.types.key_type import ToolConfigKeyType
+from fastagi.models.toolkit import Toolkit
 
 client = TestClient(app)
 
@@ -110,10 +110,10 @@ def test_handle_marketplace_operations_list(mocks):
     user_organisation, user_toolkits, tools, toolkit_1, toolkit_2, tool_1, tool_2, tool_3 = mocks
 
     # Mock the database session and query functions
-    with patch('startagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('startagi.controllers.toolkit.db') as mock_db, \
-            patch('startagi.models.toolkit.Toolkit.fetch_marketplace_list') as mock_fetch_marketplace_list, \
-            patch('startagi.helper.auth.db') as mock_auth_db:
+    with patch('fastagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('fastagi.controllers.toolkit.db') as mock_db, \
+            patch('fastagi.models.toolkit.Toolkit.fetch_marketplace_list') as mock_fetch_marketplace_list, \
+            patch('fastagi.helper.auth.db') as mock_auth_db:
         # Set up mock data
         mock_db.session.query.return_value.filter.return_value.all.side_effect = [user_toolkits]
         mock_fetch_marketplace_list.return_value = [toolkit_1.to_dict(), toolkit_2.to_dict()]
@@ -145,13 +145,13 @@ def test_handle_marketplace_operations_list(mocks):
 
 def test_install_toolkit_from_marketplace(mock_toolkit_details):
     # Mock the database session and query functions
-    with patch('startagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('startagi.models.toolkit.Toolkit.fetch_marketplace_detail') as mock_fetch_marketplace_detail, \
-            patch('startagi.models.toolkit.Toolkit.add_or_update') as mock_add_or_update, \
-            patch('startagi.models.tool.Tool.add_or_update') as mock_tool_add_or_update, \
-            patch('startagi.controllers.toolkit.db') as mock_db, \
-            patch('startagi.helper.auth.db') as mock_auth_db, \
-            patch('startagi.models.tool_config.ToolConfig.add_or_update') as mock_tool_config_add_or_update:
+    with patch('fastagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('fastagi.models.toolkit.Toolkit.fetch_marketplace_detail') as mock_fetch_marketplace_detail, \
+            patch('fastagi.models.toolkit.Toolkit.add_or_update') as mock_add_or_update, \
+            patch('fastagi.models.tool.Tool.add_or_update') as mock_tool_add_or_update, \
+            patch('fastagi.controllers.toolkit.db') as mock_db, \
+            patch('fastagi.helper.auth.db') as mock_auth_db, \
+            patch('fastagi.models.tool_config.ToolConfig.add_or_update') as mock_tool_config_add_or_update:
         # Set up mock data and behavior
         mock_get_user_org.return_value = Organisation(id=1)
         mock_fetch_marketplace_detail.return_value = mock_toolkit_details

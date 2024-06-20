@@ -3,9 +3,9 @@ from openai import APIError, InvalidRequestError
 from openai.error import RateLimitError, AuthenticationError, Timeout, TryAgain
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_random_exponential
 
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.llms.base_llm import BaseLlm
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.llms.base_llm import BaseLlm
 
 MAX_RETRY_ATTEMPTS = 5
 MIN_WAIT = 30 # Seconds

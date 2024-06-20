@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from startagi.controllers.types.agent_schedule import AgentScheduleInput
+from fastagi.controllers.types.agent_schedule import AgentScheduleInput
 
 class AgentConfigInput(BaseModel):
     name: str

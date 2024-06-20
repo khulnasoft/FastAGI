@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import Mock, patch
 
-from startagi.agent.tool_builder import ToolBuilder
-from startagi.models.tool import Tool
+from fastagi.agent.tool_builder import ToolBuilder
+from fastagi.models.tool import Tool
 
 
 @pytest.fixture
@@ -33,8 +33,8 @@ def agent_config():
 def agent_execution_config():
     return {"goal": "Test Goal", "instruction": "Test Instruction"}
 
-@patch('startagi.agent.tool_builder.importlib.import_module')
-@patch('startagi.agent.tool_builder.getattr')
+@patch('fastagi.agent.tool_builder.importlib.import_module')
+@patch('fastagi.agent.tool_builder.getattr')
 def test_build_tool(mock_getattr, mock_import_module, tool_builder, tool):
     mock_module = Mock()
     mock_class = Mock()

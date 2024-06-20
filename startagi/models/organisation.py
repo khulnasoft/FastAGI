@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 
-from startagi.helper.tool_helper import register_toolkits
-from startagi.models.base_model import DBBaseModel
+from fastagi.helper.tool_helper import register_toolkits
+from fastagi.models.base_model import DBBaseModel
 
 
 class Organisation(DBBaseModel):

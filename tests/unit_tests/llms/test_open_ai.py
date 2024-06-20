@@ -2,10 +2,10 @@ import openai
 import pytest
 from unittest.mock import MagicMock, patch
 
-from startagi.llms.openai import OpenAi, MAX_RETRY_ATTEMPTS
+from fastagi.llms.openai import OpenAi, MAX_RETRY_ATTEMPTS
 
 
-@patch('startagi.llms.openai.openai')
+@patch('fastagi.llms.openai.openai')
 def test_chat_completion(mock_openai):
     # Arrange
     model = 'gpt-4'
@@ -35,8 +35,8 @@ def test_chat_completion(mock_openai):
     )
 
 
-@patch('startagi.llms.openai.wait_random_exponential.__call__')
-@patch('startagi.llms.openai.openai')
+@patch('fastagi.llms.openai.wait_random_exponential.__call__')
+@patch('fastagi.llms.openai.openai')
 def test_chat_completion_retry_rate_limit_error(mock_openai, mock_wait_random_exponential):
     # Arrange
     model = 'gpt-4'
@@ -59,8 +59,8 @@ def test_chat_completion_retry_rate_limit_error(mock_openai, mock_wait_random_ex
     assert mock_openai.ChatCompletion.create.call_count == MAX_RETRY_ATTEMPTS
 
 
-@patch('startagi.llms.openai.wait_random_exponential.__call__')
-@patch('startagi.llms.openai.openai')
+@patch('fastagi.llms.openai.wait_random_exponential.__call__')
+@patch('fastagi.llms.openai.openai')
 def test_chat_completion_retry_timeout_error(mock_openai, mock_wait_random_exponential):
     # Arrange
     model = 'gpt-4'
@@ -83,8 +83,8 @@ def test_chat_completion_retry_timeout_error(mock_openai, mock_wait_random_expon
     assert mock_openai.ChatCompletion.create.call_count == MAX_RETRY_ATTEMPTS
 
 
-@patch('startagi.llms.openai.wait_random_exponential.__call__')
-@patch('startagi.llms.openai.openai')
+@patch('fastagi.llms.openai.wait_random_exponential.__call__')
+@patch('fastagi.llms.openai.openai')
 def test_chat_completion_retry_try_again_error(mock_openai, mock_wait_random_exponential):
     # Arrange
     model = 'gpt-4'

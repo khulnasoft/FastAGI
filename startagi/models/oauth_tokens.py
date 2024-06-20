@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Text
 from sqlalchemy.orm import Session
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 import json
 import yaml
 

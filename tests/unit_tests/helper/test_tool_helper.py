@@ -6,7 +6,7 @@ from unittest.mock import patch, Mock
 
 import pytest
 
-from startagi.helper.tool_helper import (
+from fastagi.helper.tool_helper import (
     parse_github_url,
     load_module_from_file,
     extract_repo_name,
@@ -101,10 +101,10 @@ def test_download_tool(mock_zip, mock_get):
 
 
 def test_handle_tools_import():
-    with patch('startagi.config.config.get_config') as mock_get_config, \
+    with patch('fastagi.config.config.get_config') as mock_get_config, \
             patch('os.listdir') as mock_listdir, \
-            patch('startagi.helper.auth.db') as mock_auth_db:
-        mock_get_config.return_value = "startagi/tools"
+            patch('fastagi.helper.auth.db') as mock_auth_db:
+        mock_get_config.return_value = "fastagi/tools"
         mock_listdir.return_value = "test_tool"
         initial_path_length = len(sys.path)
         handle_tools_import()

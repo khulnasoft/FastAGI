@@ -1,20 +1,20 @@
-from startagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_config import AgentConfiguration
 
-from startagi.models.knowledges import Knowledges
-from startagi.models.vector_db_indices import VectordbIndices
-from startagi.models.vector_dbs import Vectordbs
-from startagi.models.vector_db_configs import VectordbConfigs
-from startagi.models.toolkit import Toolkit
-from startagi.vector_store.vector_factory import VectorFactory
-from startagi.models.configuration import Configuration
-from startagi.jobs.agent_executor import AgentExecutor
+from fastagi.models.knowledges import Knowledges
+from fastagi.models.vector_db_indices import VectordbIndices
+from fastagi.models.vector_dbs import Vectordbs
+from fastagi.models.vector_db_configs import VectordbConfigs
+from fastagi.models.toolkit import Toolkit
+from fastagi.vector_store.vector_factory import VectorFactory
+from fastagi.models.configuration import Configuration
+from fastagi.jobs.agent_executor import AgentExecutor
 
 from typing import Any, Type, List
 from pydantic import BaseModel, Field
 
-from startagi.tools.base_tool import BaseTool
+from fastagi.tools.base_tool import BaseTool
 
-# from startagi.tools.file.read_file import ReadFileTool
+# from fastagi.tools.file.read_file import ReadFileTool
 
 
 class KnowledgeSearchSchema(BaseModel):

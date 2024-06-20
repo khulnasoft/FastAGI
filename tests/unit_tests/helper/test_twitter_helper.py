@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import Mock, patch
 from requests.models import Response
 from requests_oauthlib import OAuth1Session
-from startagi.helper.twitter_helper import TwitterHelper
+from fastagi.helper.twitter_helper import TwitterHelper
 
 class TestSendTweets(unittest.TestCase):
 

@@ -1,6 +1,6 @@
 import pytest
-from startagi.models.events import Event
-from startagi.apm.analytics_helper import AnalyticsHelper
+from fastagi.models.events import Event
+from fastagi.apm.analytics_helper import AnalyticsHelper
 from unittest.mock import MagicMock
 
 @pytest.fixture

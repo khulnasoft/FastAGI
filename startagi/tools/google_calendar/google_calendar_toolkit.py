@@ -1,11 +1,11 @@
 from abc import ABC
-from startagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
+from fastagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
 from typing import Type, List
-from startagi.tools.google_calendar.create_calendar_event import CreateEventCalendarTool
-from startagi.tools.google_calendar.delete_calendar_event import DeleteCalendarEventTool
-from startagi.tools.google_calendar.list_calendar_events import ListCalendarEventsTool
-from startagi.tools.google_calendar.event_details_calendar import EventDetailsCalendarTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.google_calendar.create_calendar_event import CreateEventCalendarTool
+from fastagi.tools.google_calendar.delete_calendar_event import DeleteCalendarEventTool
+from fastagi.tools.google_calendar.list_calendar_events import ListCalendarEventsTool
+from fastagi.tools.google_calendar.event_details_calendar import EventDetailsCalendarTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 class GoogleCalendarToolKit(BaseToolkit, ABC):
     name: str = "Google Calendar Toolkit"

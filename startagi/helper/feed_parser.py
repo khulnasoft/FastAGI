@@ -1,8 +1,8 @@
 import json
 from datetime import datetime
 
-from startagi.helper.time_helper import get_time_difference
-from startagi.lib.logger import logger
+from fastagi.helper.time_helper import get_time_difference
+from fastagi.lib.logger import logger
 
 
 def parse_feed(feed):

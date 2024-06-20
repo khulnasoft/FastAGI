@@ -3,14 +3,14 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-from startagi.helper.auth import check_auth
-from startagi.helper.auth import get_user_organisation
-from startagi.models.organisation import Organisation
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
-from startagi.helper.encyption_helper import encrypt_data
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.helper.auth import check_auth
+from fastagi.helper.auth import get_user_organisation
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
+from fastagi.helper.encyption_helper import encrypt_data
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
+from fastagi.types.key_type import ToolConfigKeyType
 import json
 
 router = APIRouter()

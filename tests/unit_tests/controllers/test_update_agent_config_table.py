@@ -1,7 +1,7 @@
 import pytest
 from unittest.mock import patch, Mock
-from startagi.models.agent_config import AgentConfiguration
-from startagi.controllers.types.agent_execution_config import AgentRunIn
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.controllers.types.agent_execution_config import AgentRunIn
 
 def test_update_existing_toolkits():
     agent_id = 1

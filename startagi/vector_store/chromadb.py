@@ -4,10 +4,10 @@ from typing import Any, Optional, Iterable, List
 import chromadb
 from chromadb import Settings
 
-from startagi.config.config import get_config
-from startagi.vector_store.base import VectorStore
-from startagi.vector_store.document import Document
-from startagi.vector_store.embedding.base import BaseEmbedding
+from fastagi.config.config import get_config
+from fastagi.vector_store.base import VectorStore
+from fastagi.vector_store.document import Document
+from fastagi.vector_store.embedding.base import BaseEmbedding
 
 def _build_chroma_client():
     chroma_host_name = get_config("CHROMA_HOST_NAME") or "localhost"

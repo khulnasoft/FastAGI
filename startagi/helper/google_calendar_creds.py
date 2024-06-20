@@ -6,16 +6,16 @@ from  datetime import datetime
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import Flow
 from google.auth.transport.requests import Request
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 from googleapiclient.discovery import build
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
+from fastagi.models.db import connect_db
 from sqlalchemy.orm import Session
-from startagi.models.tool_config import ToolConfig
-from startagi.resource_manager.file_manager import FileManager
-from startagi.models.toolkit import Toolkit
-from startagi.models.oauth_tokens import OauthTokens
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
+from fastagi.models.tool_config import ToolConfig
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.models.toolkit import Toolkit
+from fastagi.models.oauth_tokens import OauthTokens
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 
 class GoogleCalendarCreds:
 

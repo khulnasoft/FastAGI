@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Image from "next/image";
-import styles from '../Toolkits/Tool.module.css';
+import styles from '.././Toolkits/Tool.module.css';
 import styles3 from '../Agents/Agents.module.css';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,7 +40,7 @@ export default function ToolkitTemplate({template, env}) {
     if (window.location.href.toLowerCase().includes('marketplace')) {
       localStorage.setItem('toolkit_to_install', template.name);
       if (env === 'PROD') {
-        window.open(`https://app.startagi.khulnasoft.com/`, '_self');
+        window.open(`https://app.fastagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }
@@ -80,7 +80,7 @@ export default function ToolkitTemplate({template, env}) {
 
   function fetchReadme() {
     if (window.location.href.toLowerCase().includes('marketplace')) {
-      axios.get(`https://app.startagi.khulnasoft.com/api/toolkits/marketplace/readme/${template.name}`)
+      axios.get(`https://app.fastagi.com/api/toolkits/marketplace/readme/${template.name}`)
           .then((response) => {
             setMarkdownContent(response.data || '');
             setRightPanel(response.data ? 'overview' : 'tool_view');
@@ -118,7 +118,7 @@ export default function ToolkitTemplate({template, env}) {
                        src={returnToolkitIcon(template.name)} alt="tool-icon"/>
               </div>
               <span className={styles2.top_heading}>{template.name}</span>
-              <span style={{fontSize: '12px', marginTop: '15px',}} className={styles.tool_publisher}>By StartAGI <Image
+              <span style={{fontSize: '12px', marginTop: '15px',}} className={styles.tool_publisher}>By FastAGI <Image
                 width={14} height={14} src="/images/is_verified.svg"
                 alt="is_verified"/>&nbsp;{'\u00B7'}&nbsp;<Image width={14} height={14}
                                                                 src="/images/upload_icon.svg"

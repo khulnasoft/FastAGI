@@ -1,10 +1,10 @@
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.webhooks import Webhooks
-from startagi.models.webhook_events import WebhookEvents
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.webhooks import Webhooks
+from fastagi.models.webhook_events import WebhookEvents
 import requests
 import json
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 class WebHookManager:
     def __init__(self,session):

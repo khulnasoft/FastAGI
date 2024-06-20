@@ -1,12 +1,12 @@
 import unittest
 from unittest.mock import patch
-from startagi.vector_embeddings.vector_embedding_factory import VectorEmbeddingFactory
+from fastagi.vector_embeddings.vector_embedding_factory import VectorEmbeddingFactory
 
 class TestVectorEmbeddingFactory(unittest.TestCase):
 
-    @patch("startagi.vector_embeddings.pinecone.Pinecone.__init__", return_value=None)
-    @patch("startagi.vector_embeddings.qdrant.Qdrant.__init__", return_value=None)
-    @patch("startagi.vector_embeddings.weaviate.Weaviate.__init__", return_value=None)
+    @patch("fastagi.vector_embeddings.pinecone.Pinecone.__init__", return_value=None)
+    @patch("fastagi.vector_embeddings.qdrant.Qdrant.__init__", return_value=None)
+    @patch("fastagi.vector_embeddings.weaviate.Weaviate.__init__", return_value=None)
     def test_build_vector_storage(self, mock_weaviate, mock_qdrant, mock_pinecone):
         test_data = {
             "1": {"id": 1, "embeds": [1,2,3], "text": "test", "chunk": "chunk", "knowledge_name": "knowledge"},

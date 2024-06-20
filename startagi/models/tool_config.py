@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import Session, sessionmaker
-from startagi.types.key_type import ToolConfigKeyType
-from startagi.models.base_model import DBBaseModel
-from startagi.helper.encyption_helper import encrypt_data
+from fastagi.types.key_type import ToolConfigKeyType
+from fastagi.models.base_model import DBBaseModel
+from fastagi.helper.encyption_helper import encrypt_data
 import json
 import yaml
 

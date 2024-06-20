@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import MagicMock, patch
-from startagi.vector_store.chromadb import ChromaDB
-from startagi.vector_store.document import Document
-from startagi.vector_store.embedding.openai import OpenAiEmbedding
-from startagi.vector_store.embedding.base import BaseEmbedding
+from fastagi.vector_store.chromadb import ChromaDB
+from fastagi.vector_store.document import Document
+from fastagi.vector_store.embedding.openai import OpenAiEmbedding
+from fastagi.vector_store.embedding.base import BaseEmbedding
 
 @pytest.fixture
 def mock_embedding_model():

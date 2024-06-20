@@ -1,11 +1,11 @@
 import os
 import requests
 import json
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.llms.base_llm import BaseLlm
-from startagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
-from startagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.llms.utils.huggingface_utils.tasks import Tasks, TaskParameters
+from fastagi.llms.utils.huggingface_utils.public_endpoints import ACCOUNT_VERIFICATION_URL
 
 class HuggingFace(BaseLlm):
     def __init__(

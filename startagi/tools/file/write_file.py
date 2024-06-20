@@ -2,12 +2,12 @@ from typing import Type, Optional
 
 from pydantic import BaseModel, Field
 
-# from startagi.helper.s3_helper import upload_to_s3
-from startagi.resource_manager.file_manager import FileManager
-from startagi.tools.base_tool import BaseTool
+# from fastagi.helper.s3_helper import upload_to_s3
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.tools.base_tool import BaseTool
 
 
-# from startagi.helper.s3_helper import upload_to_s3
+# from fastagi.helper.s3_helper import upload_to_s3
 
 
 class WriteFileInput(BaseModel):

@@ -1,8 +1,8 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.resource.query_resource import QueryResourceTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.resource.query_resource import QueryResourceTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class JiraToolkit(BaseToolkit, ABC):

@@ -2,9 +2,9 @@ from unittest.mock import Mock
 
 import pytest
 
-from startagi.resource_manager.file_manager import FileManager
-from startagi.tools.code.write_code import CodingTool
-from startagi.tools.tool_response_query_manager import ToolResponseQueryManager
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.tools.code.write_code import CodingTool
+from fastagi.tools.tool_response_query_manager import ToolResponseQueryManager
 from unittest.mock import MagicMock
 
 

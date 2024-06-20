@@ -2,14 +2,14 @@ import json
 from typing import Type, Optional
 
 from pydantic import BaseModel, Field
-from startagi.helper.error_handler import ErrorHandler
+from fastagi.helper.error_handler import ErrorHandler
 
-from startagi.helper.google_search import GoogleSearchWrap
-from startagi.helper.token_counter import TokenCounter
-from startagi.llms.base_llm import BaseLlm
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.google_search import GoogleSearchWrap
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.tools.base_tool import BaseTool
 
 class GoogleSearchSchema(BaseModel):
     query: str = Field(

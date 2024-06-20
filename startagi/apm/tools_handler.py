@@ -3,14 +3,14 @@ from sqlalchemy import func, distinct, and_
 from sqlalchemy.orm import Session
 from sqlalchemy import Integer, String
 from fastapi import HTTPException
-from startagi.models.events import Event
-from startagi.models.tool import Tool
-from startagi.models.toolkit import Toolkit
+from fastagi.models.events import Event
+from fastagi.models.tool import Tool
+from fastagi.models.toolkit import Toolkit
 from sqlalchemy import or_
 from sqlalchemy.sql import label
 from datetime import datetime
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
 import pytz
 
 class ToolsHandler:

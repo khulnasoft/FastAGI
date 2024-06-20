@@ -11,15 +11,15 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.config.config import get_config
-from startagi.helper.imap_email import ImapEmail
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.helper.s3_helper import S3Helper
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.tools.base_tool import BaseTool
-from startagi.config.config import get_config
-from startagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
+from fastagi.helper.imap_email import ImapEmail
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.tools.base_tool import BaseTool
+from fastagi.config.config import get_config
+from fastagi.types.storage_types import StorageType
 
 
 class SendEmailAttachmentInput(BaseModel):

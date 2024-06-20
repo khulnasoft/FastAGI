@@ -2,18 +2,18 @@ from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends, Query, status
 from fastapi import APIRouter
 from datetime import datetime
-from startagi.config.config import get_config
-from startagi.helper.auth import get_user_organisation
-from startagi.models.knowledges import Knowledges
-from startagi.models.marketplace_stats import MarketPlaceStats
-from startagi.models.knowledge_configs import KnowledgeConfigs
-from startagi.models.vector_db_indices import VectordbIndices
-from startagi.models.vector_dbs import Vectordbs
-from startagi.helper.s3_helper import S3Helper
-from startagi.models.vector_db_configs import VectordbConfigs
-from startagi.vector_store.vector_factory import VectorFactory
-from startagi.vector_embeddings.vector_embedding_factory import VectorEmbeddingFactory
-from startagi.helper.time_helper import get_time_difference
+from fastagi.config.config import get_config
+from fastagi.helper.auth import get_user_organisation
+from fastagi.models.knowledges import Knowledges
+from fastagi.models.marketplace_stats import MarketPlaceStats
+from fastagi.models.knowledge_configs import KnowledgeConfigs
+from fastagi.models.vector_db_indices import VectordbIndices
+from fastagi.models.vector_dbs import Vectordbs
+from fastagi.helper.s3_helper import S3Helper
+from fastagi.models.vector_db_configs import VectordbConfigs
+from fastagi.vector_store.vector_factory import VectorFactory
+from fastagi.vector_embeddings.vector_embedding_factory import VectorEmbeddingFactory
+from fastagi.helper.time_helper import get_time_difference
 
 router = APIRouter()
 

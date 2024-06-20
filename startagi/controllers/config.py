@@ -4,17 +4,17 @@ from typing import Optional
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from startagi.models.models_config import ModelsConfig
-from startagi.models.configuration import Configuration
-from startagi.models.organisation import Organisation
+from fastagi.models.models_config import ModelsConfig
+from fastagi.models.configuration import Configuration
+from fastagi.models.organisation import Organisation
 from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends, Request
-from startagi.config.config import get_config
-from startagi.helper.auth import check_auth
+from fastagi.config.config import get_config
+from fastagi.helper.auth import check_auth
 from fastapi_jwt_auth import AuthJWT
-from startagi.helper.encyption_helper import encrypt_data,decrypt_data
-from startagi.lib.logger import logger
-# from startagi.types.db import ConfigurationIn, ConfigurationOut
+from fastagi.helper.encyption_helper import encrypt_data,decrypt_data
+from fastagi.lib.logger import logger
+# from fastagi.types.db import ConfigurationIn, ConfigurationOut
 
 router = APIRouter()
 

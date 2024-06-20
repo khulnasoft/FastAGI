@@ -2,9 +2,9 @@ from typing import Type, Optional
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.github_helper import GithubHelper
-from startagi.llms.base_llm import BaseLlm
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.github_helper import GithubHelper
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.tools.base_tool import BaseTool
 
 
 class GithubFetchPullRequestSchema(BaseModel):

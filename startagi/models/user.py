@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 
 # from pydantic import BaseModel

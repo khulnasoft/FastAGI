@@ -1,11 +1,11 @@
 import pytest
 from unittest.mock import Mock
 
-from startagi.llms.google_palm import GooglePalm
-from startagi.llms.hugging_face import HuggingFace
-from startagi.llms.llm_model_factory import get_model, build_model_with_api_key
-from startagi.llms.openai import OpenAi
-from startagi.llms.replicate import Replicate
+from fastagi.llms.google_palm import GooglePalm
+from fastagi.llms.hugging_face import HuggingFace
+from fastagi.llms.llm_model_factory import get_model, build_model_with_api_key
+from fastagi.llms.openai import OpenAi
+from fastagi.llms.replicate import Replicate
 
 
 # Fixtures for the mock objects
@@ -39,38 +39,38 @@ def mock_hugging_face():
 
 # Test build_model_with_api_key function
 def test_build_model_with_openai(mock_openai, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.OpenAi', mock_openai)
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.OpenAi', mock_openai)
     model = build_model_with_api_key('OpenAi', 'fake_key')
     mock_openai.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)
 
 def test_build_model_with_replicate(mock_replicate, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.Replicate', mock_replicate)
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.Replicate', mock_replicate)
     model = build_model_with_api_key('Replicate', 'fake_key')
     mock_replicate.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)
 
 
 def test_build_model_with_openai(mock_openai, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.OpenAi', mock_openai)  # Replace 'your_module' with the actual module name
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.OpenAi', mock_openai)  # Replace 'your_module' with the actual module name
     model = build_model_with_api_key('OpenAi', 'fake_key')
     mock_openai.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)
 
 def test_build_model_with_replicate(mock_replicate, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.Replicate', mock_replicate)  # Replace 'your_module' with the actual module name
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.Replicate', mock_replicate)  # Replace 'your_module' with the actual module name
     model = build_model_with_api_key('Replicate', 'fake_key')
     mock_replicate.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)
 
 def test_build_model_with_google_palm(mock_google_palm, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.GooglePalm', mock_google_palm)  # Replace 'your_module' with the actual module name
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.GooglePalm', mock_google_palm)  # Replace 'your_module' with the actual module name
     model = build_model_with_api_key('Google Palm', 'fake_key')
     mock_google_palm.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)
 
 def test_build_model_with_hugging_face(mock_hugging_face, monkeypatch):
-    monkeypatch.setattr('startagi.llms.llm_model_factory.HuggingFace', mock_hugging_face)  # Replace 'your_module' with the actual module name
+    monkeypatch.setattr('fastagi.llms.llm_model_factory.HuggingFace', mock_hugging_face)  # Replace 'your_module' with the actual module name
     model = build_model_with_api_key('Hugging Face', 'fake_key')
     mock_hugging_face.assert_called_once_with(api_key='fake_key')
     assert isinstance(model, Mock)

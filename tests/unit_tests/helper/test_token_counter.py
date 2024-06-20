@@ -2,9 +2,9 @@ import pytest
 
 from typing import List
 from unittest.mock import MagicMock, patch
-from startagi.types.common import BaseMessage
-from startagi.helper.token_counter import TokenCounter
-from startagi.models.models import Models
+from fastagi.types.common import BaseMessage
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.models.models import Models
 
 
 @pytest.fixture()

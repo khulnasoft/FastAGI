@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, Text, String, Boolean, ForeignKey,JSON
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import JSONB
-from startagi.models.base_model import DBBaseModel
-from startagi.models.agent_execution import AgentExecution
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.agent_execution import AgentExecution
 
 class Webhooks(DBBaseModel):
     """

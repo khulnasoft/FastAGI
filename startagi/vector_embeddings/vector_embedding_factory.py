@@ -2,10 +2,10 @@
 import pinecone
 from typing import Optional
 from pinecone import UnauthorizedException
-from startagi.vector_embeddings.pinecone import Pinecone
-from startagi.vector_embeddings.qdrant import Qdrant
-from startagi.vector_embeddings.weaviate import Weaviate
-from startagi.types.vector_store_types import VectorStoreType
+from fastagi.vector_embeddings.pinecone import Pinecone
+from fastagi.vector_embeddings.qdrant import Qdrant
+from fastagi.vector_embeddings.weaviate import Weaviate
+from fastagi.types.vector_store_types import VectorStoreType
 
 class VectorEmbeddingFactory:
 

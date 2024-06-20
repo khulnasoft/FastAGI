@@ -2,8 +2,8 @@ from fastapi import APIRouter
 from fastapi import Depends
 from fastapi_sqlalchemy import db
 
-from startagi.helper.auth import get_user_organisation
-from startagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.helper.auth import get_user_organisation
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
 
 router = APIRouter()
 

@@ -2,7 +2,7 @@ import os
 from pydantic import BaseSettings
 from pathlib import Path
 import yaml
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 CONFIG_FILE = "config.yaml"
 
@@ -37,7 +37,7 @@ class Config(BaseSettings):
 
     def __init__(self, config_file: str, **kwargs):
         config_data = self.load_config(config_file)
-        start().__init__(**config_data, **kwargs)
+        super().__init__(**config_data, **kwargs)
 
     def get_config(self, key: str, default: str = None) -> str:
         return self.dict().get(key, default)

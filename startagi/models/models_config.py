@@ -1,11 +1,11 @@
 from sqlalchemy import Column, Integer, String, and_, distinct
-from startagi.lib.logger import logger
-from startagi.models.base_model import DBBaseModel
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
-from startagi.models.models import Models
-from startagi.llms.openai import OpenAi
-from startagi.helper.encyption_helper import encrypt_data, decrypt_data
+from fastagi.lib.logger import logger
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
+from fastagi.models.models import Models
+from fastagi.llms.openai import OpenAi
+from fastagi.helper.encyption_helper import encrypt_data, decrypt_data
 from fastapi import HTTPException
 import logging
 
@@ -48,7 +48,7 @@ class ModelsConfig(DBBaseModel):
             dict: Parsed configuration.
 
         """
-        from startagi.models.agent import Agent
+        from fastagi.models.agent import Agent
         agent = session.query(Agent).filter(Agent.id == agent_id).first()
         if not agent:
             raise HTTPException(status_code=404, detail="Agent not found")

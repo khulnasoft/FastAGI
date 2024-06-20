@@ -1,8 +1,8 @@
 import json
 from unittest.mock import Mock, patch
 import pytest
-from startagi.helper.webhook_manager import WebHookManager
-from startagi.models.webhooks import Webhooks
+from fastagi.helper.webhook_manager import WebHookManager
+from fastagi.models.webhooks import Webhooks
 
 @pytest.fixture
 def mock_session():
@@ -51,10 +51,10 @@ def test_agent_status_change_callback(
 
     # Patch required functions/methods
     with patch(
-        'startagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id',
+        'fastagi.controllers.agent_execution_config.AgentExecution.get_agent_execution_from_id',
         return_value=mock_agent_execution_instance
     ), patch(
-        'startagi.models.agent.Agent.get_agent_from_id',
+        'fastagi.models.agent.Agent.get_agent_from_id',
         return_value=mock_agent_instance
     ), patch(
         'requests.post',

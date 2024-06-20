@@ -1,13 +1,13 @@
 from datetime import datetime
 import logging
-from startagi.lib.logger import logger
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.configuration import Configuration
-from startagi.models.resource import Resource
-from startagi.resource_manager.llama_document_summary import LlamaDocumentSummary
-from startagi.resource_manager.resource_manager import ResourceManager
-from startagi.types.model_source_types import ModelSourceType
+from fastagi.lib.logger import logger
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.configuration import Configuration
+from fastagi.models.resource import Resource
+from fastagi.resource_manager.llama_document_summary import LlamaDocumentSummary
+from fastagi.resource_manager.resource_manager import ResourceManager
+from fastagi.types.model_source_types import ModelSourceType
 
 
 class ResourceSummarizer:

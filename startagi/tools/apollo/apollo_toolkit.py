@@ -1,9 +1,9 @@
 from abc import ABC
 from typing import List
 
-from startagi.tools.apollo.apollo_search import ApolloSearchTool
-from startagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.apollo.apollo_search import ApolloSearchTool
+from fastagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class ApolloToolkit(BaseToolkit, ABC):

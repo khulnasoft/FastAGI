@@ -1,15 +1,15 @@
 from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends
 from fastapi import APIRouter
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 from datetime import datetime
-from startagi.helper.time_helper import get_time_difference
-from startagi.models.vector_dbs import Vectordbs
-from startagi.helper.auth import get_user_organisation
-from startagi.models.vector_db_configs import VectordbConfigs
-from startagi.models.vector_db_indices import VectordbIndices
-from startagi.vector_store.vector_factory import VectorFactory
-from startagi.models.knowledges import Knowledges
+from fastagi.helper.time_helper import get_time_difference
+from fastagi.models.vector_dbs import Vectordbs
+from fastagi.helper.auth import get_user_organisation
+from fastagi.models.vector_db_configs import VectordbConfigs
+from fastagi.models.vector_db_indices import VectordbIndices
+from fastagi.vector_store.vector_factory import VectorFactory
+from fastagi.models.knowledges import Knowledges
 
 router = APIRouter()
 

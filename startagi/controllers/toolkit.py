@@ -4,23 +4,23 @@ import requests
 from fastapi import APIRouter, Body
 from fastapi import HTTPException, Depends, Query
 from fastapi_sqlalchemy import db
-from startagi.config.config import get_config
-from startagi.helper.auth import get_user_organisation
-from startagi.helper.tool_helper import get_readme_content_from_code_link, download_tool, process_files, \
+from fastagi.config.config import get_config
+from fastagi.helper.auth import get_user_organisation
+from fastagi.helper.tool_helper import get_readme_content_from_code_link, download_tool, process_files, \
     add_tool_to_json
-from startagi.helper.github_helper import GithubHelper
-from startagi.models.organisation import Organisation
-from startagi.models.tool import Tool
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
-from startagi.types.common import GitHubLinkRequest
-from startagi.helper.tool_helper import compare_toolkit
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
+from fastagi.helper.github_helper import GithubHelper
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool import Tool
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
+from fastagi.types.common import GitHubLinkRequest
+from fastagi.helper.tool_helper import compare_toolkit
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 
 router = APIRouter()
 
 
-# marketplace_url = "https://app.startagi.khulnasoft.com/api"
+# marketplace_url = "https://app.fastagi.com/api"
 # marketplace_url = "http://localhost:8001/"
 
 

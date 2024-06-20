@@ -6,15 +6,15 @@ import json
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy import or_
 
-from startagi.lib.logger import logger
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_template import AgentTemplate
-from startagi.models.agent_template_config import AgentTemplateConfig
-# from startagi.models import AgentConfiguration
-from startagi.models.base_model import DBBaseModel
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
-from startagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.lib.logger import logger
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_template import AgentTemplate
+from fastagi.models.agent_template_config import AgentTemplateConfig
+# from fastagi.models import AgentConfiguration
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
 
 
 class Agent(DBBaseModel):

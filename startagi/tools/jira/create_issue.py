@@ -2,7 +2,7 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.tools.jira.tool import JiraTool, JiraIssueSchema
+from fastagi.tools.jira.tool import JiraTool, JiraIssueSchema
 
 
 class CreateIssueSchema(BaseModel):

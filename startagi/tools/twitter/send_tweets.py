@@ -2,9 +2,9 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.twitter_helper import TwitterHelper
-from startagi.helper.twitter_tokens import TwitterTokens
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.twitter_helper import TwitterHelper
+from fastagi.helper.twitter_tokens import TwitterTokens
+from fastagi.tools.base_tool import BaseTool
 
 
 class SendTweetsInput(BaseModel):

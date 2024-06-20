@@ -4,26 +4,26 @@ from fastapi import HTTPException, Depends ,Security
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-from startagi.worker import execute_agent
-from startagi.helper.auth import validate_api_key,get_organisation_from_api_key
-from startagi.models.agent import Agent
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_schedule import AgentSchedule
-from startagi.models.project import Project
-from startagi.models.workflows.agent_workflow import AgentWorkflow
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.organisation import Organisation
-from startagi.models.knowledges import Knowledges
-from startagi.models.resource import Resource
-from startagi.controllers.types.agent_with_config import AgentConfigExtInput,AgentConfigUpdateExtInput
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
-from startagi.helper.s3_helper import S3Helper
+from fastagi.worker import execute_agent
+from fastagi.helper.auth import validate_api_key,get_organisation_from_api_key
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_schedule import AgentSchedule
+from fastagi.models.project import Project
+from fastagi.models.workflows.agent_workflow import AgentWorkflow
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.organisation import Organisation
+from fastagi.models.knowledges import Knowledges
+from fastagi.models.resource import Resource
+from fastagi.controllers.types.agent_with_config import AgentConfigExtInput,AgentConfigUpdateExtInput
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.helper.s3_helper import S3Helper
 from datetime import datetime
 from typing import Optional,List
-from startagi.models.toolkit import Toolkit
-from startagi.apm.event_handler import EventHandler
-from startagi.config.config import get_config
+from fastagi.models.toolkit import Toolkit
+from fastagi.apm.event_handler import EventHandler
+from fastagi.config.config import get_config
 router = APIRouter()
 
 class AgentExecutionIn(BaseModel):

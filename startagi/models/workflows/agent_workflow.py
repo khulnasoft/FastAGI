@@ -2,8 +2,8 @@ import json
 
 from sqlalchemy import Column, Integer, String, Text
 
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.base_model import DBBaseModel
 
 
 class AgentWorkflow(DBBaseModel):

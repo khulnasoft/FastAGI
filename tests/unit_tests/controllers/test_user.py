@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from startagi.models.user import User
+from fastagi.models.user import User
 
 client = TestClient(app)
 
@@ -17,7 +17,7 @@ def authenticated_user():
     # Set user attributes
     user.id = 1  # User ID
     user.username = "testuser"  # User's username
-    user.email = "start6@agi.com"  # User's email
+    user.email = "super6@agi.com"  # User's email
     user.first_login_source = None  # User's first login source
     user.token = "mock-jwt-token"
 
@@ -25,7 +25,7 @@ def authenticated_user():
 
 # Test case for updating first login source when it's not set
 def test_update_first_login_source(authenticated_user):
-    with patch('startagi.helper.auth.db') as mock_auth_db:
+    with patch('fastagi.helper.auth.db') as mock_auth_db:
         source = "github"  # Specify the source you want to set
 
         mock_auth_db.session.query.return_value.filter.return_value.first.return_value = authenticated_user

@@ -2,9 +2,9 @@ import base64
 from typing import Any, Type
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
-from startagi.tools.base_tool import BaseTool
-from startagi.helper.google_calendar_creds import GoogleCalendarCreds
+from fastagi.models.db import connect_db
+from fastagi.tools.base_tool import BaseTool
+from fastagi.helper.google_calendar_creds import GoogleCalendarCreds
 
 class EventDetailsCalendarInput(BaseModel):
     event_id: str = Field(..., description="The id of event to be fetched from Google Calendar. if no value is given keep default value is None")

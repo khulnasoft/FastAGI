@@ -6,17 +6,17 @@ from fastapi import HTTPException, Depends, Request
 from fastapi_jwt_auth import AuthJWT
 from pydantic import BaseModel
 
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
-from startagi.models.user import User
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
+from fastagi.models.user import User
 from fastapi import APIRouter
 
-from startagi.helper.auth import check_auth, get_current_user
-from startagi.lib.logger import logger
+from fastagi.helper.auth import check_auth, get_current_user
+from fastagi.lib.logger import logger
 
-from startagi.models.models_config import ModelsConfig
+from fastagi.models.models_config import ModelsConfig
 
-# from startagi.types.db import UserBase, UserIn, UserOut
+# from fastagi.types.db import UserBase, UserIn, UserOut
 
 router = APIRouter()
 

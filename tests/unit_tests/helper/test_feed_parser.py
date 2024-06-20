@@ -1,7 +1,7 @@
 import unittest
 from datetime import datetime
-from startagi.helper.feed_parser import parse_feed
-from startagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.helper.feed_parser import parse_feed
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
 class TestParseFeed(unittest.TestCase):
     def test_parse_feed_system(self):
         current_time = datetime.now()

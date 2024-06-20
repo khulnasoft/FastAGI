@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, Text, String, asc
 from sqlalchemy.orm import Session
 
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.base_model import DBBaseModel
 
 
 class AgentExecutionFeed(DBBaseModel):

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch
-from startagi.models.vector_dbs import Vectordbs
+from fastagi.models.vector_dbs import Vectordbs
 
 class TestVectordbs(unittest.TestCase):
     def setUp(self):

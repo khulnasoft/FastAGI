@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Date, DateTime
-from startagi.models.base_model import DBBaseModel
-from startagi.controllers.types.agent_schedule import AgentScheduleInput
+from fastagi.models.base_model import DBBaseModel
+from fastagi.controllers.types.agent_schedule import AgentScheduleInput
 
 class AgentSchedule(DBBaseModel):
     """

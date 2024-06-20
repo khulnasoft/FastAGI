@@ -5,7 +5,7 @@ from time import sleep
 import shutil
 from sys import platform
 from multiprocessing import Process
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 
 def check_command(command, message):

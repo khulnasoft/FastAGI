@@ -1,12 +1,12 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.github.add_file import GithubAddFileTool
-from startagi.tools.github.delete_file import GithubDeleteFileTool
-from startagi.tools.github.fetch_pull_request import GithubFetchPullRequest
-from startagi.tools.github.search_repo import GithubRepoSearchTool
-from startagi.tools.github.review_pull_request import GithubReviewPullRequest
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.github.add_file import GithubAddFileTool
+from fastagi.tools.github.delete_file import GithubDeleteFileTool
+from fastagi.tools.github.fetch_pull_request import GithubFetchPullRequest
+from fastagi.tools.github.search_repo import GithubRepoSearchTool
+from fastagi.tools.github.review_pull_request import GithubReviewPullRequest
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class GitHubToolkit(BaseToolkit, ABC):

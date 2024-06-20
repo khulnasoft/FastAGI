@@ -2,10 +2,10 @@ import pytest
 from fastapi import HTTPException
 from unittest.mock import MagicMock
 from sqlalchemy.orm import Session
-from startagi.models.configuration import Configuration
-from startagi.models.agent import Agent
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
+from fastagi.models.configuration import Configuration
+from fastagi.models.agent import Agent
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
 
 
 def test_fetch_configuration():

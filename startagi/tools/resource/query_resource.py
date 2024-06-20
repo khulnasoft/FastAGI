@@ -9,12 +9,12 @@ from llama_index import VectorStoreIndex, LLMPredictor, ServiceContext
 from llama_index.vector_stores.types import ExactMatchFilter, MetadataFilters
 from pydantic import BaseModel, Field
 
-from startagi.config.config import get_config
-from startagi.llms.base_llm import BaseLlm
-from startagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
-from startagi.tools.base_tool import BaseTool
-from startagi.types.vector_store_types import VectorStoreType
-from startagi.vector_store.chromadb import ChromaDB
+from fastagi.config.config import get_config
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
+from fastagi.tools.base_tool import BaseTool
+from fastagi.types.vector_store_types import VectorStoreType
+from fastagi.vector_store.chromadb import ChromaDB
 
 
 class QueryResource(BaseModel):
@@ -48,7 +48,7 @@ class QueryResourceTool(BaseTool):
         service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor_chatgpt)
         vector_store_name = VectorStoreType.get_vector_store_type(
             self.get_tool_config(key="RESOURCE_VECTOR_STORE") or "Redis")
-        vector_store_index_name = self.get_tool_config(key="RESOURCE_VECTOR_STORE_INDEX_NAME") or "start-agent-index"
+        vector_store_index_name = self.get_tool_config(key="RESOURCE_VECTOR_STORE_INDEX_NAME") or "super-agent-index"
         logging.info(f"vector_store_name {vector_store_name}")
         logging.info(f"vector_store_index_name {vector_store_index_name}")
         vector_store = LlamaVectorStoreFactory(vector_store_name, vector_store_index_name).get_vector_store()

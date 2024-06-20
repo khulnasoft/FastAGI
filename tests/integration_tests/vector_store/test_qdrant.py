@@ -1,8 +1,8 @@
 import pytest
 import numpy as np
 
-from startagi.vector_store import qdrant
-from startagi.vector_store.embedding.openai import OpenAiEmbedding
+from fastagi.vector_store import qdrant
+from fastagi.vector_store.embedding.openai import OpenAiEmbedding
 from qdrant_client.models import Distance, VectorParams
 from qdrant_client import QdrantClient
 

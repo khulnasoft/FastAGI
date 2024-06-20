@@ -3,8 +3,8 @@
 **/.venv
 config.yaml
 __pycache__
-startagi/models/__pycache__
-startagi/controllers/__pycache__
+fastagi/models/__pycache__
+fastagi/controllers/__pycache__
 **agent_dictvenv
 **/__gitpycache__/
 gui/node_modules
@@ -17,7 +17,7 @@ workspace/output
 workspace/input
 celerybeat-schedule
 ../bfg-report*
-startagi/tools/marketplace_tools/
-startagi/tools/external_tools/
+fastagi/tools/marketplace_tools/
+fastagi/tools/external_tools/
 tests/unit_tests/resource_manager/test_path
 /tools.json

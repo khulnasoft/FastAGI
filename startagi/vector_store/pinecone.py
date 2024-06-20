@@ -1,10 +1,10 @@
 import uuid
 
-from startagi.vector_store.document import Document
-from startagi.vector_store.base import VectorStore
+from fastagi.vector_store.document import Document
+from fastagi.vector_store.base import VectorStore
 from typing import Any, Callable, Optional, Iterable, List
 
-from startagi.vector_store.embedding.base import BaseEmbedding
+from fastagi.vector_store.embedding.base import BaseEmbedding
 
 
 class Pinecone(VectorStore):

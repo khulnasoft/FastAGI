@@ -3,13 +3,13 @@ import os
 from llama_index import SimpleDirectoryReader
 from sqlalchemy.orm import Session
 
-from startagi.config.config import get_config
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.lib.logger import logger
-from startagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
-from startagi.types.model_source_types import ModelSourceType
-from startagi.types.vector_store_types import VectorStoreType
-from startagi.models.agent import Agent
+from fastagi.config.config import get_config
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.lib.logger import logger
+from fastagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
+from fastagi.types.model_source_types import ModelSourceType
+from fastagi.types.vector_store_types import VectorStoreType
+from fastagi.models.agent import Agent
 
 
 class ResourceManager:
@@ -64,7 +64,7 @@ class ResourceManager:
             documents = SimpleDirectoryReader(input_files=[temporary_file_path]).load_data()
             return documents
         except Exception as e:
-            logger.error("startagi/resource_manager/resource_manager.py - create_llama_document_s3 threw : ", e)
+            logger.error("fastagi/resource_manager/resource_manager.py - create_llama_document_s3 threw : ", e)
         finally:
             if os.path.exists(temporary_file_path):
                 os.remove(temporary_file_path)
@@ -93,7 +93,7 @@ class ResourceManager:
         vector_store = None
         storage_context = None
         vector_store_name = VectorStoreType.get_vector_store_type(get_config("RESOURCE_VECTOR_STORE") or "Redis")
-        vector_store_index_name = get_config("RESOURCE_VECTOR_STORE_INDEX_NAME") or "start-agent-index"
+        vector_store_index_name = get_config("RESOURCE_VECTOR_STORE_INDEX_NAME") or "super-agent-index"
         try:
             vector_store = LlamaVectorStoreFactory(vector_store_name, vector_store_index_name).get_vector_store()
             storage_context = StorageContext.from_defaults(vector_store=vector_store)

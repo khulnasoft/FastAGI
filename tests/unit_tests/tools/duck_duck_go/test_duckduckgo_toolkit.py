@@ -1,6 +1,6 @@
 import pytest
-from startagi.tools.duck_duck_go.duck_duck_go_search_toolkit import DuckDuckGoToolkit
-from startagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
+from fastagi.tools.duck_duck_go.duck_duck_go_search_toolkit import DuckDuckGoToolkit
+from fastagi.tools.duck_duck_go.duck_duck_go_search import DuckDuckGoSearchTool
 
 class TestDuckDuckGoSearchToolKit:
     def setup_method(self):

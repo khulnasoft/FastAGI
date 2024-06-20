@@ -2,8 +2,8 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.github_helper import GithubHelper
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.github_helper import GithubHelper
+from fastagi.tools.base_tool import BaseTool
 
 
 class GithubAddFileSchema(BaseModel):

@@ -1,8 +1,8 @@
 from unittest.mock import Mock, patch
 
-from startagi.tools.jira.search_issues import SearchJiraTool
+from fastagi.tools.jira.search_issues import SearchJiraTool
 
-@patch("startagi.tools.jira.search_issues.JiraTool.build_jira_instance")
+@patch("fastagi.tools.jira.search_issues.JiraTool.build_jira_instance")
 def test_search_jira_tool(mock_build_jira_instance):
     mock_jira_instance = Mock()
     mock_issue_1 = Mock()

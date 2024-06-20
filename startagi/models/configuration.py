@@ -1,13 +1,13 @@
 from fastapi import HTTPException
 from sqlalchemy import Column, Integer, String,Text
 
-from startagi.helper.encyption_helper import decrypt_data
-from startagi.models.base_model import DBBaseModel
-from startagi.models.organisation import Organisation
-from startagi.models.project import Project
-from startagi.models.models_config import ModelsConfig
-from startagi.models.models import Models
-from startagi.helper.encyption_helper import decrypt_data
+from fastagi.helper.encyption_helper import decrypt_data
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.organisation import Organisation
+from fastagi.models.project import Project
+from fastagi.models.models_config import ModelsConfig
+from fastagi.models.models import Models
+from fastagi.helper.encyption_helper import decrypt_data
 
 class Configuration(DBBaseModel):
     """
@@ -99,7 +99,7 @@ class Configuration(DBBaseModel):
             dict: Parsed configuration.
 
         """
-        from startagi.models.agent import Agent
+        from fastagi.models.agent import Agent
         agent = session.query(Agent).filter(Agent.id == agent_id).first()
         if not agent:
             raise HTTPException(status_code=404, detail="Agent not found")

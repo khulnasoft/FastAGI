@@ -1,4 +1,4 @@
-from startagi.helper.json_cleaner import JsonCleaner
+from fastagi.helper.json_cleaner import JsonCleaner
 import pytest
 
 def test_extract_json_section():

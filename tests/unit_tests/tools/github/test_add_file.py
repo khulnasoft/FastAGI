@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import MagicMock, patch
 
-from startagi.helper.github_helper import GithubHelper
-from startagi.tools.github.add_file import GithubAddFileTool, GithubAddFileSchema
+from fastagi.helper.github_helper import GithubHelper
+from fastagi.tools.github.add_file import GithubAddFileTool, GithubAddFileSchema
 
 
 def test_github_add_file_schema():

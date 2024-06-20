@@ -1,5 +1,5 @@
 import unittest
-from startagi.vector_embeddings.pinecone import Pinecone  
+from fastagi.vector_embeddings.pinecone import Pinecone  
 
 
 class TestPinecone(unittest.TestCase):

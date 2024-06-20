@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import Mock, patch
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.helper.error_handler import ErrorHandler
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.helper.error_handler import ErrorHandler
 
 def test_handle_error():
     session = Mock()

@@ -2,15 +2,15 @@ import time
 from typing import Tuple, List
 from sqlalchemy import asc
 
-from startagi.config.config import get_config
-from startagi.helper.error_handler import ErrorHandler
-from startagi.helper.prompt_reader import PromptReader
-from startagi.helper.token_counter import TokenCounter
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.types.common import BaseMessage
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.agent import Agent
+from fastagi.config.config import get_config
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.helper.prompt_reader import PromptReader
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.types.common import BaseMessage
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.agent import Agent
 
 
 class AgentLlmMessageBuilder:

@@ -3,8 +3,8 @@ from unittest.mock import patch
 import pytest
 import requests
 from unittest import TestCase
-from startagi.llms.replicate import Replicate
-from startagi.config.config import get_config
+from fastagi.llms.replicate import Replicate
+from fastagi.config.config import get_config
 
 class TestReplicate(TestCase):
 

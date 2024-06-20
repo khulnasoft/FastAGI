@@ -2,7 +2,7 @@ from typing import Type, List
 
 from pydantic import BaseModel, Field
 
-from startagi.tools.jira.tool import JiraIssueSchema, JiraTool
+from fastagi.tools.jira.tool import JiraIssueSchema, JiraTool
 
 class GetProjectsSchema(BaseModel):
     pass

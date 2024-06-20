@@ -5,10 +5,10 @@ import pytest
 from pytest_mock import mocker
 from sqlalchemy.orm import Session
 
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.iteration_workflow import IterationWorkflow
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.iteration_workflow import IterationWorkflow
 def test_get_agent_execution_from_id():
     # Create a mock session
     session = create_autospec(Session)

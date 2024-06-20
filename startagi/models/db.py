@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 from urllib.parse import urlparse
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 engine = None
 
@@ -19,7 +19,7 @@ def connect_db():
         return engine
 
     # Create the connection URL
-    db_host = get_config('DB_HOST', 'start__postgres')
+    db_host = get_config('DB_HOST', 'super__postgres')
     db_username = get_config('DB_USERNAME')
     db_password = get_config('DB_PASSWORD')
     db_name = get_config('DB_NAME')

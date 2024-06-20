@@ -3,10 +3,10 @@ from fastapi.security import APIKeyHeader
 from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from fastapi.security.api_key import APIKeyHeader
-from startagi.config.config import get_config
-from startagi.models.organisation import Organisation
-from startagi.models.user import User
-from startagi.models.api_key import ApiKey
+from fastagi.config.config import get_config
+from fastagi.models.organisation import Organisation
+from fastagi.models.user import User
+from fastagi.models.api_key import ApiKey
 from typing import Optional
 from sqlalchemy import or_
 
@@ -48,7 +48,7 @@ def get_current_user(Authorize: AuthJWT = Depends(check_auth)):
     env = get_config("ENV", "DEV")
 
     if env == "DEV":
-        email = "start6@agi.com"
+        email = "super6@agi.com"
     else:
         # Retrieve the email of the logged-in user from the JWT token payload
         email = Authorize.get_jwt_subject()

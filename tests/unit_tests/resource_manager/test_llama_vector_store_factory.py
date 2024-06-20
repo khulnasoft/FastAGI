@@ -3,8 +3,8 @@ from unittest.mock import patch
 
 from llama_index.vector_stores import PineconeVectorStore, RedisVectorStore
 
-from startagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
-from startagi.types.vector_store_types import VectorStoreType
+from fastagi.resource_manager.llama_vector_store_factory import LlamaVectorStoreFactory
+from fastagi.types.vector_store_types import VectorStoreType
 
 
 def test_llama_vector_store_factory():
@@ -21,7 +21,7 @@ def test_llama_vector_store_factory():
     # Test case for VectorStoreType.REDIS
     factory.vector_store_name = VectorStoreType.REDIS
     with patch.object(RedisVectorStore, "__init__", return_value=None), \
-            patch('startagi.config.config.get_config', return_value=None):
+            patch('fastagi.config.config.get_config', return_value=None):
         vector_store = factory.get_vector_store()
         assert isinstance(vector_store, RedisVectorStore)
 

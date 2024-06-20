@@ -1,6 +1,6 @@
 from unittest.mock import Mock, patch
 
-from startagi.tools.code.write_test import WriteTestTool
+from fastagi.tools.code.write_test import WriteTestTool
 from unittest.mock import MagicMock
 
 
@@ -13,9 +13,9 @@ def test_write_test_tool_init():
     assert tool.goals == []
     assert tool.resource_manager is None
 
-@patch('startagi.tools.code.write_test.PromptReader')
-@patch('startagi.tools.code.write_test.AgentPromptBuilder')
-@patch('startagi.tools.code.write_test.TokenCounter')
+@patch('fastagi.tools.code.write_test.PromptReader')
+@patch('fastagi.tools.code.write_test.AgentPromptBuilder')
+@patch('fastagi.tools.code.write_test.TokenCounter')
 def test_execute(mock_token_counter, mock_agent_prompt_builder, mock_prompt_reader):
     test_tool = WriteTestTool()
     test_tool.tool_response_manager = Mock()

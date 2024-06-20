@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, DateTime, Sequence
 from sqlalchemy.dialects.postgresql import JSONB
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()

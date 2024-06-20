@@ -4,9 +4,9 @@ import pytest
 from fastapi.testclient import TestClient
 
 from main import app
-from startagi.models.organisation import Organisation
-from startagi.models.tool import Tool
-from startagi.models.toolkit import Toolkit
+from fastagi.models.organisation import Organisation
+from fastagi.models.tool import Tool
+from fastagi.models.toolkit import Toolkit
 
 client = TestClient(app)
 
@@ -63,9 +63,9 @@ def test_get_tools_success(mocks):
     user_organisation, user_toolkits, tools, toolkit_1, toolkit_2, tool_1, tool_2, tool_3 = mocks
 
     # Mock the database session and query functions
-    with patch('startagi.helper.auth.get_user_organisation') as mock_get_user_org, \
-            patch('startagi.controllers.tool.db') as mock_db, \
-            patch('startagi.helper.auth.db') as mock_auth_db:
+    with patch('fastagi.helper.auth.get_user_organisation') as mock_get_user_org, \
+            patch('fastagi.controllers.tool.db') as mock_db, \
+            patch('fastagi.helper.auth.db') as mock_auth_db:
 
         # Mock the toolkit filtering
         mock_db.session.query.return_value.filter.return_value.all.side_effect = [user_toolkits, [tool_1, tool_2],

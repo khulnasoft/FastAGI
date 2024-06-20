@@ -1,6 +1,6 @@
 import pytest
 
-from startagi.agent.output_parser import AgentGPTAction, AgentSchemaOutputParser
+from fastagi.agent.output_parser import AgentGPTAction, AgentSchemaOutputParser
 
 import pytest
 

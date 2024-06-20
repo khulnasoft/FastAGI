@@ -1,18 +1,18 @@
 import json
-from startagi.agent.common_types import TaskExecutorResponse, ToolExecutorResponse
-from startagi.agent.output_parser import AgentSchemaOutputParser
-from startagi.agent.task_queue import TaskQueue
-from startagi.agent.tool_executor import ToolExecutor
-from startagi.helper.json_cleaner import JsonCleaner
-from startagi.lib.logger import logger
+from fastagi.agent.common_types import TaskExecutorResponse, ToolExecutorResponse
+from fastagi.agent.output_parser import AgentSchemaOutputParser
+from fastagi.agent.task_queue import TaskQueue
+from fastagi.agent.tool_executor import ToolExecutor
+from fastagi.helper.json_cleaner import JsonCleaner
+from fastagi.lib.logger import logger
 from langchain.text_splitter import TokenTextSplitter
-from startagi.models.agent import Agent
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.vector_store.base import VectorStore
+from fastagi.models.agent import Agent
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.vector_store.base import VectorStore
 import numpy as np
 
-from startagi.models.agent_execution_permission import AgentExecutionPermission
+from fastagi.models.agent_execution_permission import AgentExecutionPermission
 
 
 class ToolOutputHandler:

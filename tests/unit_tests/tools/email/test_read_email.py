@@ -1,10 +1,10 @@
 from unittest.mock import patch, Mock
 
-from startagi.tools.email.read_email import ReadEmailTool
+from fastagi.tools.email.read_email import ReadEmailTool
 
 
-@patch('startagi.tools.email.read_email.ImapEmail')
-@patch('startagi.tools.email.read_email.ReadEmail')
+@patch('fastagi.tools.email.read_email.ImapEmail')
+@patch('fastagi.tools.email.read_email.ReadEmail')
 def test_execute(mock_read_email, mock_imap_email):
     # Configure the mock objects
     mock_conn = Mock()

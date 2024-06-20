@@ -2,7 +2,7 @@ import json
 
 import redis
 
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 
 redis_url = get_config('REDIS_URL') or "localhost:6379"
 """TaskQueue manages current tasks and past tasks in Redis """

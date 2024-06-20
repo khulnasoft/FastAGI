@@ -2,19 +2,19 @@ import time
 
 import numpy as np
 
-from startagi.agent.agent_message_builder import AgentLlmMessageBuilder
-from startagi.agent.task_queue import TaskQueue
-from startagi.helper.error_handler import ErrorHandler
-from startagi.helper.json_cleaner import JsonCleaner
-from startagi.helper.prompt_reader import PromptReader
-from startagi.helper.token_counter import TokenCounter
-from startagi.lib.logger import logger
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
-from startagi.models.agent import Agent
-from startagi.types.queue_status import QueueStatus
+from fastagi.agent.agent_message_builder import AgentLlmMessageBuilder
+from fastagi.agent.task_queue import TaskQueue
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.helper.json_cleaner import JsonCleaner
+from fastagi.helper.prompt_reader import PromptReader
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.lib.logger import logger
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
+from fastagi.models.agent import Agent
+from fastagi.types.queue_status import QueueStatus
 
 
 class QueueStepHandler:

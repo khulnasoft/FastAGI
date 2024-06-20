@@ -1,11 +1,11 @@
 from abc import ABC
 from typing import List
 
-from startagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
-from startagi.tools.code.improve_code import ImproveCodeTool
-from startagi.tools.code.write_code import CodingTool
-from startagi.tools.code.write_spec import WriteSpecTool
-from startagi.tools.code.write_test import WriteTestTool
+from fastagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
+from fastagi.tools.code.improve_code import ImproveCodeTool
+from fastagi.tools.code.write_code import CodingTool
+from fastagi.tools.code.write_spec import WriteSpecTool
+from fastagi.tools.code.write_test import WriteTestTool
 
 
 class CodingToolkit(BaseToolkit, ABC):

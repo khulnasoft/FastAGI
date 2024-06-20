@@ -1,6 +1,6 @@
 import json
 import re
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 import json5
 

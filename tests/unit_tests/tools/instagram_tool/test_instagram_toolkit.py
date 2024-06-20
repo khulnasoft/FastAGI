@@ -1,6 +1,6 @@
 import pytest
-from startagi.tools.instagram_tool.instagram import InstagramTool
-from startagi.tools.instagram_tool.instagram_toolkit import InstagramToolkit
+from fastagi.tools.instagram_tool.instagram import InstagramTool
+from fastagi.tools.instagram_tool.instagram_toolkit import InstagramToolkit
 
 class TestInstagramToolKit:
     def setup_method(self):

@@ -1,8 +1,8 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.slack.send_message import SlackMessageTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.slack.send_message import SlackMessageTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class SlackToolkit(BaseToolkit, ABC):

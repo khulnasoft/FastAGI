@@ -1,10 +1,10 @@
-#  ⚡ Contributing to StartAGI
+#  ⚡ Contributing to FastAGI
 <p align="center">
-  <a href="https://startagi.khulnasoft.com//#gh-light-mode-only">
-    <img src="https://startagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="StartAGI logo" />
+  <a href="https://fastagi.com//#gh-light-mode-only">
+    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
   </a>
-  <a href="https://startagi.khulnasoft.com//#gh-dark-mode-only">
-    <img src="https://startagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="StartAGI logo" />
+  <a href="https://fastagi.com//#gh-dark-mode-only">
+    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
   </a>
 </p>
 
@@ -13,30 +13,30 @@ First of all, thank you for taking the time to contribute to this project. We tr
 This document provides guidelines and best practices to help you to contribute effectively. These are meant to serve as guidelines, not strict rules. We encourage you to use your best judgment and feel comfortable proposing changes to this document through a pull request.
 
 For all contributions, a CLA (Contributor License Agreement) needs to be signed
-[here](https://cla-assistant.io/KhulnaSoft/StartAGI) before (or after) the pull request has been submitted.
+[here](https://cla-assistant.io/KhulnaSoft/FastAGI) before (or after) the pull request has been submitted.
 
 **********************************Table of Content:********************************** 
-1. [Code of conduct](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#code-of-conduct) 
-2. [Quick Start](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#quick-start)
-3. [Contributing Guidelines](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#contributing-guidelines)
-    1. [Reporting Bugs](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#reporting-bugs)
-    2. [New Feature or Suggesting Enhancements](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#new-feature-or-suggesting-enhancements)
-4. [Testing](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#testing-changes)
-5. [Pull Requests](https://github.com/KhulnaSoft/StartAGI/blob/CONTRIBUTING.md#pull-requests)
+1. [Code of conduct](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#code-of-conduct) 
+2. [Quick Start](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#quick-start)
+3. [Contributing Guidelines](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#contributing-guidelines)
+    1. [Reporting Bugs](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#reporting-bugs)
+    2. [New Feature or Suggesting Enhancements](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#new-feature-or-suggesting-enhancements)
+4. [Testing](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#testing-changes)
+5. [Pull Requests](https://github.com/KhulnaSoft/FastAGI/blob/CONTRIBUTING.md#pull-requests)
 
 ## ✔️ Code of Conduct:
 
-Please read our [Code of Conduct](https://github.com/KhulnaSoft/StartAGI/blob/main/CODE_OF_CONDUCT.md) to understand the expectations we have for all contributors participating in this project. By participating, you agree to abide by our Code of Conduct.
+Please read our [Code of Conduct](https://github.com/KhulnaSoft/FastAGI/blob/main/CODE_OF_CONDUCT.md) to understand the expectations we have for all contributors participating in this project. By participating, you agree to abide by our Code of Conduct.
 
 ## 🚀 Quick Start
 
-You can quickly get started with contributing by searching for issues with the labels **"Good First Issue"** or **"Help Needed"** in the [Issues Section](https://github.com/KhulnaSoft/StartAGI/Issues). If you think you can contribute, comment on the issue and we will assign it to you.  
+You can quickly get started with contributing by searching for issues with the labels **"Good First Issue"** or **"Help Needed"** in the [Issues Section](https://github.com/KhulnaSoft/FastAGI/Issues). If you think you can contribute, comment on the issue and we will assign it to you.  
 
 To set up your development environment, please follow the steps mentioned below : 
 
 1. Fork the repository and create a clone of the fork
 2. Create a branch for a feature or a bug you are working on in your fork
-3. Once you've created your branch, follow the instructions in the [README.MD](https://github.com/KhulnaSoft/StartAGI/README.MD)
+3. Once you've created your branch, follow the instructions in the [README.MD](https://github.com/KhulnaSoft/FastAGI/README.MD)
 
 ## Contributing Guidelines 
  

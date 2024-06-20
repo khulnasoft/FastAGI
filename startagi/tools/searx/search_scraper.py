@@ -3,7 +3,7 @@ from typing import List
 import httpx
 from bs4 import BeautifulSoup
 from pydantic import BaseModel
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 
 searx_hosts = ["https://search.ononoki.org", "https://searx.be", "https://search.us.projectsegfau.lt"]

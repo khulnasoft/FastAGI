@@ -4,9 +4,9 @@ from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 from pydantic import BaseModel
 
-from startagi.helper.auth import check_auth
-from startagi.models.budget import Budget
-# from startagi.types.db import BudgetIn, BudgetOut
+from fastagi.helper.auth import check_auth
+from fastagi.models.budget import Budget
+# from fastagi.types.db import BudgetIn, BudgetOut
 
 router = APIRouter()
 

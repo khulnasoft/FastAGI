@@ -1,8 +1,8 @@
 from abc import ABC
-from startagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
+from fastagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
 from typing import Type, List
-from startagi.tools.twitter.send_tweets import SendTweetsTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.twitter.send_tweets import SendTweetsTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 class TwitterToolkit(BaseToolkit, ABC):
     name: str = "Twitter Toolkit"

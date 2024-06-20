@@ -1,10 +1,10 @@
 from abc import ABC
-from startagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
+from fastagi.tools.base_tool import BaseToolkit, BaseTool, ToolConfiguration
 from typing import Type, List
-from startagi.tools.email.read_email import ReadEmailTool
-from startagi.tools.email.send_email import SendEmailTool
-from startagi.tools.email.send_email_attachment import SendEmailAttachmentTool
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.email.read_email import ReadEmailTool
+from fastagi.tools.email.send_email import SendEmailTool
+from fastagi.tools.email.send_email_attachment import SendEmailAttachmentTool
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class EmailToolkit(BaseToolkit, ABC):

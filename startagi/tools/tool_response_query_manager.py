@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.vector_store.base import VectorStore
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.vector_store.base import VectorStore
 
 class ToolResponseQueryManager:
     def __init__(self, session: Session, agent_execution_id: int,memory:VectorStore):

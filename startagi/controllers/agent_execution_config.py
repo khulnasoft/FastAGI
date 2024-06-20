@@ -9,13 +9,13 @@ from typing import Optional, Union
 from sqlalchemy import func, or_
 from sqlalchemy import desc
 
-from startagi.helper.auth import check_auth
-from startagi.models.agent import Agent
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_config import AgentExecutionConfiguration
-from startagi.models.tool import Tool
-from startagi.models.knowledges import Knowledges
+from fastagi.helper.auth import check_auth
+from fastagi.models.agent import Agent
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_config import AgentExecutionConfiguration
+from fastagi.models.tool import Tool
+from fastagi.models.knowledges import Knowledges
 
 
 router = APIRouter()

@@ -1,9 +1,9 @@
 import pytest
 from unittest.mock import Mock, patch
-from startagi.tools.jira.create_issue import CreateIssueTool
+from fastagi.tools.jira.create_issue import CreateIssueTool
 
 CreateIssueTool
-@patch("startagi.tools.jira.create_issue.JiraTool.build_jira_instance")
+@patch("fastagi.tools.jira.create_issue.JiraTool.build_jira_instance")
 def test_create_issue_tool(mock_build_jira_instance):
     # Arrange
     mock_jira_instance = Mock()

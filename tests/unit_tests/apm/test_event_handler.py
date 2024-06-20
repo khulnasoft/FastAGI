@@ -1,9 +1,9 @@
 import pytest
 from sqlalchemy.exc import SQLAlchemyError
-from startagi.models.events import Event
+from fastagi.models.events import Event
 from unittest.mock import MagicMock
 
-from startagi.apm.event_handler import EventHandler
+from fastagi.apm.event_handler import EventHandler
 
 @pytest.fixture
 def mock_session():

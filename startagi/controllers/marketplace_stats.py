@@ -1,9 +1,9 @@
 from fastapi_sqlalchemy import db
 from fastapi import HTTPException, Depends, Query, status
 from fastapi import APIRouter
-from startagi.config.config import get_config
-from startagi.models.marketplace_stats import MarketPlaceStats
-from startagi.models.vector_dbs import Vectordbs
+from fastagi.config.config import get_config
+from fastagi.models.marketplace_stats import MarketPlaceStats
+from fastagi.models.vector_dbs import Vectordbs
 
 router = APIRouter()
 

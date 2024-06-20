@@ -5,12 +5,12 @@ from typing import List
 from typing import Optional, Type, Callable, Any, Union, Dict, Tuple
 import yaml
 from pydantic import BaseModel, create_model, validate_arguments, Extra
-from startagi.models.tool_config import ToolConfig
+from fastagi.models.tool_config import ToolConfig
 from sqlalchemy import Column, Integer, String, Boolean
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.types.key_type import ToolConfigKeyType
 
 
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 
 
 class SchemaSettings:

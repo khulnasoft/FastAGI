@@ -1,6 +1,6 @@
 import unittest
-from startagi.vector_embeddings.base import VectorEmbeddings
-from startagi.vector_embeddings.weaviate import Weaviate
+from fastagi.vector_embeddings.base import VectorEmbeddings
+from fastagi.vector_embeddings.weaviate import Weaviate
 
 class TestWeaviate(unittest.TestCase):
 

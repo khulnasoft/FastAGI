@@ -2,8 +2,8 @@ import json
 
 from sqlalchemy import Column, Integer, String, Text, Boolean
 
-from startagi.models.base_model import DBBaseModel
-from startagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.workflows.iteration_workflow_step import IterationWorkflowStep
 
 
 class IterationWorkflow(DBBaseModel):

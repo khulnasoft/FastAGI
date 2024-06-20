@@ -3,7 +3,7 @@ import json
 from sqlalchemy import Column, Integer, String, Text, Boolean
 from sqlalchemy.dialects.postgresql import JSONB
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 
 class AgentWorkflowStepTool(DBBaseModel):

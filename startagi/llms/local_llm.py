@@ -1,7 +1,7 @@
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.llms.base_llm import BaseLlm
-from startagi.helper.llm_loader import LLMLoader
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.helper.llm_loader import LLMLoader
 
 
 class LocalLLM(BaseLlm):

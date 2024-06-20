@@ -3,10 +3,10 @@ import json
 import requests
 from sqlalchemy import Column, Integer, String, Boolean
 
-from startagi.models.base_model import DBBaseModel
-from startagi.models.tool import Tool
+from fastagi.models.base_model import DBBaseModel
+from fastagi.models.tool import Tool
 
-marketplace_url = "https://app.startagi.khulnasoft.com/api"
+marketplace_url = "https://app.fastagi.com/api"
 # marketplace_url = "http://localhost:8001"
 
 
@@ -141,7 +141,7 @@ class Toolkit(DBBaseModel):
 
     @classmethod
     def get_tool_and_toolkit_arr(cls, session, organisation_id :int,agent_config_tools_arr: list):
-        from startagi.models.tool import Tool
+        from fastagi.models.tool import Tool
         toolkits_arr= set()
         tools_arr= set()
         for tool_obj in agent_config_tools_arr:

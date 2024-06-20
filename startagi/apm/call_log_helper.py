@@ -3,10 +3,10 @@ from typing import Optional
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 from sqlalchemy import func, distinct
-from startagi.models.call_logs import CallLogs
-from startagi.models.agent import Agent
-from startagi.models.tool import Tool
-from startagi.models.toolkit import Toolkit
+from fastagi.models.call_logs import CallLogs
+from fastagi.models.agent import Agent
+from fastagi.models.tool import Tool
+from fastagi.models.toolkit import Toolkit
 
 class CallLogHelper:
 

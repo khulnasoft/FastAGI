@@ -1,6 +1,6 @@
 from unittest.mock import create_autospec
 from sqlalchemy.orm import Session
-from startagi.models.agent import Agent
+from fastagi.models.agent import Agent
 from unittest.mock import patch
   
 def test_get_agent_from_id():

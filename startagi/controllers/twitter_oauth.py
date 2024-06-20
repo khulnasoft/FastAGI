@@ -7,13 +7,13 @@ from fastapi.responses import RedirectResponse
 from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 
-import startagi
-from startagi.helper.auth import get_current_user, check_auth
-from startagi.helper.twitter_tokens import TwitterTokens
-from startagi.models.oauth_tokens import OauthTokens
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
-from startagi.helper.encyption_helper import decrypt_data, is_encrypted
+import fastagi
+from fastagi.helper.auth import get_current_user, check_auth
+from fastagi.helper.twitter_tokens import TwitterTokens
+from fastagi.models.oauth_tokens import OauthTokens
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
+from fastagi.helper.encyption_helper import decrypt_data, is_encrypted
 
 router = APIRouter()
 
@@ -24,7 +24,7 @@ async def twitter_oauth(oauth_token: str = Query(...),oauth_verifier: str = Quer
     conn.request("POST", token_uri, "")
     res = conn.getresponse()
     response_data = res.read().decode('utf-8')
-    frontend_url = startagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
+    frontend_url = fastagi.config.config.get_config("FRONTEND_URL", "http://localhost:3000")
     redirect_url_success = f"{frontend_url}/twitter_creds/?{response_data}"
     return RedirectResponse(url=redirect_url_success)
 

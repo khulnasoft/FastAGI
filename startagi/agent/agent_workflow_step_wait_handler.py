@@ -1,11 +1,11 @@
 from datetime import datetime
 
-from startagi.agent.types.agent_execution_status import AgentExecutionStatus
-from startagi.lib.logger import logger
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.workflows.agent_workflow_step import AgentWorkflowStep
-from startagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
-from startagi.agent.types.wait_step_status import AgentWorkflowStepWaitStatus
+from fastagi.agent.types.agent_execution_status import AgentExecutionStatus
+from fastagi.lib.logger import logger
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.workflows.agent_workflow_step import AgentWorkflowStep
+from fastagi.models.workflows.agent_workflow_step_wait import AgentWorkflowStepWait
+from fastagi.agent.types.wait_step_status import AgentWorkflowStepWaitStatus
 
 class AgentWaitStepHandler:
     """Handle Agent Wait Step in the agent workflow."""

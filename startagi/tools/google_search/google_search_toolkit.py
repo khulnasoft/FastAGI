@@ -1,9 +1,9 @@
 from abc import ABC
 from typing import List
-from startagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
-from startagi.tools.google_search.google_search import GoogleSearchTool
-from startagi.models.tool_config import ToolConfig
-from startagi.types.key_type import ToolConfigKeyType
+from fastagi.tools.base_tool import BaseTool, BaseToolkit, ToolConfiguration
+from fastagi.tools.google_search.google_search import GoogleSearchTool
+from fastagi.models.tool_config import ToolConfig
+from fastagi.types.key_type import ToolConfigKeyType
 
 
 class GoogleSearchToolkit(BaseToolkit, ABC):

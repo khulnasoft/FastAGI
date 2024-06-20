@@ -32,7 +32,7 @@ export default function ToolkitWorkspace({env, toolkitDetails, internalId}) {
   function getGoogleToken(client_data) {
     var redirect_uri = "";
     if (env == "PROD") {
-      redirect_uri = 'https://app.startagi.khulnasoft.com/api/google/oauth-tokens';
+      redirect_uri = 'https://app.fastagi.com/api/google/oauth-tokens';
     } else {
       redirect_uri = "http://localhost:3000/api/google/oauth-tokens";
     }

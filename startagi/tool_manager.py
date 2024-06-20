@@ -106,7 +106,7 @@ def load_tools_config():
 
 
 def load_marketplace_tools():
-    marketplace_url = "KhulnaSoft/StartAGI-Tools"
+    marketplace_url = "KhulnaSoft/FastAGI-Tools"
     tools_config_path = str(Path(__file__).parent.parent)
     tools_json_path = tools_config_path + "/tools.json"
     # Get folder links from the repository
@@ -116,19 +116,19 @@ def load_marketplace_tools():
 
 
 def is_marketplace_url(url):
-    return url.startswith("https://github.com/KhulnaSoft/StartAGI-Tools/tree")
+    return url.startswith("https://github.com/KhulnaSoft/FastAGI-Tools/tree")
 
 def download_and_extract_tools():
     tools_config = load_tools_config()
 
     for tool_name, tool_url in tools_config.items():
         if is_marketplace_url(tool_url):
-            tool_folder = os.path.join("startagi/tools/marketplace_tools")
+            tool_folder = os.path.join("fastagi/tools/marketplace_tools")
             if not os.path.exists(tool_folder):
                 os.makedirs(tool_folder)
             download_marketplace_tool(tool_url, tool_folder)
         else:
-            tool_folder = os.path.join("startagi/tools/external_tools", tool_name)
+            tool_folder = os.path.join("fastagi/tools/external_tools", tool_name)
             if not os.path.exists(tool_folder):
                 os.makedirs(tool_folder)
             download_tool(tool_url, tool_folder)

@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Image from "next/image";
-import styles from '../Toolkits/Tool.module.css';
+import styles from '.././Toolkits/Tool.module.css';
 import styles1 from '../Agents/Agents.module.css';
 import {ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -62,7 +62,7 @@ export default function KnowledgeTemplate({template, env}) {
 
     if (window.location.href.toLowerCase().includes('marketplace')) {
       setInstalled('Sign in to install');
-      axios.get(`https://app.startagi.khulnasoft.com/api/knowledges/marketplace/get/details/${template.name}`)
+      axios.get(`https://app.fastagi.com/api/knowledges/marketplace/get/details/${template.name}`)
         .then((response) => {
           const data = response.data || [];
           setTemplateData(data);
@@ -105,7 +105,7 @@ export default function KnowledgeTemplate({template, env}) {
       localStorage.setItem('knowledge_index_to_install', indexId);
 
       if (env === 'PROD') {
-        window.open(`https://app.startagi.khulnasoft.com/`, '_self');
+        window.open(`https://app.fastagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }
@@ -163,7 +163,7 @@ export default function KnowledgeTemplate({template, env}) {
     setIndexDropdown(!indexDropdown)
     if (window.location.href.toLowerCase().includes('marketplace')) {
       if (env === 'PROD') {
-        window.open(`https://app.startagi.khulnasoft.com/`, '_self');
+        window.open(`https://app.fastagi.com/`, '_self');
       } else {
         window.location.href = '/';
       }

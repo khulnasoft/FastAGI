@@ -3,26 +3,26 @@ import sys
 
 from sqlalchemy.orm import sessionmaker
 
-from startagi.helper.tool_helper import handle_tools_import
-from startagi.lib.logger import logger
+from fastagi.helper.tool_helper import handle_tools_import
+from fastagi.lib.logger import logger
 
 from datetime import timedelta
 from celery import Celery
 
-from startagi.config.config import get_config
-from startagi.helper.agent_schedule_helper import AgentScheduleHelper
-from startagi.models.configuration import Configuration
-from startagi.models.agent import Agent
-from startagi.models.db import connect_db
-from startagi.types.model_source_types import ModelSourceType
+from fastagi.config.config import get_config
+from fastagi.helper.agent_schedule_helper import AgentScheduleHelper
+from fastagi.models.configuration import Configuration
+from fastagi.models.agent import Agent
+from fastagi.models.db import connect_db
+from fastagi.types.model_source_types import ModelSourceType
 
 from sqlalchemy import event
-from startagi.models.agent_execution import AgentExecution
-from startagi.helper.webhook_manager import WebHookManager
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.helper.webhook_manager import WebHookManager
 
-redis_url = get_config('REDIS_URL', 'start__redis:6379')
+redis_url = get_config('REDIS_URL', 'super__redis:6379')
 
-app = Celery("startagi", include=["startagi.worker"], imports=["startagi.worker"])
+app = Celery("fastagi", include=["fastagi.worker"], imports=["fastagi.worker"])
 app.conf.broker_url = "redis://" + redis_url + "/0"
 app.conf.result_backend = "redis://" + redis_url + "/0"
 app.conf.worker_concurrency = 10
@@ -50,7 +50,7 @@ def agent_status_change(target, val,old_val,initiator):
 def execute_waiting_workflows():
     """Check if wait time of wait workflow step is over and can be resumed."""
 
-    from startagi.jobs.agent_executor import AgentExecutor
+    from fastagi.jobs.agent_executor import AgentExecutor
     logger.info("Executing waiting workflows job")
     AgentExecutor().execute_waiting_workflows()
 
@@ -66,7 +66,7 @@ def initialize_schedule_agent_task():
 @app.task(name="execute_agent", autoretry_for=(Exception,), retry_backoff=2, max_retries=5)
 def execute_agent(agent_execution_id: int, time):
     """Execute an agent step in background."""
-    from startagi.jobs.agent_executor import AgentExecutor
+    from fastagi.jobs.agent_executor import AgentExecutor
     handle_tools_import()
     logger.info("Execute agent:" + str(time) + "," + str(agent_execution_id))
     AgentExecutor().execute_next_step(agent_execution_id=agent_execution_id)
@@ -75,10 +75,10 @@ def execute_agent(agent_execution_id: int, time):
 @app.task(name="summarize_resource", autoretry_for=(Exception,), retry_backoff=2, max_retries=5,serializer='pickle')
 def summarize_resource(agent_id: int, resource_id: int):
     """Summarize a resource in background."""
-    from startagi.resource_manager.resource_summary import ResourceSummarizer
-    from startagi.types.storage_types import StorageType
-    from startagi.models.resource import Resource
-    from startagi.resource_manager.resource_manager import ResourceManager
+    from fastagi.resource_manager.resource_summary import ResourceSummarizer
+    from fastagi.types.storage_types import StorageType
+    from fastagi.models.resource import Resource
+    from fastagi.resource_manager.resource_manager import ResourceManager
 
     engine = connect_db()
     Session = sessionmaker(bind=engine)

@@ -2,7 +2,7 @@ import base64
 import unittest
 from unittest.mock import patch, MagicMock
 
-from startagi.helper.github_helper import GithubHelper
+from fastagi.helper.github_helper import GithubHelper
 
 class TestGithubHelper(unittest.TestCase):
     @patch('requests.get')

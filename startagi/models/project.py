@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String,ForeignKey
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 
 class Project(DBBaseModel):

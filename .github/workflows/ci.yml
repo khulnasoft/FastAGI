@@ -76,10 +76,10 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           submodules: true
 
-      - name: Configure git user StartAGI-Bot
+      - name: Configure git user FastAGI-Bot
         run: |
-          git config --global user.name "StartAGI-Bot"
-          git config --global user.email "github-bot@startagi.khulnasoft.com"
+          git config --global user.name "FastAGI-Bot"
+          git config --global user.email "github-bot@fastagi.com"
           
       - name: Set up Python 3.9
         uses: actions/setup-python@v3
@@ -102,7 +102,7 @@ jobs:
           
       - name: Test with pytest
         run: |
-          pytest --cov=startagi --cov-branch --cov-report term-missing --cov-report xml \
+          pytest --cov=fastagi --cov-branch --cov-report term-missing --cov-report xml \
             tests/unit_tests -s
         env:
           CI: true

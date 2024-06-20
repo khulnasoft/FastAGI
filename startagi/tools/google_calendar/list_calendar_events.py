@@ -2,17 +2,17 @@ import os
 import csv
 from datetime import datetime
 from typing import Type
-from startagi.config.config import get_config
+from fastagi.config.config import get_config
 from pydantic import BaseModel, Field
-from startagi.tools.base_tool import BaseTool
-from startagi.helper.google_calendar_creds import GoogleCalendarCreds
-from startagi.helper.calendar_date import CalendarDate
-from startagi.resource_manager.file_manager import FileManager
-from startagi.helper.s3_helper import S3Helper
+from fastagi.tools.base_tool import BaseTool
+from fastagi.helper.google_calendar_creds import GoogleCalendarCreds
+from fastagi.helper.calendar_date import CalendarDate
+from fastagi.resource_manager.file_manager import FileManager
+from fastagi.helper.s3_helper import S3Helper
 from urllib.parse import urlparse, parse_qs
 from sqlalchemy.orm import sessionmaker
-from startagi.models.db import connect_db
-from startagi.lib.logger import logger
+from fastagi.models.db import connect_db
+from fastagi.lib.logger import logger
 
 
 class ListCalendarEventsInput(BaseModel):

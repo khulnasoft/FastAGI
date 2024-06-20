@@ -1,4 +1,4 @@
-from startagi.llms.hugging_face import HuggingFace
+from fastagi.llms.hugging_face import HuggingFace
 
 class ModelsHelper:
     @staticmethod

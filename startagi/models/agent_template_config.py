@@ -2,7 +2,7 @@ import json
 
 from sqlalchemy import Column, Integer, String, Text
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 
 class AgentTemplateConfig(DBBaseModel):

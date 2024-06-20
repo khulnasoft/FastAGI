@@ -1,23 +1,23 @@
 <p align="center">
-  <a href="https://startagi.khulnasoft.com//#gh-light-mode-only">
-    <img src="https://startagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="StartAGI logo" />
+  <a href="https://fastagi.com//#gh-light-mode-only">
+    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-dark.svg" width="318px" alt="FastAGI logo" />
   </a>
-  <a href="https://startagi.khulnasoft.com//#gh-dark-mode-only">
-    <img src="https://startagi.khulnasoft.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="StartAGI logo" />
+  <a href="https://fastagi.com//#gh-dark-mode-only">
+    <img src="https://fastagi.com/wp-content/uploads/2023/05/Logo-light.svg" width="318px" alt="FastAGI logo" />
   </a>
 </p>
 
-## StartAGI Stable Diffusion Toolkit
+## FastAGI Stable Diffusion Toolkit
 
-Introducing Stable Diffusion Integration with StartAGI
+Introducing Stable Diffusion Integration with FastAGI
 
-You can now use StartAGI to summon Stable Diffusion to create true-to-life images which opens up a whole new range of possibilities. 
+You can now use FastAGI to summon Stable Diffusion to create true-to-life images which opens up a whole new range of possibilities. 
 
 # ⚙️ Installation
 
-## 🛠️ Setting up StartAGI
+## 🛠️ Setting up FastAGI
 
-Set up StartAGI by following the instruction given [here](https://github.com/KhulnaSoft/StartAGI/blob/main/README.MD)
+Set up FastAGI by following the instruction given [here](https://github.com/KhulnaSoft/FastAGI/blob/main/README.MD)
 
 ## 🔧Configuring API from DreamStudio
 
@@ -25,25 +25,25 @@ You can now get your API Key from Dream Studio to use Stable Diffusion by follow
 
 1. Create an Account/Login with [DreamStudio.ai](http://DreamStudio.ai)
 
-![SD_1](https://github.com/KhulnaSoft/StartAGI/assets/133874957/39d8ab86-a989-4dfb-a281-1da6a835007e)
+![SD_1](https://github.com/KhulnaSoft/FastAGI/assets/133874957/39d8ab86-a989-4dfb-a281-1da6a835007e)
 
 2. Click on the Profile Icon at the top right which will take you to the settings page. Once you have reached the settings page, you can now get your API keys 
 
-![SD_5](https://github.com/KhulnaSoft/StartAGI/assets/133874957/f02c5d3f-6201-42ec-9acb-230010393214)
+![SD_5](https://github.com/KhulnaSoft/FastAGI/assets/133874957/f02c5d3f-6201-42ec-9acb-230010393214)
 
 3. Copy the API Key and save it in a separate file
 
-## 🛠️Configuring Stable Diffusion with StartAGI
+## 🛠️Configuring Stable Diffusion with FastAGI
 
-You can configure StartAGI with Stable Diffusion using the following steps:
+You can configure FastAGI with Stable Diffusion using the following steps:
 
-1. Navigate to the “****************Toolkit”**************** Page in StartAGI’s Dashboard and select “****************Image Generation Toolkit”**************** 
+1. Navigate to the “****************Toolkit”**************** Page in FastAGI’s Dashboard and select “****************Image Generation Toolkit”**************** 
 
-![SD_4](https://github.com/KhulnaSoft/StartAGI/assets/133874957/cc9cc93a-08a2-4613-b010-c685079e0ed3)
+![SD_4](https://github.com/KhulnaSoft/FastAGI/assets/133874957/cc9cc93a-08a2-4613-b010-c685079e0ed3)
 
 2. Once you’ve clicked Image Generation Toolkit, it will open a page asking you for the API Key and the Model Engine. You can enter the generated API key from Dream Studio here
 
-![SD_2](https://github.com/KhulnaSoft/StartAGI/assets/133874957/79c667a6-ee91-4405-9b05-37d076208172)
+![SD_2](https://github.com/KhulnaSoft/FastAGI/assets/133874957/79c667a6-ee91-4405-9b05-37d076208172)
 
 3. If you would like to go in-depth with the model of Stable Diffusion, you can choose between the following engine IDs: 
 
@@ -55,4 +55,4 @@ You can configure StartAGI with Stable Diffusion using the following steps:
 - ’stable-diffusion-768-v2-1'
 - 'stable-diffusion-xl-beta-v2-2-2’
 
-You have now successfully configured Stable Diffusion with StartAGI!
+You have now successfully configured Stable Diffusion with FastAGI!

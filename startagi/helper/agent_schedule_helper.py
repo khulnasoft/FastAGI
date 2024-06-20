@@ -1,9 +1,9 @@
-from startagi.models.db import connect_db
+from fastagi.models.db import connect_db
 from sqlalchemy.orm import sessionmaker
-from startagi.models.agent_config import AgentConfiguration
-from startagi.models.agent_schedule import AgentSchedule
+from fastagi.models.agent_config import AgentConfiguration
+from fastagi.models.agent_schedule import AgentSchedule
 from datetime import datetime, timedelta
-from startagi.helper.time_helper import parse_interval_to_seconds
+from fastagi.helper.time_helper import parse_interval_to_seconds
 import pytz
 
 engine = connect_db()
@@ -171,7 +171,7 @@ class AgentScheduleHelper:
             agent (object): The agent to be scheduled.
             agent_execution_name (str): The name for the execution.
         """
-        from startagi.jobs.scheduling_executor import ScheduledAgentExecutor
+        from fastagi.jobs.scheduling_executor import ScheduledAgentExecutor
         if should_execute_agent:
             executor = ScheduledAgentExecutor()
             executor.execute_scheduled_agent(agent.agent_id, agent_execution_name)

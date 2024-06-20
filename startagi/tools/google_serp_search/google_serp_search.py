@@ -1,12 +1,12 @@
 from typing import Type, Optional, Any
 from pydantic import BaseModel, Field
 import aiohttp
-from startagi.helper.error_handler import ErrorHandler
-from startagi.helper.google_serp import GoogleSerpApiWrap
-from startagi.llms.base_llm import BaseLlm
-from startagi.models.agent_execution import AgentExecution
-from startagi.models.agent_execution_feed import AgentExecutionFeed
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.error_handler import ErrorHandler
+from fastagi.helper.google_serp import GoogleSerpApiWrap
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.models.agent_execution import AgentExecution
+from fastagi.models.agent_execution_feed import AgentExecutionFeed
+from fastagi.tools.base_tool import BaseTool
 import os
 
 import json

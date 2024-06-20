@@ -8,13 +8,13 @@ from urllib.parse import urlparse
 
 import requests
 
-from startagi.config.config import get_config
-from startagi.lib.logger import logger
-from startagi.models.tool import Tool
-from startagi.models.tool_config import ToolConfig
-from startagi.models.toolkit import Toolkit
-from startagi.tools.base_tool import BaseTool, ToolConfiguration
-from startagi.tools.base_tool import BaseToolkit
+from fastagi.config.config import get_config
+from fastagi.lib.logger import logger
+from fastagi.models.tool import Tool
+from fastagi.models.tool_config import ToolConfig
+from fastagi.models.toolkit import Toolkit
+from fastagi.tools.base_tool import BaseTool, ToolConfiguration
+from fastagi.tools.base_tool import BaseToolkit
 
 
 def parse_github_url(github_url):
@@ -128,7 +128,7 @@ def init_tools(folder_paths, session, tool_name_to_toolkit):
             # Iterate over all files in the subfolder
             if not os.path.isdir(folder_dir):
                 continue
-                # sys.path.append(os.path.abspath('startagi/tools/email'))
+                # sys.path.append(os.path.abspath('fastagi/tools/email'))
             sys.path.append(folder_dir)
             for file_name in os.listdir(folder_dir):
                 file_path = os.path.join(folder_dir, file_name)
@@ -163,7 +163,7 @@ def init_toolkits(code_link, existing_toolkits, folder_paths, organisation, sess
 
             if not os.path.isdir(folder_dir):
                 continue
-                # sys.path.append(os.path.abspath('startagi/tools/email'))
+                # sys.path.append(os.path.abspath('fastagi/tools/email'))
             sys.path.append(folder_dir)
             # Iterate over all files in the subfolder
             for file_name in os.listdir(folder_dir):
@@ -257,15 +257,15 @@ def get_readme_content_from_code_link(tool_code_link):
 
 
 def register_toolkits(session, organisation):
-    tool_paths = ["startagi/tools", "startagi/tools/external_tools"]
+    tool_paths = ["fastagi/tools", "fastagi/tools/external_tools"]
     # if get_config("ENV", "DEV") == "PROD":
-    #     tool_paths.append("startagi/tools/marketplace_tools")
+    #     tool_paths.append("fastagi/tools/marketplace_tools")
     if organisation is not None:
         process_files(tool_paths, session, organisation)
         logger.info(f"Toolkits Registered Successfully for Organisation ID : {organisation.id}!")
 
 def register_marketplace_toolkits(session, organisation):
-    tool_paths = ["startagi/tools", "startagi/tools/external_tools","startagi/tools/marketplace_tools"]
+    tool_paths = ["fastagi/tools", "fastagi/tools/external_tools","fastagi/tools/marketplace_tools"]
     if organisation is not None:
         process_files(tool_paths, session, organisation)
         logger.info(f"Marketplace Toolkits Registered Successfully for Organisation ID : {organisation.id}!")
@@ -296,7 +296,7 @@ def add_tool_to_json(repo_link):
 
 def handle_tools_import():
     print("Handling tools import")
-    tool_paths = ["startagi/tools", "startagi/tools/marketplace_tools", "startagi/tools/external_tools"]
+    tool_paths = ["fastagi/tools", "fastagi/tools/marketplace_tools", "fastagi/tools/external_tools"]
     for tool_path in tool_paths:
         if not os.path.exists(tool_path):
             continue

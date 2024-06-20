@@ -1,7 +1,7 @@
 from unittest.mock import patch, MagicMock
 from sqlalchemy.orm import Session
 
-from startagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
+from fastagi.models.workflows.agent_workflow_step_tool import AgentWorkflowStepTool
 
 
 @patch('sqlalchemy.orm.Session.query')

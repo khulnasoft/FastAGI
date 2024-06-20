@@ -4,10 +4,10 @@ from typing import Type
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.imap_email import ImapEmail
-from startagi.helper.read_email import ReadEmail
-from startagi.helper.token_counter import TokenCounter
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.imap_email import ImapEmail
+from fastagi.helper.read_email import ReadEmail
+from fastagi.helper.token_counter import TokenCounter
+from fastagi.tools.base_tool import BaseTool
 
 
 class ReadEmailInput(BaseModel):

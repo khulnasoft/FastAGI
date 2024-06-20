@@ -2,9 +2,9 @@ from typing import List
 
 import tiktoken
 
-from startagi.types.common import BaseMessage
-from startagi.lib.logger import logger
-from startagi.models.models import Models
+from fastagi.types.common import BaseMessage
+from fastagi.lib.logger import logger
+from fastagi.models.models import Models
 from sqlalchemy.orm import Session
 
 

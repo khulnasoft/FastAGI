@@ -2,9 +2,9 @@ from typing import Type, Optional
 
 from pydantic import BaseModel, Field
 
-from startagi.helper.webpage_extractor import WebpageExtractor
-from startagi.llms.base_llm import BaseLlm
-from startagi.tools.base_tool import BaseTool
+from fastagi.helper.webpage_extractor import WebpageExtractor
+from fastagi.llms.base_llm import BaseLlm
+from fastagi.tools.base_tool import BaseTool
 
 
 class WebScraperSchema(BaseModel):

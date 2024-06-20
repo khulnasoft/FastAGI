@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Text, String
 import requests
-from startagi.models.base_model import DBBaseModel
-marketplace_url = "https://app.startagi.khulnasoft.com/api"
+from fastagi.models.base_model import DBBaseModel
+marketplace_url = "https://app.fastagi.com/api"
 # marketplace_url = "http://localhost:8001"
 
 

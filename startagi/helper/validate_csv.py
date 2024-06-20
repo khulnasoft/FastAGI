@@ -1,7 +1,7 @@
 import csv
 import pandas as pd
 import chardet
-from startagi.lib.logger import logger
+from fastagi.lib.logger import logger
 
 def correct_csv_encoding(file_path):
     with open(file_path, 'rb') as f:

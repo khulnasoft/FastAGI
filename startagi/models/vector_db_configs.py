@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, Text, String
 
-from startagi.models.base_model import DBBaseModel
+from fastagi.models.base_model import DBBaseModel
 
 
 class VectordbConfigs(DBBaseModel):

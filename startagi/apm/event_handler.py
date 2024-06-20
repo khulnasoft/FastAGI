@@ -3,7 +3,7 @@ from typing import Optional, Dict
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.orm import Session
 
-from startagi.models.events import Event
+from fastagi.models.events import Event
 
 class EventHandler:
 

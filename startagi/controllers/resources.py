@@ -11,14 +11,14 @@ from fastapi.responses import StreamingResponse
 from fastapi_jwt_auth import AuthJWT
 from fastapi_sqlalchemy import db
 
-from startagi.config.config import get_config
-from startagi.helper.auth import check_auth
-from startagi.helper.resource_helper import ResourceHelper
-from startagi.lib.logger import logger
-from startagi.models.agent import Agent
-from startagi.models.resource import Resource
-from startagi.worker import summarize_resource
-from startagi.types.storage_types import StorageType
+from fastagi.config.config import get_config
+from fastagi.helper.auth import check_auth
+from fastagi.helper.resource_helper import ResourceHelper
+from fastagi.lib.logger import logger
+from fastagi.models.agent import Agent
+from fastagi.models.resource import Resource
+from fastagi.worker import summarize_resource
+from fastagi.types.storage_types import StorageType
 
 router = APIRouter()
 
